@@ -14,7 +14,7 @@ TagManager:
   - 
   - 
   - Player
-  - 
+  - FarBackground
   - 
   - 
   - 
@@ -38,6 +38,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: FarBackground
+    uniqueID: 3460023207
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
