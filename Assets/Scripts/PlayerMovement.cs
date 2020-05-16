@@ -2,36 +2,74 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour
+{
+    public float walkSpeed = 40f;
+    public float runSpeed = 80f;
+    [SerializeField] FlipController flipController;
+    [SerializeField] GameObject cameraFrame;
+    [Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;
 
-	public CharacterController2D controller;
+    [SerializeField] PlayerHiding playerHiding;
 
-	public float runSpeed = 40f;
+    private Rigidbody2D m_Rigidbody2D;
+    private Vector3 m_Velocity = Vector3.zero;
 
-	float horizontalMove = 0f;
-	bool jump = false;
-	bool crouch = false;
+    private void Awake()
+    {
+        m_Rigidbody2D = GetComponent<Rigidbody2D>();
+    }
 
-	// Update is called once per frame
-	void Update () {
+    public void Move(float move)
+    {
+        Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
+        m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
+    }
 
-		horizontalMove = Input.GetAxisRaw ("Horizontal") * runSpeed;
+    float horizontalMove = 0f;
 
-		if (Input.GetButtonDown ("Jump")) {
-			jump = true;
-		}
+    void Update()
+    {
+        horizontalMove = Input.GetAxisRaw("Horizontal");
+    }
 
-		// if (Input.GetButtonDown ("Crouch")) {
-		// 	crouch = true;
-		// } else if (Input.GetButtonUp ("Crouch")) {
-		// 	crouch = false;
-		// }
+    void Walk()
+    {
+        if (playerHiding.GetIsHiding())
+        {
+            return;
+        }
+        Move(horizontalMove * walkSpeed * Time.fixedDeltaTime);
+    }
 
-	}
+    void Run()
+    {
+        if (playerHiding.GetIsHiding())
+        {
+            return;
+        }
+        float delta = horizontalMove * runSpeed * Time.fixedDeltaTime;
+        Move(delta);
+        flipController.Face(delta < 0, 2);
+        cameraFrame.SetActive(false);
+    }
 
-	void FixedUpdate () {
-		// Move our character
-		controller.Move (horizontalMove * Time.fixedDeltaTime, crouch, jump);
-		jump = false;
-	}
+    void FixedUpdate()
+    {
+        if (playerHiding.GetIsHiding())
+        {
+            return;
+        }
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            Run();
+        }
+        else
+        {
+            cameraFrame.SetActive(true);
+            flipController.Clear();
+            Walk();
+        }
+    }
+
 }

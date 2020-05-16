@@ -15,10 +15,10 @@ TagManager:
   - 
   - Player
   - FarBackground
-  - 
-  - 
-  - 
-  - 
+  - CameraFrame
+  - Floor
+  - Walls
+  - Hideout
   - 
   - 
   - 
@@ -43,4 +43,13 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: HouseFarPlan
+    uniqueID: 3020573929
+    locked: 0
+  - name: HouseMiddlePlan
+    uniqueID: 4059970151
+    locked: 0
+  - name: HouseClosePlan
+    uniqueID: 2790103833
     locked: 0
