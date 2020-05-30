@@ -27,7 +27,7 @@ public class PlayerState : State
     public virtual void StartBeingStuned() { }
     public virtual void StopBeingStuned() { }
     public virtual void Lose() { }
-    public virtual void GetIsHiding() { }
+    public virtual bool GetIsHiding() { return false; }
     public virtual void FlipX(bool flipX) { }
 
 }

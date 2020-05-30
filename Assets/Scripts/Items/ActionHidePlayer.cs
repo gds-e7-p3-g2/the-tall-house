@@ -2,8 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActionHidePlayer : Action {
-    public override void PerformAction () {
-        GameObject.FindWithTag ("Player").GetComponent<PlayerController> ().ToggleHiding ();
+public class ActionHidePlayer : Action
+{
+    private PlayerController playerController;
+    [SerializeField] TextSetter TextHint;
+
+    void Start()
+    {
+        TextHint.SetText("Press E to hide");
+        playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+    }
+
+    public override void PerformAction()
+    {
+        playerController.ToggleHiding();
+
+        if (playerController.GetIsHiding())
+        {
+            TextHint.SetText("Press E to stop hiding");
+        }
+        else
+        {
+            TextHint.SetText("Press E to hide");
+        }
+
     }
 }
