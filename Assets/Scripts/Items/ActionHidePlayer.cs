@@ -2,12 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActionHidePlayer : Action
-{
-    [SerializeField] PlayerController player;
-
-    public override void PerformAction()
-    {
-        player.ToggleHiding();
+public class ActionHidePlayer : Action {
+    public override void PerformAction () {
+        GameObject.FindWithTag ("Player").GetComponent<PlayerController> ().ToggleHiding ();
     }
 }
