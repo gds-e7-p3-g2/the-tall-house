@@ -35,7 +35,7 @@ public class ActionableItem : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && CanPerformAction)
+        if (Input.GetButtonDown("Interact") && CanPerformAction)
         {
             actionPerformer.PerformAction();
         }

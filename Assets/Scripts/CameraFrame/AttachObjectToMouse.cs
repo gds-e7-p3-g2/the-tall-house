@@ -15,7 +15,6 @@ public class AttachObjectToMouse : MonoBehaviour
             mouseScreenPosition.y,
             camera.nearClipPlane + 1)); //The +1 is there so you don't overlap the object and the camera, otherwise the object is drawn "inside" of the camera, and therefore you're not able to see it!
 
-
         var bottomLeft = camera.ScreenToWorldPoint(Vector3.zero);
         var topRight = camera.ScreenToWorldPoint(new Vector3(camera.pixelWidth, camera.pixelHeight));
 
