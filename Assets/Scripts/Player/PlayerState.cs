@@ -19,6 +19,7 @@ namespace IStreamYouScream
         public virtual void PickItem() { }
         public virtual void UseItem() { }
         public virtual void ToggleHiding() { }
+        public virtual void ToggleCharging() { }
         public virtual void StartRecording() { }
         public virtual void StopRecording() { }
         public virtual void StartBeingInDanger() { }
@@ -29,6 +30,7 @@ namespace IStreamYouScream
         public virtual void StopBeingStuned() { }
         public virtual void Lose() { }
         public virtual bool GetIsHiding() { return false; }
+        public virtual bool GetIsCharging() { return false; }
         public virtual void FlipX(bool flipX) { }
 
     }

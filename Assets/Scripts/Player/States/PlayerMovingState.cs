@@ -20,7 +20,7 @@ namespace IStreamYouScream
         public override void Move(float distance)
         {
             Vector3 targetVelocity = new Vector2(distance * distanceMultiplier * Speed * Time.fixedDeltaTime, rigidbody2D.velocity.y);
-            rigidbody2D.velocity = Vector3.SmoothDamp(rigidbody2D.velocity, targetVelocity, ref VelocityZero, 0.002f);
+            rigidbody2D.velocity = Vector3.SmoothDamp(rigidbody2D.velocity, targetVelocity, ref VelocityZero, 0f);
         }
 
         public override void Enter()
@@ -34,11 +34,6 @@ namespace IStreamYouScream
         public override void OnUpdate()
         {
             UpdateAnimation();
-            horizontalMove = InputManager.Horizontal;
-            if (horizontalMove == 0)
-            {
-                OnStopMoving();
-            }
         }
 
         protected virtual void OnStopMoving()
@@ -48,6 +43,12 @@ namespace IStreamYouScream
 
         public override void OnFixedUpdate()
         {
+            horizontalMove = InputManager.Horizontal;
+
+            if (horizontalMove == 0)
+            {
+                OnStopMoving();
+            }
             PlayerController.Move(horizontalMove);
         }
 

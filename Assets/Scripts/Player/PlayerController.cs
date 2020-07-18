@@ -34,6 +34,11 @@ namespace IStreamYouScream
             CurrentState.ToggleHiding();
         }
 
+        public void ToggleCharging()
+        {
+            CurrentState.ToggleCharging();
+        }
+
         public bool IsCameraOnLeft()
         {
             return transform.position.x > cameraController.transform.position.x;
@@ -52,6 +57,11 @@ namespace IStreamYouScream
         public bool GetIsHiding()
         {
             return CurrentState.GetIsHiding();
+        }
+
+        public bool GetIsCharging()
+        {
+            return CurrentState.GetIsCharging();
         }
 
     }
