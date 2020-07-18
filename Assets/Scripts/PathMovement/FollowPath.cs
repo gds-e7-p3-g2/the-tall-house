@@ -41,10 +41,8 @@ namespace IStreamYouScream
 
             //Sets up a reference to an instance of the coroutine GetNextPathPoint
             pointInPath = MyPath.GetNextPathPoint();
-            Debug.Log(pointInPath.Current);
             //Get the next point in the path to move to (Gets the Default 1st value)
             pointInPath.MoveNext();
-            Debug.Log(pointInPath.Current);
 
             //Make sure there is a point to move to
             if (pointInPath.Current == null)

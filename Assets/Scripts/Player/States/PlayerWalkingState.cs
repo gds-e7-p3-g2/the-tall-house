@@ -23,7 +23,7 @@ namespace IStreamYouScream
         {
             base.OnFixedUpdate();
             PlayerController.LookAtCamera();
-            if (Input.GetButtonDown("Run"))
+            if (InputManager.Run)
             {
                 PlayerController.SetState(new PlayerRunningState(PlayerController));
             }

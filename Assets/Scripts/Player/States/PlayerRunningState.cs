@@ -18,7 +18,7 @@ namespace IStreamYouScream
         public override void OnFixedUpdate()
         {
             base.OnFixedUpdate();
-            if (!Input.GetKey(KeyCode.LeftShift))
+            if (!InputManager.Run)
             {
                 PlayerController.SetState(new PlayerWalkingState(PlayerController));
             }

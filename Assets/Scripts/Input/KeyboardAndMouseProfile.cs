@@ -58,16 +58,16 @@ namespace IStreamYouScream
                 },
                 new InputControlMapping
                 {
-                    Handle = "Jump",
+                    Handle = "Interact",
                     Target = InputControlType.Action4,
-                    Source = KeyCodeButton( KeyCode.Space )
+                    Source = KeyCodeButton( KeyCode.E )
                 },
                 new InputControlMapping
                 {
-                    Handle = "Combo",
+                    Handle = "Run",
                     Target = InputControlType.LeftBumper,
 					// KeyCodeComboButton requires that all KeyCode params are down simultaneously.
-					Source = KeyCodeComboButton( KeyCode.LeftAlt, KeyCode.Alpha1 )
+					Source = KeyCodeComboButton( KeyCode.LeftShift )
                 },
             };
 
@@ -103,7 +103,7 @@ namespace IStreamYouScream
                     Target = InputControlType.RightStickX,
                     Source = MouseXAxis,
                     Raw    = true,
-                    Scale  = 0.1f
+                    Scale  = 1f
                 },
                 new InputControlMapping
                 {
@@ -111,7 +111,7 @@ namespace IStreamYouScream
                     Target = InputControlType.RightStickY,
                     Source = MouseYAxis,
                     Raw    = true,
-                    Scale  = 0.1f
+                    Scale  = 1f
                 },
                 new InputControlMapping
                 {
@@ -119,7 +119,7 @@ namespace IStreamYouScream
                     Target = InputControlType.ScrollWheel,
                     Source = MouseScrollWheel,
                     Raw    = true,
-                    Scale  = 0.1f
+                    Scale  = 1f
                 }
             };
         }

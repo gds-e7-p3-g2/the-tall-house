@@ -8,7 +8,6 @@ namespace IStreamYouScream
         public TState CurrentState { get; private set; }
         public void SetState(TState newState)
         {
-            Debug.Log(newState);
             if (CurrentState != null)
             {
                 CurrentState.Exit();

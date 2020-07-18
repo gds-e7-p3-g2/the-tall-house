@@ -21,5 +21,17 @@ namespace IStreamYouScream
         {
             get { return ActiveDevice.LeftStickX; }
         }
+
+        static public bool Run
+        {
+            get { return ActiveDevice.LeftBumper != 0; }
+        }
+
+        static public bool Interact
+        {
+            get { return ActiveDevice.Action4.WasPressed; }
+        }
+
+
     }
 }

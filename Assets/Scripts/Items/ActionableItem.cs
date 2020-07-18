@@ -36,7 +36,7 @@ namespace IStreamYouScream
 
         void Update()
         {
-            if (Input.GetButtonDown("Interact") && CanPerformAction)
+            if (InputManager.Interact && CanPerformAction)
             {
                 actionPerformer.PerformAction();
             }

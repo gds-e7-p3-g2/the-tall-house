@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using InControl;
 
 namespace IStreamYouScream
 {
@@ -35,7 +34,7 @@ namespace IStreamYouScream
         }
         public override void OnUpdate()
         {
-            horizontalMove = InputManager.ActiveDevice.LeftStickX;
+            horizontalMove = InputManager.Horizontal;
             if (horizontalMove == 0)
             {
                 PlayerController.SetState(new PlayerIdleState(PlayerController));
@@ -44,6 +43,7 @@ namespace IStreamYouScream
 
         public override void OnFixedUpdate()
         {
+            Debug.Log(InputManager.Run);
             PlayerController.Move(horizontalMove);
         }
 
