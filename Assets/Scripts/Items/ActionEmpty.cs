@@ -1,22 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class ActionEmpty : Action
+namespace IStreamYouScream
 {
-    private PlayerController playerController;
-    [SerializeField] TextSetter TextHint;
-    private int TimesUsed = 0;
-
-    void Start()
+    public class ActionEmpty : Action
     {
-        TextHint.SetText("Action performed times: " + TimesUsed);
-        playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
-    }
+        private PlayerController playerController;
+        [SerializeField] TextSetter TextHint;
+        private int TimesUsed = 0;
 
-    public override void PerformAction()
-    {
-        TimesUsed++;
-        TextHint.SetText("Action performed times: " + TimesUsed);
+        void Start()
+        {
+            TextHint.SetText("Action performed times: " + TimesUsed);
+            playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+        }
+
+        public override void PerformAction()
+        {
+            TimesUsed++;
+            TextHint.SetText("Action performed times: " + TimesUsed);
+        }
     }
 }

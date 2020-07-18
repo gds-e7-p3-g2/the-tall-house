@@ -2,15 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SmoothMoveToTarget : MonoBehaviour
+namespace IStreamYouScream
 {
-    [SerializeField] GameObject Target;
-    [SerializeField] float Speed = 100.0f;
-
-    void Update()
+    public class SmoothMoveToTarget : MonoBehaviour
     {
-        Vector3 newPos = Vector3.Lerp(transform.position, Target.transform.position, Time.deltaTime * Speed);
-        newPos.z = transform.position.z;
-        transform.position = newPos;
+        [SerializeField] GameObject Target;
+        [SerializeField] float Speed = 100.0f;
+
+        void Update()
+        {
+            Vector3 newPos = Vector3.Lerp(transform.position, Target.transform.position, Time.deltaTime * Speed);
+            newPos.z = transform.position.z;
+            transform.position = newPos;
+        }
     }
 }

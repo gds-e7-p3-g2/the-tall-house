@@ -1,61 +1,63 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class PlayerController : StateMachine<PlayerState>
+namespace IStreamYouScream
 {
-    [SerializeField] GameObject cameraFrame;
-    public float walkSpeed = 40f;
-    public float runSpeed = 80f;
-    public GameObject PlayerAnimation;
-
-    public void SetCameraFrameActive(bool cameraFrameActive)
+    public class PlayerController : StateMachine<PlayerState>
     {
-        cameraFrame.SetActive(cameraFrameActive);
-    }
+        [SerializeField] GameObject cameraFrame;
+        public float walkSpeed = 40f;
+        public float runSpeed = 80f;
+        public GameObject PlayerAnimation;
 
-    public void Start()
-    {
-        SetState(new PlayerIdleState(this));
-    }
-    public void Move(float distance)
-    {
-        CurrentState.Move(distance);
-    }
+        public void SetCameraFrameActive(bool cameraFrameActive)
+        {
+            cameraFrame.SetActive(cameraFrameActive);
+        }
 
-    void Update()
-    {
-        CurrentState.OnUpdate();
-    }
+        public void Start()
+        {
+            SetState(new PlayerIdleState(this));
+        }
+        public void Move(float distance)
+        {
+            CurrentState.Move(distance);
+        }
 
-    void FixedUpdate()
-    {
-        CurrentState.OnFixedUpdate();
-    }
+        void Update()
+        {
+            CurrentState.OnUpdate();
+        }
 
-    public void ToggleHiding()
-    {
-        CurrentState.ToggleHiding();
-    }
+        void FixedUpdate()
+        {
+            CurrentState.OnFixedUpdate();
+        }
 
-    public bool IsCameraOnLeft()
-    {
-        return transform.position.x > cameraFrame.transform.position.x;
-    }
+        public void ToggleHiding()
+        {
+            CurrentState.ToggleHiding();
+        }
 
-    public void LookAtCamera()
-    {
-        FlipX(IsCameraOnLeft());
-    }
+        public bool IsCameraOnLeft()
+        {
+            return transform.position.x > cameraFrame.transform.position.x;
+        }
 
-    public void FlipX(bool flipX)
-    {
-        CurrentState.FlipX(flipX);
-    }
+        public void LookAtCamera()
+        {
+            FlipX(IsCameraOnLeft());
+        }
 
-    public bool GetIsHiding()
-    {
-        return CurrentState.GetIsHiding();
-    }
+        public void FlipX(bool flipX)
+        {
+            CurrentState.FlipX(flipX);
+        }
 
+        public bool GetIsHiding()
+        {
+            return CurrentState.GetIsHiding();
+        }
+
+    }
 }

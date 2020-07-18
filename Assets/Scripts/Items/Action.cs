@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Action : MonoBehaviour
+namespace IStreamYouScream
 {
-    public abstract void PerformAction();
+    public abstract class Action : MonoBehaviour
+    {
+        public abstract void PerformAction();
+    }
 }

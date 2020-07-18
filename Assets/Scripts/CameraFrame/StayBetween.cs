@@ -1,37 +1,39 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class StayBetween : MonoBehaviour
+namespace IStreamYouScream
 {
-    [SerializeField] GameObject Player;
-    [SerializeField] GameObject CameraFrame;
-    [SerializeField] float MaxHorizontalDistance = 3f;
-    [SerializeField] float MaxVerticalDistance = 20f;
-    void Start()
+    public class StayBetween : MonoBehaviour
     {
-        FixPosition();
-    }
+        [SerializeField] GameObject Player;
+        [SerializeField] GameObject CameraFrame;
+        [SerializeField] float MaxHorizontalDistance = 3f;
+        [SerializeField] float MaxVerticalDistance = 20f;
+        void Start()
+        {
+            FixPosition();
+        }
 
-    void FixedUpdate()
-    {
-        FixPosition();
-    }
+        void FixedUpdate()
+        {
+            FixPosition();
+        }
 
-    private void FixPosition()
-    {
-        Vector3 NewPosCandidate = (Player.transform.position + CameraFrame.transform.position) / 2f;
+        private void FixPosition()
+        {
+            Vector3 NewPosCandidate = (Player.transform.position + CameraFrame.transform.position) / 2f;
 
-        float xt = Player.transform.position.x;
-        float yt = Player.transform.position.y;
+            float xt = Player.transform.position.x;
+            float yt = Player.transform.position.y;
 
-        float x = NewPosCandidate.x;
-        float y = NewPosCandidate.y;
-        float z = transform.position.z;
+            float x = NewPosCandidate.x;
+            float y = NewPosCandidate.y;
+            float z = transform.position.z;
 
-        float newX = Mathf.Max(Mathf.Min(x, xt + MaxHorizontalDistance), xt - MaxHorizontalDistance);
-        float newY = Mathf.Max(Mathf.Min(y, yt + MaxVerticalDistance), yt - MaxVerticalDistance);
+            float newX = Mathf.Max(Mathf.Min(x, xt + MaxHorizontalDistance), xt - MaxHorizontalDistance);
+            float newY = Mathf.Max(Mathf.Min(y, yt + MaxVerticalDistance), yt - MaxVerticalDistance);
 
-        transform.position = new Vector3(newX, newY, z);
+            transform.position = new Vector3(newX, newY, z);
+        }
     }
 }

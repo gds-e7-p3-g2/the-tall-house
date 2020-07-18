@@ -1,47 +1,49 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class ActionOpenDoor : Action
+namespace IStreamYouScream
 {
-    [SerializeField]
-    private bool _IsOpen;
-    bool IsOpen
+    public class ActionOpenDoor : Action
     {
-        get { return _IsOpen; }
-        set
+        [SerializeField]
+        private bool _IsOpen;
+        bool IsOpen
         {
-            _IsOpen = value;
+            get { return _IsOpen; }
+            set
+            {
+                _IsOpen = value;
+                UpdateView();
+            }
+        }
+        [SerializeField] TextSetter TextHint;
+        [SerializeField] GameObject DoorsOpen;
+        [SerializeField] GameObject DoorsClosed;
+
+        void Start()
+        {
             UpdateView();
         }
-    }
-    [SerializeField] TextSetter TextHint;
-    [SerializeField] GameObject DoorsOpen;
-    [SerializeField] GameObject DoorsClosed;
 
-    void Start()
-    {
-        UpdateView();
-    }
-
-    private void UpdateView()
-    {
-        if (IsOpen)
+        private void UpdateView()
         {
-            TextHint.SetText("Close door");
-            DoorsOpen.SetActive(true);
-            DoorsClosed.SetActive(false);
+            if (IsOpen)
+            {
+                TextHint.SetText("Close door");
+                DoorsOpen.SetActive(true);
+                DoorsClosed.SetActive(false);
+            }
+            else
+            {
+                TextHint.SetText("Open door");
+                DoorsOpen.SetActive(false);
+                DoorsClosed.SetActive(true);
+            }
         }
-        else
-        {
-            TextHint.SetText("Open door");
-            DoorsOpen.SetActive(false);
-            DoorsClosed.SetActive(true);
-        }
-    }
 
-    public override void PerformAction()
-    {
-        IsOpen = !IsOpen;
+        public override void PerformAction()
+        {
+            IsOpen = !IsOpen;
+        }
     }
 }

@@ -1,30 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-class PlayerHidingState : PlayerState
+namespace IStreamYouScream
 {
-    public PlayerHidingState(PlayerController playerController) : base(playerController) { }
-
-    public override void Enter()
+    class PlayerHidingState : PlayerState
     {
-        PlayerController.SetCameraFrameActive(false);
-        PlayerController.PlayerAnimation.GetComponent<SpriteRenderer>().color = Color.black;
-        PlayerController.PlayerAnimation.GetComponent<Animator>().speed = 0;
-    }
-    public override void Exit()
-    {
-        PlayerController.PlayerAnimation.GetComponent<SpriteRenderer>().color = Color.white;
-    }
+        public PlayerHidingState(PlayerController playerController) : base(playerController) { }
 
-    public override void ToggleHiding()
-    {
-        PlayerController.SetState(new PlayerIdleState(PlayerController));
-    }
+        public override void Enter()
+        {
+            PlayerController.SetCameraFrameActive(false);
+            PlayerController.PlayerAnimation.GetComponent<SpriteRenderer>().color = Color.black;
+            PlayerController.PlayerAnimation.GetComponent<Animator>().speed = 0;
+        }
+        public override void Exit()
+        {
+            PlayerController.PlayerAnimation.GetComponent<SpriteRenderer>().color = Color.white;
+        }
 
-    public override bool GetIsHiding()
-    {
-        return true;
-    }
+        public override void ToggleHiding()
+        {
+            PlayerController.SetState(new PlayerIdleState(PlayerController));
+        }
 
+        public override bool GetIsHiding()
+        {
+            return true;
+        }
+
+    }
 }

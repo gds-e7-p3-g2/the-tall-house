@@ -1,18 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public abstract class StateMachine<TState> : MonoBehaviour where TState : State
+namespace IStreamYouScream
 {
-    public TState CurrentState { get; private set; }
-    public void SetState(TState newState)
+    public abstract class StateMachine<TState> : MonoBehaviour where TState : State
     {
-        Debug.Log(newState);
-        if (CurrentState != null)
+        public TState CurrentState { get; private set; }
+        public void SetState(TState newState)
         {
-            CurrentState.Exit();
+            Debug.Log(newState);
+            if (CurrentState != null)
+            {
+                CurrentState.Exit();
+            }
+            CurrentState = newState;
+            CurrentState.Enter();
         }
-        CurrentState = newState;
-        CurrentState.Enter();
     }
 }

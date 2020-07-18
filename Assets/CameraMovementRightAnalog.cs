@@ -2,42 +2,43 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraMovementRightAnalog : MonoBehaviour
+namespace IStreamYouScream
 {
-    public Camera camera;
-    private Vector3 startPos;
-    private Transform thisTransform;
-    public float sensitivity = 0.2f;
-    void Start()
+    public class CameraMovementRightAnalog : MonoBehaviour
     {
-        thisTransform = transform;
-        startPos = thisTransform.position;
-    }
+        public Camera camera;
+        private Vector3 startPos;
+        private Transform thisTransform;
+        public float sensitivity = 0.2f;
+        void Start()
+        {
+            thisTransform = transform;
+            startPos = thisTransform.position;
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        Vector3 inputDirection = Vector3.zero * sensitivity;
-        inputDirection.x = Input.GetAxisRaw("Right Pad X");
-        inputDirection.y = Input.GetAxisRaw("Right Pad Y");
+        // Update is called once per frame
+        void Update()
+        {
+            Vector3 inputDirection = InputManager.RightStickVector;
 
-        Vector3 newPosition = transform.position + inputDirection * sensitivity;
+            Vector3 newPosition = transform.position + inputDirection * sensitivity;
 
-        var bottomLeft = camera.ScreenToWorldPoint(Vector3.zero);
-        var topRight = camera.ScreenToWorldPoint(new Vector3(camera.pixelWidth, camera.pixelHeight));
+            var bottomLeft = camera.ScreenToWorldPoint(Vector3.zero);
+            var topRight = camera.ScreenToWorldPoint(new Vector3(camera.pixelWidth, camera.pixelHeight));
 
-        var cameraRect = new Rect(
-            bottomLeft.x + 2f,
-            bottomLeft.y + 2f,
-            topRight.x - bottomLeft.x - 4f,
-            topRight.y - bottomLeft.y - 4f);
+            var cameraRect = new Rect(
+                bottomLeft.x + 2f,
+                bottomLeft.y + 2f,
+                topRight.x - bottomLeft.x - 4f,
+                topRight.y - bottomLeft.y - 4f);
 
-        newPosition = new Vector3(
-           Mathf.Clamp(newPosition.x, cameraRect.xMin, cameraRect.xMax),
-           Mathf.Clamp(newPosition.y, cameraRect.yMin, cameraRect.yMax),
-           newPosition.z
-       );
+            newPosition = new Vector3(
+               Mathf.Clamp(newPosition.x, cameraRect.xMin, cameraRect.xMax),
+               Mathf.Clamp(newPosition.y, cameraRect.yMin, cameraRect.yMax),
+               newPosition.z
+           );
 
-        transform.position = newPosition;
+            transform.position = newPosition;
+        }
     }
 }

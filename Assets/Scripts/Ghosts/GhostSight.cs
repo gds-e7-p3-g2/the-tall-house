@@ -2,43 +2,45 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
-
-public class GhostSight : MonoBehaviour
+namespace IStreamYouScream
 {
-
-    [SerializeField] Light2D[] lighs;
-
-    void OnTriggerEnter2D(Collider2D other)
+    public class GhostSight : MonoBehaviour
     {
-        PlayerController player = other.gameObject.GetComponent<PlayerController>();
-        if (player.GetIsHiding())
-        {
-            return;
-        }
-        foreach (Light2D light in lighs)
-        {
-            light.color = Color.red;
-        }
-    }
 
-    void OnTriggerExit2D(Collider2D other)
-    {
-        foreach (Light2D light in lighs)
-        {
-            light.color = Color.blue;
-        }
-    }
+        [SerializeField] Light2D[] lighs;
 
-    void OnTriggerStay2D(Collider2D other)
-    {
-        PlayerController player = other.gameObject.GetComponent<PlayerController>();
-        if (player.GetIsHiding())
+        void OnTriggerEnter2D(Collider2D other)
         {
-            return;
+            PlayerController player = other.gameObject.GetComponent<PlayerController>();
+            if (player.GetIsHiding())
+            {
+                return;
+            }
+            foreach (Light2D light in lighs)
+            {
+                light.color = Color.red;
+            }
         }
-        foreach (Light2D light in lighs)
+
+        void OnTriggerExit2D(Collider2D other)
         {
-            light.color = Color.red;
+            foreach (Light2D light in lighs)
+            {
+                light.color = Color.blue;
+            }
+        }
+
+        void OnTriggerStay2D(Collider2D other)
+        {
+            PlayerController player = other.gameObject.GetComponent<PlayerController>();
+            if (player.GetIsHiding())
+            {
+                return;
+            }
+            foreach (Light2D light in lighs)
+            {
+                light.color = Color.red;
+            }
         }
     }
 }

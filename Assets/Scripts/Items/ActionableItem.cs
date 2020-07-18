@@ -1,43 +1,45 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class ActionableItem : MonoBehaviour
+namespace IStreamYouScream
 {
-    private bool CanPerformAction = false;
-    public ActionHint actionHint;
-    public Action actionPerformer;
-
-    public void ShowActionHint()
+    public class ActionableItem : MonoBehaviour
     {
-        actionHint.Show();
-        CanPerformAction = true;
-    }
+        private bool CanPerformAction = false;
+        public ActionHint actionHint;
+        public Action actionPerformer;
 
-    public void HideActionHint()
-    {
-        actionHint.Hide();
-        CanPerformAction = false;
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        ShowActionHint();
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        HideActionHint();
-    }
-
-    // Start is called before the first frame update
-    void Start() { }
-
-    void Update()
-    {
-        if (Input.GetButtonDown("Interact") && CanPerformAction)
+        public void ShowActionHint()
         {
-            actionPerformer.PerformAction();
+            actionHint.Show();
+            CanPerformAction = true;
+        }
+
+        public void HideActionHint()
+        {
+            actionHint.Hide();
+            CanPerformAction = false;
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            ShowActionHint();
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            HideActionHint();
+        }
+
+        // Start is called before the first frame update
+        void Start() { }
+
+        void Update()
+        {
+            if (Input.GetButtonDown("Interact") && CanPerformAction)
+            {
+                actionPerformer.PerformAction();
+            }
         }
     }
 }

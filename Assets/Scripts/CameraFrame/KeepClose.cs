@@ -2,24 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KeepClose : MonoBehaviour
+namespace IStreamYouScream
 {
-    [SerializeField] GameObject Target;
-    [SerializeField] float MaxHorizontalDistance = 3f;
-    [SerializeField] float MaxVerticalDistance = 20f;
-
-    void FixedUpdate()
+    public class KeepClose : MonoBehaviour
     {
-        float xt = Target.transform.position.x;
-        float yt = Target.transform.position.y;
+        [SerializeField] GameObject Target;
+        [SerializeField] float MaxHorizontalDistance = 3f;
+        [SerializeField] float MaxVerticalDistance = 20f;
 
-        float x = transform.position.x;
-        float y = transform.position.y;
-        float z = transform.position.z;
+        void FixedUpdate()
+        {
+            float xt = Target.transform.position.x;
+            float yt = Target.transform.position.y;
 
-        float newX = Mathf.Max(Mathf.Min(x, xt + MaxHorizontalDistance), xt - MaxHorizontalDistance);
-        float newY = Mathf.Max(Mathf.Min(y, yt + MaxVerticalDistance), yt - MaxVerticalDistance);
+            float x = transform.position.x;
+            float y = transform.position.y;
+            float z = transform.position.z;
 
-        transform.position = new Vector3(2f, 3f, z);
+            float newX = Mathf.Max(Mathf.Min(x, xt + MaxHorizontalDistance), xt - MaxHorizontalDistance);
+            float newY = Mathf.Max(Mathf.Min(y, yt + MaxVerticalDistance), yt - MaxVerticalDistance);
+
+            transform.position = new Vector3(2f, 3f, z);
+        }
     }
 }

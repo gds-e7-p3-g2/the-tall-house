@@ -1,16 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public abstract class State
+namespace IStreamYouScream
 {
-    public virtual void Enter()
+    public abstract class State
     {
-        Debug.LogWarning("State:Enter not implemented");
-    }
+        public virtual void Enter()
+        {
+            Debug.LogWarning("State:Enter not implemented");
+        }
 
-    public virtual void Exit()
-    {
-        Debug.LogWarning("State:Exit not implemented");
+        public virtual void Exit()
+        {
+            Debug.LogWarning("State:Exit not implemented");
+        }
     }
 }

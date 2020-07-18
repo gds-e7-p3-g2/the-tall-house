@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraPosition : MonoBehaviour
+namespace IStreamYouScream
 {
-    [SerializeField] GameObject Target;
-    [SerializeField] float Speed = 100.0f;
-
-    void Update()
+    public class CameraPosition : MonoBehaviour
     {
-        transform.position = Vector3.Lerp(transform.position, Target.transform.position, Time.deltaTime * Speed);
+        [SerializeField] GameObject Target;
+        [SerializeField] float Speed = 100.0f;
+
+        void Update()
+        {
+            transform.position = Vector3.Lerp(transform.position, Target.transform.position, Time.deltaTime * Speed);
+        }
     }
 }

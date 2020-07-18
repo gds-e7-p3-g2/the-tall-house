@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-public class TextSetter : MonoBehaviour
+namespace IStreamYouScream
 {
-    [SerializeField] Text Text;
-
-    public void SetText(string text)
+    public class TextSetter : MonoBehaviour
     {
-        Text.text = text;
+        [SerializeField] Text Text;
+
+        public void SetText(string text)
+        {
+            Text.text = text;
+        }
     }
 }
