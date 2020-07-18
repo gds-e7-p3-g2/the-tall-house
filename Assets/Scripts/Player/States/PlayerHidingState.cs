@@ -9,7 +9,7 @@ namespace IStreamYouScream
 
         public override void Enter()
         {
-            PlayerController.SetCameraFrameActive(false);
+            PlayerController.cameraController.HideFrame();
             PlayerController.PlayerAnimation.GetComponent<SpriteRenderer>().color = Color.black;
             PlayerController.PlayerAnimation.GetComponent<Animator>().speed = 0;
         }

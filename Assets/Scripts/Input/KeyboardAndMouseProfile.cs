@@ -46,21 +46,15 @@ namespace IStreamYouScream
                 },
                 new InputControlMapping
                 {
-                    Handle = "AltFire",
-                    Target = InputControlType.Action2,
-                    Source = MouseButton2
-                },
-                new InputControlMapping
-                {
-                    Handle = "Middle",
-                    Target = InputControlType.Action3,
-                    Source = MouseButton1
-                },
-                new InputControlMapping
-                {
                     Handle = "Interact",
                     Target = InputControlType.Action4,
                     Source = KeyCodeButton( KeyCode.E )
+                },
+                new InputControlMapping
+                {
+                    Handle = "Recording",
+                    Target = InputControlType.RightBumper,
+                    Source = MouseButton1
                 },
                 new InputControlMapping
                 {

@@ -5,15 +5,10 @@ namespace IStreamYouScream
 {
     public class PlayerController : StateMachine<PlayerState>
     {
-        [SerializeField] GameObject cameraFrame;
+        public CameraController cameraController;
         public float walkSpeed = 40f;
         public float runSpeed = 80f;
         public GameObject PlayerAnimation;
-
-        public void SetCameraFrameActive(bool cameraFrameActive)
-        {
-            cameraFrame.SetActive(cameraFrameActive);
-        }
 
         public void Start()
         {
@@ -41,7 +36,7 @@ namespace IStreamYouScream
 
         public bool IsCameraOnLeft()
         {
-            return transform.position.x > cameraFrame.transform.position.x;
+            return transform.position.x > cameraController.transform.position.x;
         }
 
         public void LookAtCamera()

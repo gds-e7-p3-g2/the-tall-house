@@ -7,12 +7,10 @@ namespace IStreamYouScream
     {
         public virtual void Enter()
         {
-            Debug.LogWarning("State:Enter not implemented");
         }
 
         public virtual void Exit()
         {
-            Debug.LogWarning("State:Exit not implemented");
         }
     }
 }

@@ -21,7 +21,6 @@ namespace IStreamYouScream
         {
             Vector3 targetVelocity = new Vector2(distance * distanceMultiplier * Speed * Time.fixedDeltaTime, rigidbody2D.velocity.y);
             rigidbody2D.velocity = Vector3.SmoothDamp(rigidbody2D.velocity, targetVelocity, ref VelocityZero, 0.002f);
-            // rigidbody2D.velocity = Vector3.MoveTowards(rigidbody2D.velocity, targetVelocity, 1.0f);
         }
 
         public override void Enter()
@@ -34,17 +33,35 @@ namespace IStreamYouScream
         }
         public override void OnUpdate()
         {
+            UpdateAnimation();
             horizontalMove = InputManager.Horizontal;
             if (horizontalMove == 0)
             {
-                PlayerController.SetState(new PlayerIdleState(PlayerController));
+                OnStopMoving();
             }
+        }
+
+        protected virtual void OnStopMoving()
+        {
+            PlayerController.SetState(new PlayerIdleState(PlayerController));
         }
 
         public override void OnFixedUpdate()
         {
-            Debug.Log(InputManager.Run);
             PlayerController.Move(horizontalMove);
+        }
+
+        protected virtual void UpdateAnimation()
+        {
+            // is the player going backwards
+            if (PlayerController.IsCameraOnLeft() && horizontalMove > 0.0f || !PlayerController.IsCameraOnLeft() && horizontalMove < 0.0f)
+            {
+                PlayerController.PlayerAnimation.GetComponent<Animator>().SetFloat("Direction", -1.0f);
+            }
+            else
+            {
+                PlayerController.PlayerAnimation.GetComponent<Animator>().SetFloat("Direction", 1.0f);
+            }
         }
 
     }

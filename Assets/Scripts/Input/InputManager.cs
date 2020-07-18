@@ -32,6 +32,11 @@ namespace IStreamYouScream
             get { return ActiveDevice.Action4.WasPressed; }
         }
 
+        static public bool Recording
+        {
+            get { return ActiveDevice.RightBumper.IsPressed; }
+        }
+
 
     }
 }
