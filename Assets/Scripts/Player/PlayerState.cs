@@ -26,6 +26,8 @@ namespace IStreamYouScream
         public virtual void StopBeingInDanger() { }
         public virtual void PerformFlashAttack() { }
         public virtual void PerformEmergencyFlashAttack() { }
+        public virtual void StartMelee() { }
+        public virtual void StopMelee() { }
         public virtual void StartBeingStuned() { }
         public virtual void StopBeingStuned() { }
         public virtual void Lose() { }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 namespace IStreamYouScream
 {
     class PlayerRunningState : PlayerMovingState
@@ -36,6 +37,14 @@ namespace IStreamYouScream
 
         }
 
-        protected override void UpdateAnimation() { }
+        protected override void UpdateAnimation()
+        {
+            // leave empty 
+        }
+    }
+
+    class PlayerRunningInDangerState : PlayerRunningState
+    {
+        public PlayerRunningInDangerState(PlayerController playerController) : base(playerController) { }
     }
 }
