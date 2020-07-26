@@ -37,7 +37,7 @@ namespace IStreamYouScream
         //OnDrawGizmos will draw lines between our points in the Unity Editor
         //These lines will allow us to easily see the path that
         //our moving object will follow in the game
-        public void OnDrawGizmos()
+        public void OnDrawGizmosSelected()
         {
             //Make sure that your sequence has points in it
             //and that there are at least two points to constitute a path

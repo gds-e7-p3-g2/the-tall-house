@@ -14,7 +14,7 @@ TagManager:
   - UI
   - 
   - 
-  - Player
+  - PlayerPhysics
   - FarBackground
   - CameraFrame
   - Floor
@@ -23,7 +23,7 @@ TagManager:
   - WorldUI
   - GhostSight
   - Recordable
-  - 
+  - PlayerSeenByGhost
   - 
   - 
   - 
