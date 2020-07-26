@@ -6,6 +6,7 @@ namespace IStreamYouScream
     public class PlayerController : StateMachine<PlayerState>
     {
         public CameraController cameraController;
+        public GameObject WhatGhostsSee;
         public float walkSpeed = 40f;
         public float runSpeed = 80f;
         public GameObject PlayerAnimation;
