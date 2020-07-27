@@ -14,8 +14,6 @@ namespace IStreamYouScream
             }
             CurrentState = newState;
             CurrentState.Enter();
-
-            // Debug.Log("NEW STATE " + CurrentState);
         }
     }
 }

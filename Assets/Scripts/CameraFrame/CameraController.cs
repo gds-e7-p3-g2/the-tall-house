@@ -61,14 +61,27 @@ namespace IStreamYouScream
             CameraController.SetState(new CameraIdleState(CameraController));
         }
 
+        private void ChangeColor(Color color)
+        {
+            CameraController.VisualRepresentation.GetComponent<UnityEngine.Experimental.Rendering.Universal.Light2D>().color = color;
+        }
+
         public override void Enter()
         {
-            CameraController.VisualRepresentation.GetComponent<UnityEngine.Experimental.Rendering.Universal.Light2D>().color = Color.red;
+            ChangeColor(Color.red);
+            foreach (RecordableItem recordableItem in CameraController.RegisteredItems)
+            {
+                recordableItem.StartRecording();
+            }
         }
 
         public override void Exit()
         {
-            CameraController.VisualRepresentation.GetComponent<UnityEngine.Experimental.Rendering.Universal.Light2D>().color = Color.green;
+            ChangeColor(Color.green);
+            foreach (RecordableItem recordableItem in CameraController.RegisteredItems)
+            {
+                recordableItem.StopRecording();
+            }
         }
     }
     public class CameraChargingState : CameraState
@@ -107,13 +120,14 @@ namespace IStreamYouScream
     public class CameraController : StateMachine<CameraState>
     {
         private float _BaterryLevel = 100f;
+        public List<RecordableItem> RegisteredItems = new List<RecordableItem>();
         public float BaterryLevel
         {
             get { return _BaterryLevel; }
             set
             {
                 _BaterryLevel = value;
-                BatteryLevelIndicator.SetText(_BaterryLevel + "%");
+                BatteryLevelIndicator.SetText(_BaterryLevel.ToString("#.00") + "%");
             }
         }
         public float PowerConsumption = 1.5f;
@@ -127,7 +141,14 @@ namespace IStreamYouScream
         }
 
         // Update is called once per frame
-        void Update() { CurrentState.OnUpdate(); }
+        void Update()
+        {
+            CurrentState.OnUpdate();
+            foreach (RecordableItem recordableItem in RegisteredItems)
+            {
+                Debug.DrawLine(transform.position, recordableItem.transform.position);
+            }
+        }
 
         public void StartRecording() { CurrentState.StartRecording(); }
         public void StopRecording() { CurrentState.StopRecording(); }

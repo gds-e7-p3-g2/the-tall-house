@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6098829287515988447}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 88.69839, y: 5.593168, z: -8.764894}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -54,6 +54,7 @@ MonoBehaviour:
   Recorded:
     m_PersistentCalls:
       m_Calls: []
+  RecordingRate: 0.033333335
 --- !u!50 &790922085912184973
 Rigidbody2D:
   serializedVersion: 4

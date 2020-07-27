@@ -2,57 +2,68 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-
-public class RecordableItem : MonoBehaviour
+namespace IStreamYouScream
 {
-    public UnityEvent EnteredFrame;
-    public UnityEvent ExitedFrame;
-    public UnityEvent Recorded;
-    [SerializeField] float RecordingRate = 1f / 30f; // once per frame for 30 FPS
-    private bool IsBeingRecorded = false;
-    private IEnumerator coroutine;
-    private bool IsInFrame;
-    public void StartRecording()
+    public class RecordableItem : MonoBehaviour
     {
-        if (!IsInFrame)
+        private CameraController CameraFrame;
+        public UnityEvent EnteredFrame;
+        public UnityEvent ExitedFrame;
+        public UnityEvent Recorded;
+        [SerializeField] float RecordingRate = 1f / 30f; // once per frame for 30 FPS
+        private bool IsBeingRecorded = false;
+        private IEnumerator coroutine;
+        private bool IsInFrame;
+        void Start()
         {
-            return;
+            CameraFrame = FindObjectOfType<CameraController>();
         }
-        coroutine = WaitAndRecord();
-    }
+        public void StartRecording()
+        {
+            if (!IsInFrame)
+            {
+                return;
+            }
+            coroutine = WaitAndRecord();
+            StartCoroutine(coroutine);
+        }
 
-    public void StopRecording()
-    {
-        if (coroutine == null)
+        public void StopRecording()
         {
-            return;
+            if (coroutine == null)
+            {
+                return;
+            }
+            StopCoroutine(coroutine);
         }
-        StopCoroutine(coroutine);
-    }
 
-    private IEnumerator WaitAndRecord()
-    {
-        for (; ; )
+        private IEnumerator WaitAndRecord()
         {
-            yield return new WaitForSeconds(RecordingRate);
-            Recorded.Invoke();
+            for (; ; )
+            {
+                yield return new WaitForSeconds(RecordingRate);
+                Recorded.Invoke();
+            }
         }
-    }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("CameraFrame"))
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            EnteredFrame.Invoke();
-            IsInFrame = true;
+            if (other.gameObject.CompareTag("CameraFrame"))
+            {
+                EnteredFrame.Invoke();
+                IsInFrame = true;
+                CameraFrame.RegisteredItems.Add(this);
+
+            }
         }
-    }
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("CameraFrame"))
+        private void OnTriggerExit2D(Collider2D other)
         {
-            IsInFrame = false;
-            ExitedFrame.Invoke();
-            StopRecording();
+            if (other.gameObject.CompareTag("CameraFrame"))
+            {
+                CameraFrame.RegisteredItems.Remove(this);
+                IsInFrame = false;
+                ExitedFrame.Invoke();
+                StopRecording();
+            }
         }
     }
 }

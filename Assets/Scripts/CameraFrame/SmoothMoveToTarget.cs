@@ -16,8 +16,6 @@ namespace IStreamYouScream
             Vector3 newPos = Vector3.Lerp(transform.position, Target.transform.position, Time.deltaTime * Speed);
             newPos.z = transform.position.z;
 
-            Debug.Log(Vector3.Distance(newPos, transform.position));
-
             if (Vector3.Distance(newPos, transform.position) < 0.01f)
             {
                 OnTargetReached.Invoke();

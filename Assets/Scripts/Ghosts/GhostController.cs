@@ -31,6 +31,10 @@ namespace IStreamYouScream
         public virtual void GetHitByMelee() { }
         public virtual void GetRecorded() { }
         public virtual void OnTargetReached() { }
+        public virtual void Heal()
+        {
+            GhostController.HP = Mathf.Min(100f, GhostController.HP + GhostController.HealingSpeed * Time.deltaTime);
+        }
     }
 
     class GhostPatrolingState : GhostState
@@ -40,11 +44,32 @@ namespace IStreamYouScream
         public override void Enter()
         {
             GhostController.Target = GhostController.PatrollingTargetPoint;
+            GhostController.CurrentSpeed = GhostController.PatrolingSpeed;
         }
 
         public override void StartAttacking()
         {
             GhostController.SetState(new GhostAttackingState(GhostController));
+        }
+
+        public override void StartAlerted()
+        {
+            GhostController.SetState(new GhostAlertedState(GhostController));
+        }
+
+        public override void GetRecorded()
+        {
+            GhostController.HP -= GhostController.DamageFromRecording;
+        }
+
+        public override void OnUpdate()
+        {
+            if (GhostController.HP < GhostController.AlertedHPThreshold)
+            {
+                StartAlerted();
+                return;
+            }
+            Heal();
         }
     }
     class GhostAlertedState : GhostState
@@ -54,6 +79,29 @@ namespace IStreamYouScream
         public override void Enter()
         {
             GhostController.Target = GhostController.AlertedTargetPoint;
+            GhostController.CurrentSpeed = GhostController.AlertedSpeed;
+        }
+
+        public override void GetRecorded()
+        {
+            GhostController.HP = Mathf.Max(GhostController.HP - GhostController.DamageFromRecording, 0f);
+        }
+        public override void StartAttacking()
+        {
+            GhostController.SetState(new GhostAttackingState(GhostController));
+        }
+        public override void StartPatroling()
+        {
+            GhostController.SetState(new GhostPatrolingState(GhostController));
+        }
+        public override void OnUpdate()
+        {
+            if (GhostController.HP >= GhostController.AlertedHPThreshold)
+            {
+                StartPatroling();
+                return;
+            }
+            Heal();
         }
     }
     class GhostAttackingState : GhostState
@@ -63,6 +111,7 @@ namespace IStreamYouScream
         public override void Enter()
         {
             GhostController.Target = GhostController.LastSeenPoint;
+            GhostController.CurrentSpeed = GhostController.AttackingSpeed;
         }
 
         public override void OnTargetReached()
@@ -76,6 +125,11 @@ namespace IStreamYouScream
         public override void StopAttacking()
         {
             GhostController.SetState(new GhostPatrolingState(GhostController));
+        }
+
+        public override void GetRecorded()
+        {
+            GhostController.HP -= GhostController.DamageFromRecording;
         }
     }
     class GhostHidingState : GhostState
@@ -92,13 +146,30 @@ namespace IStreamYouScream
         public GameObject LastSeenPoint;
         public GameObject AlertedTargetPoint;
         public GameObject PatrollingTargetPoint;
-        public float HP = 100f;
+        public float PatrolingSpeed = 3f;
+        public float AlertedSpeed = 6f;
+        public float AttackingSpeed = 4.5f;
+        public float DamageFromRecording = 0.3f;
+        public float HealingSpeed = 0.5f;
+        public float AlertedHPThreshold = 75f;
+        public float FlashResistanceThreshold = 25f;
+        [SerializeField] TextSetter HPIndicator;
+        private float _HP = 100f;
+        public float HP
+        {
+            get { return _HP; }
+            set
+            {
+                _HP = value;
+                HPIndicator.SetText("HP " + HP.ToString("#.00") + "%");
+            }
+        }
         public GameObject Target
         {
             get { return GetComponent<SmoothMoveToTarget>().Target; }
             set { GetComponent<SmoothMoveToTarget>().Target = value; }
         }
-        public float Speed
+        public float CurrentSpeed
         {
             get { return GetComponent<SmoothMoveToTarget>().Speed; }
             set { GetComponent<SmoothMoveToTarget>().Speed = value; }
@@ -106,6 +177,7 @@ namespace IStreamYouScream
         public void Start()
         {
             SetState(new GhostPatrolingState(this));
+            HP = _HP;
         }
 
         public GameObject GetCurrentTarget()
