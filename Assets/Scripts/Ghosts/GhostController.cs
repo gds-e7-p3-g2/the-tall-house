@@ -45,6 +45,7 @@ namespace IStreamYouScream
         {
             GhostController.Target = GhostController.PatrollingTargetPoint;
             GhostController.CurrentSpeed = GhostController.PatrolingSpeed;
+            GhostController.MusicController.PlayAmbient();
         }
 
         public override void StartAttacking()
@@ -80,8 +81,8 @@ namespace IStreamYouScream
         {
             GhostController.Target = GhostController.AlertedTargetPoint;
             GhostController.CurrentSpeed = GhostController.AlertedSpeed;
+            GhostController.MusicController.PlayAlerted();
         }
-
         public override void GetRecorded()
         {
             GhostController.HP = Mathf.Max(GhostController.HP - GhostController.DamageFromRecording, 0f);
@@ -112,8 +113,8 @@ namespace IStreamYouScream
         {
             GhostController.Target = GhostController.LastSeenPoint;
             GhostController.CurrentSpeed = GhostController.AttackingSpeed;
+            GhostController.MusicController.PlayAttacking();
         }
-
         public override void OnTargetReached()
         {
             if (GhostController.Target == GhostController.LastSeenPoint)
@@ -154,6 +155,7 @@ namespace IStreamYouScream
         public float AlertedHPThreshold = 75f;
         public float FlashResistanceThreshold = 25f;
         [SerializeField] TextSetter HPIndicator;
+        public MusicController MusicController;
         private float _HP = 100f;
         public float HP
         {
