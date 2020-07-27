@@ -8,19 +8,38 @@ public class RecordableItem : MonoBehaviour
     public UnityEvent EnteredFrame;
     public UnityEvent ExitedFrame;
     public UnityEvent Recorded;
-    public void BeRecorder()
+    [SerializeField] float RecordingRate = 1f / 30f; // once per frame for 30 FPS
+    private bool IsBeingRecorded = false;
+    private IEnumerator coroutine;
+    private bool IsInFrame;
+    public void StartRecording()
     {
-        if (IsInFrame)
+        if (!IsInFrame)
         {
+            return;
+        }
+        coroutine = WaitAndRecord();
+    }
+
+    public void StopRecording()
+    {
+        if (coroutine == null)
+        {
+            return;
+        }
+        StopCoroutine(coroutine);
+    }
+
+    private IEnumerator WaitAndRecord()
+    {
+        for (; ; )
+        {
+            yield return new WaitForSeconds(RecordingRate);
             Recorded.Invoke();
         }
     }
-
-    private bool IsInFrame = false;
-
     private void OnTriggerEnter2D(Collider2D other)
     {
-
         if (other.gameObject.CompareTag("CameraFrame"))
         {
             EnteredFrame.Invoke();
@@ -31,8 +50,9 @@ public class RecordableItem : MonoBehaviour
     {
         if (other.gameObject.CompareTag("CameraFrame"))
         {
-            ExitedFrame.Invoke();
             IsInFrame = false;
+            ExitedFrame.Invoke();
+            StopRecording();
         }
     }
 }

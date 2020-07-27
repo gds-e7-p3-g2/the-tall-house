@@ -28,8 +28,8 @@ namespace IStreamYouScream
         public virtual void CatchPlayer() { }
         public virtual void HitPlayer() { }
         public virtual void GetHitByFlash() { }
-        public virtual void GetHitByEmergency() { }
         public virtual void GetHitByMelee() { }
+        public virtual void GetRecorded() { }
         public virtual void OnTargetReached() { }
     }
 
@@ -92,6 +92,7 @@ namespace IStreamYouScream
         public GameObject LastSeenPoint;
         public GameObject AlertedTargetPoint;
         public GameObject PatrollingTargetPoint;
+        public float HP = 100f;
         public GameObject Target
         {
             get { return GetComponent<SmoothMoveToTarget>().Target; }
@@ -127,6 +128,6 @@ namespace IStreamYouScream
         public void StopHiding() { CurrentState.StopHiding(); }
         public void StartBeingDefeated() { CurrentState.StartBeingDefeated(); }
         public void StopBeingDefeated() { CurrentState.StopBeingDefeated(); }
-
+        public void GetRecorded() { CurrentState.GetRecorded(); }
     }
 }
