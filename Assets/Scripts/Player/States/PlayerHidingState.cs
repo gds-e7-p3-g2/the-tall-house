@@ -20,6 +20,11 @@ namespace IStreamYouScream
             PlayerController.WhatGhostsSee.SetActive(true);
         }
 
+        public override void StartBeingStuned()
+        {
+            // empty
+        }
+
         public override void ToggleHiding()
         {
             PlayerController.SetState(new PlayerIdleState(PlayerController));

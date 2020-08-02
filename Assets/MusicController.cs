@@ -11,9 +11,13 @@ namespace IStreamYouScream
         private AudioSource CurrentSource;
         private void PlaySource(AudioSource source)
         {
+            AudioSource NewSource = source.GetComponent<AudioSource>();
+            if (CurrentSource == NewSource)
+            {
+                return;
+            }
             if (CurrentSource != null)
             {
-                Debug.Log("Stopping " + CurrentSource.clip.name);
                 CurrentSource.Stop();
             }
             CurrentSource = source.GetComponent<AudioSource>();

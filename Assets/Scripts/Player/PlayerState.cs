@@ -28,12 +28,19 @@ namespace IStreamYouScream
         public virtual void PerformEmergencyFlashAttack() { }
         public virtual void StartMelee() { }
         public virtual void StopMelee() { }
-        public virtual void StartBeingStuned() { }
+        public virtual void StartBeingStuned()
+        {
+            PlayerController.SetState(new PlayerStunnedState(PlayerController));
+        }
         public virtual void StopBeingStuned() { }
         public virtual void Lose() { }
         public virtual bool GetIsHiding() { return false; }
         public virtual bool GetIsCharging() { return false; }
         public virtual void FlipX(bool flipX) { }
+        public virtual void GetHitByGhost(float amountOfDamage)
+        {
+            StartBeingStuned();
+        }
 
     }
 }

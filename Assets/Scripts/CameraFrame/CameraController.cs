@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Experimental.Rendering.LWRP;
 namespace IStreamYouScream
 {
@@ -22,6 +23,7 @@ namespace IStreamYouScream
 
     public class CameraIdleState : CameraState
     {
+
         public CameraIdleState(CameraController cameraController) : base(cameraController) { }
 
         public override void StartRecording()
@@ -121,19 +123,20 @@ namespace IStreamYouScream
     {
         private float _BaterryLevel = 100f;
         public List<RecordableItem> RegisteredItems = new List<RecordableItem>();
+        public FloatEvent OnBatteryLevelChanged;
         public float BaterryLevel
         {
             get { return _BaterryLevel; }
             set
             {
                 _BaterryLevel = value;
-                BatteryLevelIndicator.SetText(_BaterryLevel.ToString("#.00") + "%");
+                OnBatteryLevelChanged.Invoke(BaterryLevel);
             }
         }
         public float PowerConsumption = 1.5f;
         public float ChargingSpeed = 5.5f;
         public GameObject VisualRepresentation;
-        [SerializeField] TextSetter BatteryLevelIndicator;
+
 
         void Start()
         {

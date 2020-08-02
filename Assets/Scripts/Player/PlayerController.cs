@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
 namespace IStreamYouScream
 {
     public class PlayerController : StateMachine<PlayerState>
@@ -9,8 +11,9 @@ namespace IStreamYouScream
         public GameObject WhatGhostsSee;
         public float walkSpeed = 40f;
         public float runSpeed = 80f;
+        public float StunnedTime = 2.5f;
         public GameObject PlayerAnimation;
-
+        public UnityEvent OnStunned;
         public void Start()
         {
             SetState(new PlayerIdleState(this));
@@ -63,6 +66,16 @@ namespace IStreamYouScream
         public bool GetIsCharging()
         {
             return CurrentState.GetIsCharging();
+        }
+
+        public void GetHitByGhost(float AmountOfDamage)
+        {
+            CurrentState.GetHitByGhost(AmountOfDamage);
+        }
+
+        public void StopBeingStuned()
+        {
+            CurrentState.StopBeingStuned();
         }
 
     }

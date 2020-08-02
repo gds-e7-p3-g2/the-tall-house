@@ -19,13 +19,14 @@ namespace IStreamYouScream
         public virtual void StopAlerted() { }
         public virtual void StartAttacking() { }
         public virtual void StopAttacking() { }
+        public virtual void StartFighting(PlayerController player) { }
+        public virtual void StopFighting() { }
         public virtual void StartBeingStuned() { }
         public virtual void StopBeingStuned() { }
         public virtual void StartHiding() { }
         public virtual void StopHiding() { }
         public virtual void StartBeingDefeated() { }
         public virtual void StopBeingDefeated() { }
-        public virtual void CatchPlayer() { }
         public virtual void HitPlayer() { }
         public virtual void GetHitByFlash() { }
         public virtual void GetHitByMelee() { }
@@ -115,6 +116,7 @@ namespace IStreamYouScream
             GhostController.CurrentSpeed = GhostController.AttackingSpeed;
             GhostController.MusicController.PlayAttacking();
         }
+
         public override void OnTargetReached()
         {
             if (GhostController.Target == GhostController.LastSeenPoint)
@@ -126,6 +128,51 @@ namespace IStreamYouScream
         public override void StopAttacking()
         {
             GhostController.SetState(new GhostPatrolingState(GhostController));
+        }
+
+        public override void StartFighting(PlayerController player)
+        {
+            GhostController.SetState(new GhostFightingState(GhostController, player));
+        }
+
+        public override void GetRecorded()
+        {
+            GhostController.HP -= GhostController.DamageFromRecording;
+        }
+    }
+    class GhostFightingState : GhostState
+    {
+        private PlayerController player;
+        public GhostFightingState(GhostController ghostController, PlayerController _player) : base(ghostController)
+        {
+            player = _player;
+        }
+
+        public override void Enter()
+        {
+            GhostController.MusicController.PlayAttacking();
+            GhostController.weapon.OnFire.AddListener(HitPlayer);
+        }
+
+        public override void Exit()
+        {
+            GhostController.MusicController.PlayAttacking();
+            GhostController.weapon.OnFire.RemoveListener(HitPlayer);
+        }
+
+        public override void OnUpdate()
+        {
+            GhostController.weapon.Shoot();
+        }
+
+        public override void HitPlayer()
+        {
+            player.GetHitByGhost(GhostController.weapon.AmountOfDamage);
+        }
+
+        public override void StopFighting()
+        {
+            GhostController.SetState(new GhostAttackingState(GhostController));
         }
 
         public override void GetRecorded()
@@ -144,6 +191,7 @@ namespace IStreamYouScream
 
     public class GhostController : StateMachine<GhostState>
     {
+        public Weapon weapon;
         public GameObject LastSeenPoint;
         public GameObject AlertedTargetPoint;
         public GameObject PatrollingTargetPoint;
@@ -157,6 +205,7 @@ namespace IStreamYouScream
         [SerializeField] TextSetter HPIndicator;
         public MusicController MusicController;
         private float _HP = 100f;
+        private PlayerController player;
         public float HP
         {
             get { return _HP; }
@@ -166,6 +215,19 @@ namespace IStreamYouScream
                 HPIndicator.SetText("HP " + HP.ToString("#.00") + "%");
             }
         }
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            OnPlayerInReach(other.gameObject.GetComponent<PlayerController>());
+        }
+        private void OnTriggerStay2D(Collider2D other)
+        {
+            OnPlayerInReach(other.gameObject.GetComponent<PlayerController>());
+        }
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            OnPlayerOutOfReach();
+        }
+
         public GameObject Target
         {
             get { return GetComponent<SmoothMoveToTarget>().Target; }
@@ -187,6 +249,15 @@ namespace IStreamYouScream
             return GetComponent<SmoothMoveToTarget>().Target;
         }
 
+        private void OnPlayerInReach(PlayerController player)
+        {
+            StartFighting(player);
+        }
+        private void OnPlayerOutOfReach()
+        {
+            StopFighting();
+        }
+
         void Update() { CurrentState.OnUpdate(); }
         void FixedUpdate() { CurrentState.OnFixedUpdate(); }
         public void OnTargetReached() { CurrentState.OnTargetReached(); }
@@ -196,6 +267,8 @@ namespace IStreamYouScream
         public void StopAlerted() { CurrentState.StopAlerted(); }
         public void StartAttacking() { CurrentState.StartAttacking(); }
         public void StopAttacking() { CurrentState.StopAttacking(); }
+        public void StartFighting(PlayerController player) { CurrentState.StartFighting(player); }
+        public void StopFighting() { CurrentState.StopFighting(); }
         public void StartBeingStuned() { CurrentState.StartBeingStuned(); }
         public void StopBeingStuned() { CurrentState.StopBeingStuned(); }
         public void StartHiding() { CurrentState.StartHiding(); }

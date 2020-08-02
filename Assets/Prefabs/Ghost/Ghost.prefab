@@ -1,5 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4590516275370187822
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3428216879682071720}
+  - component: {fileID: 7878091638705272692}
+  m_Layer: 0
+  m_Name: GhostWeapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3428216879682071720
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4590516275370187822}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4653608592801100623}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7878091638705272692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4590516275370187822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fc86c76cbd754a478d876e738e33ac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CooldownInterval: 1
+  AmountOfDamage: 1
 --- !u!1 &4653608590771579692
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,6 +536,7 @@ Transform:
   - {fileID: 1811339355092399184}
   - {fileID: 4653608590995816443}
   - {fileID: 4653608591377927828}
+  - {fileID: 3428216879682071720}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -545,6 +591,7 @@ MonoBehaviour:
   AlertedHPThreshold: 75
   FlashResistanceThreshold: 25
   HPIndicator: {fileID: 8698498376032352224}
+  MusicController: {fileID: 0}
 --- !u!1001 &4653608590828641824
 PrefabInstance:
   m_ObjectHideFlags: 0

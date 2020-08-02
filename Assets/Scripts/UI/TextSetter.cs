@@ -8,9 +8,28 @@ namespace IStreamYouScream
     {
         [SerializeField] Text Text;
 
+        private Text GetText()
+        {
+            if (Text != null)
+            {
+                return Text;
+            }
+            return GetComponent<Text>();
+        }
+
         public void SetText(string text)
         {
-            Text.text = text;
+            GetText().text = text;
+        }
+
+        public void SetFloat(float number)
+        {
+            GetText().text = number.ToString();
+        }
+
+        public void SetInt(int number)
+        {
+            GetText().text = number.ToString();
         }
     }
 }

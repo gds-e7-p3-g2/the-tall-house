@@ -24,7 +24,7 @@ TagManager:
   - GhostSight
   - Recordable
   - PlayerSeenByGhost
-  - 
+  - PlayerDetector
   - 
   - 
   - 
@@ -53,4 +53,7 @@ TagManager:
     locked: 0
   - name: HouseClosePlan
     uniqueID: 2790103833
+    locked: 0
+  - name: UI
+    uniqueID: 2525947549
     locked: 0

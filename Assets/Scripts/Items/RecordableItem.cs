@@ -7,10 +7,11 @@ namespace IStreamYouScream
     public class RecordableItem : MonoBehaviour
     {
         private CameraController CameraFrame;
+        [SerializeField] float RecordingRate = 1f / 30f; // once per frame for 30 FPS
+        [SerializeField] bool IsOneTime = false;
         public UnityEvent EnteredFrame;
         public UnityEvent ExitedFrame;
         public UnityEvent Recorded;
-        [SerializeField] float RecordingRate = 1f / 30f; // once per frame for 30 FPS
         private bool IsBeingRecorded = false;
         private IEnumerator coroutine;
         private bool IsInFrame;
@@ -24,8 +25,15 @@ namespace IStreamYouScream
             {
                 return;
             }
-            coroutine = WaitAndRecord();
-            StartCoroutine(coroutine);
+            if (IsOneTime)
+            {
+                Recorded.Invoke();
+            }
+            else
+            {
+                coroutine = WaitAndRecord();
+                StartCoroutine(coroutine);
+            }
         }
 
         public void StopRecording()
@@ -41,8 +49,8 @@ namespace IStreamYouScream
         {
             for (; ; )
             {
-                yield return new WaitForSeconds(RecordingRate);
                 Recorded.Invoke();
+                yield return new WaitForSeconds(RecordingRate);
             }
         }
         private void OnTriggerEnter2D(Collider2D other)
