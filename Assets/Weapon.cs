@@ -24,7 +24,6 @@ namespace IStreamYouScream
 
         private void SendDamage()
         {
-            Debug.Log("FIRE !!!!!!!!!!!!!!!!!!!");
             OnFire.Invoke();
         }
 

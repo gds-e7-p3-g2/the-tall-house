@@ -11,9 +11,39 @@ namespace IStreamYouScream
         public GameObject WhatGhostsSee;
         public float walkSpeed = 40f;
         public float runSpeed = 80f;
+        public Weapon MeleeWeapon;
         public float StunnedTime = 2.5f;
         public GameObject PlayerAnimation;
         public UnityEvent OnStunned;
+
+
+        public bool flipX
+        {
+            get { return PlayerAnimation.GetComponent<SpriteRenderer>().flipX; }
+            set
+            {
+                if (PlayerAnimation.GetComponent<SpriteRenderer>().flipX == value)
+                {
+                    return;
+                }
+                PlayerAnimation.GetComponent<SpriteRenderer>().flipX = value;
+
+                var tmp = MeleeWeapon.transform.position;
+                if (value)
+                {
+                    tmp.x -= 4;
+                }
+                else
+                {
+                    tmp.x += 4;
+                }
+
+                MeleeWeapon.transform.position = tmp;
+
+
+            }
+        }
+
         public void Start()
         {
             SetState(new PlayerIdleState(this));

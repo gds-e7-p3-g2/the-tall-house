@@ -26,12 +26,12 @@ namespace IStreamYouScream
 
             if (horizontalMove < 0)
             {
-                PlayerController.PlayerAnimation.GetComponent<SpriteRenderer>().flipX = true;
+                PlayerController.flipX = true;
                 PlayerController.PlayerAnimation.GetComponent<Animator>().SetFloat("Direction", 1.0f);
             }
             else
             {
-                PlayerController.PlayerAnimation.GetComponent<SpriteRenderer>().flipX = false;
+                PlayerController.flipX = false;
                 PlayerController.PlayerAnimation.GetComponent<Animator>().SetFloat("Direction", 1.0f);
             }
 

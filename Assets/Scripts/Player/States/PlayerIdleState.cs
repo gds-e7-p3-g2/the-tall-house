@@ -48,7 +48,7 @@ namespace IStreamYouScream
 
         public override void FlipX(bool flipX)
         {
-            PlayerController.PlayerAnimation.GetComponent<SpriteRenderer>().flipX = flipX;
+            PlayerController.flipX = flipX;
         }
 
     }
