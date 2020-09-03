@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6528096200671178081}
   - component: {fileID: 4507524156827547470}
   m_Layer: 0
-  m_Name: GhostWeapon
+  m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,3 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fc86c76cbd754a478d876e738e33ac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnFire:
+    m_PersistentCalls:
+      m_Calls: []
+  CooldownInterval: 1
+  AmountOfDamage: 1

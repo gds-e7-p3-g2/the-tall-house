@@ -18,5 +18,6 @@ namespace IStreamYouScream
             PlayerController.cameraController.StopRecording();
         }
         public override void ToggleHiding() { }
+        public override void PerformMelee() { }
     }
 }

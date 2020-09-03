@@ -51,5 +51,10 @@ namespace IStreamYouScream
             PlayerController.flipX = flipX;
         }
 
+        public override void PerformMelee()
+        {
+            PlayerController.MeleeWeapon.Shoot();
+        }
+
     }
 }

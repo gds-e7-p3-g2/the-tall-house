@@ -45,5 +45,9 @@ namespace IStreamYouScream
                 PlayerController.SetState(new PlayerWalkingRecordingState(PlayerController));
             }
         }
+        public override void PerformMelee()
+        {
+            PlayerController.MeleeWeapon.Shoot();
+        }
     }
 }

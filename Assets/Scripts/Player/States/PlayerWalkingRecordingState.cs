@@ -43,5 +43,9 @@ namespace IStreamYouScream
         {
             PlayerController.SetState(new PlayerIdleRecordingState(PlayerController));
         }
+
+        public override void PerformMelee()
+        {
+        }
     }
 }

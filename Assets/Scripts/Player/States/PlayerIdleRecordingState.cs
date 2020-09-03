@@ -28,5 +28,7 @@ namespace IStreamYouScream
             base.Exit();
             PlayerController.cameraController.StopRecording();
         }
+
+        public override void PerformMelee() { }
     }
 }

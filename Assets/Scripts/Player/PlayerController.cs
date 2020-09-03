@@ -16,6 +16,8 @@ namespace IStreamYouScream
         public GameObject PlayerAnimation;
         public UnityEvent OnStunned;
 
+        private float meleeInitialX;
+
 
         public bool flipX
         {
@@ -29,16 +31,12 @@ namespace IStreamYouScream
                 PlayerAnimation.GetComponent<SpriteRenderer>().flipX = value;
 
                 var tmp = MeleeWeapon.transform.position;
-                if (value)
-                {
-                    tmp.x -= 4;
-                }
-                else
-                {
-                    tmp.x += 4;
-                }
-
+                tmp.x += value ? -1.37f * 2f : 1.37f * 2f;
                 MeleeWeapon.transform.position = tmp;
+
+                tmp = MeleeWeapon.transform.localScale;
+                tmp.x = value ? -1 : 1;
+                MeleeWeapon.transform.localScale = tmp;
 
 
             }
@@ -47,6 +45,7 @@ namespace IStreamYouScream
         public void Start()
         {
             SetState(new PlayerIdleState(this));
+            // meleeInitialX = MeleeWeapon.transform.position.x;
         }
         public void Move(float distance)
         {
@@ -56,6 +55,11 @@ namespace IStreamYouScream
         void Update()
         {
             CurrentState.OnUpdate();
+
+            if (InputManager.Melee)
+            {
+                PerformMelee();
+            }
         }
 
         void FixedUpdate()
@@ -106,6 +110,11 @@ namespace IStreamYouScream
         public void StopBeingStuned()
         {
             CurrentState.StopBeingStuned();
+        }
+
+        public void PerformMelee()
+        {
+            CurrentState.PerformMelee();
         }
 
     }

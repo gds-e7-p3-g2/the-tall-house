@@ -21,7 +21,10 @@ namespace IStreamYouScream
         public virtual void StopAttacking() { }
         public virtual void StartFighting(PlayerController player) { }
         public virtual void StopFighting() { }
-        public virtual void StartBeingStuned() { }
+        public virtual void StartBeingStuned()
+        {
+            GhostController.SetState(new GhosStunnedState(GhostController));
+        }
         public virtual void StopBeingStuned() { }
         public virtual void StartHiding() { }
         public virtual void StopHiding() { }
@@ -73,6 +76,11 @@ namespace IStreamYouScream
             }
             Heal();
         }
+
+        public override void GetHitByMelee()
+        {
+            StartBeingStuned();
+        }
     }
     class GhostAlertedState : GhostState
     {
@@ -104,6 +112,10 @@ namespace IStreamYouScream
                 return;
             }
             Heal();
+        }
+        public override void GetHitByMelee()
+        {
+            StartBeingStuned();
         }
     }
     class GhostAttackingState : GhostState
@@ -138,6 +150,10 @@ namespace IStreamYouScream
         public override void GetRecorded()
         {
             GhostController.HP -= GhostController.DamageFromRecording;
+        }
+        public override void GetHitByMelee()
+        {
+            StartBeingStuned();
         }
     }
     class GhostFightingState : GhostState
@@ -179,6 +195,67 @@ namespace IStreamYouScream
         {
             GhostController.HP -= GhostController.DamageFromRecording;
         }
+        public override void GetHitByMelee()
+        {
+            StartBeingStuned();
+        }
+    }
+    class GhosStunnedState : GhostState
+    {
+        private bool visible = true;
+        public GhosStunnedState(GhostController ghostController) : base(ghostController) { }
+
+        private IEnumerator blinkingCorutine;
+
+        public override void Enter()
+        {
+            GhostController.CurrentSpeed = 0f;
+            GhostController.Invoke("StopBeingStuned", GhostController.StunnedCooldown);
+            StartBlinking();
+        }
+
+        private void StartBlinking()
+        {
+            blinkingCorutine = CreateBlinkingCorutine();
+            GhostController.StartCoroutine(blinkingCorutine);
+        }
+
+        private IEnumerator CreateBlinkingCorutine()
+        {
+            for (; ; )
+            {
+                yield return new WaitForSeconds(0.3f);
+                Blink();
+            }
+        }
+
+        private void Blink()
+        {
+            visible = !visible;
+            GhostController.VisualRepresentation.SetActive(visible);
+        }
+        private void StopBlinking()
+        {
+            GhostController.VisualRepresentation.SetActive(true);
+            GhostController.StopCoroutine(blinkingCorutine);
+        }
+        private IEnumerator WaitAndStopBeingStunned(float waitTime)
+        {
+            while (true)
+            {
+                yield return new WaitForSeconds(waitTime);
+                StopBeingStuned();
+            }
+        }
+        public override void StopBeingStuned()
+        {
+            GhostController.SetState(new GhostPatrolingState(GhostController));
+        }
+        public override void Exit()
+        {
+            base.Exit();
+            StopBlinking();
+        }
     }
     class GhostHidingState : GhostState
     {
@@ -192,6 +269,7 @@ namespace IStreamYouScream
     public class GhostController : StateMachine<GhostState>
     {
         public Weapon weapon;
+        public GameObject VisualRepresentation;
         public GameObject LastSeenPoint;
         public GameObject AlertedTargetPoint;
         public GameObject PatrollingTargetPoint;
@@ -202,6 +280,7 @@ namespace IStreamYouScream
         public float HealingSpeed = 0.5f;
         public float AlertedHPThreshold = 75f;
         public float FlashResistanceThreshold = 25f;
+        public float StunnedCooldown = 5f;
         [SerializeField] TextSetter HPIndicator;
         public MusicController MusicController;
         private float _HP = 100f;
@@ -276,5 +355,6 @@ namespace IStreamYouScream
         public void StartBeingDefeated() { CurrentState.StartBeingDefeated(); }
         public void StopBeingDefeated() { CurrentState.StopBeingDefeated(); }
         public void GetRecorded() { CurrentState.GetRecorded(); }
+        public void GetHitByMelee() { CurrentState.GetHitByMelee(); }
     }
 }

@@ -37,6 +37,11 @@ namespace IStreamYouScream
             get { return ActiveDevice.RightBumper.IsPressed; }
         }
 
+        static public bool Melee
+        {
+            get { return ActiveDevice.Action1.IsPressed; }
+        }
+
 
     }
 }
