@@ -59,7 +59,7 @@ namespace IStreamYouScream
             {
                 EnteredFrame.Invoke();
                 IsInFrame = true;
-                CameraFrame.RegisteredItems.Add(this);
+                CameraFrame.RegisterItem(this);
 
             }
         }
@@ -67,7 +67,7 @@ namespace IStreamYouScream
         {
             if (other.gameObject.CompareTag("CameraFrame"))
             {
-                CameraFrame.RegisteredItems.Remove(this);
+                CameraFrame.UnregisterItem(this);
                 IsInFrame = false;
                 ExitedFrame.Invoke();
                 StopRecording();

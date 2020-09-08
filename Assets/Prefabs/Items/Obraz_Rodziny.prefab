@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5685931570127572030}
+  - component: {fileID: 1468333607796187642}
   m_Layer: 0
-  m_Name: Painting
+  m_Name: Obraz_Rodziny
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24,14 +25,60 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5685931570127572029}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 40.91, y: 12.61, z: 10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5685931570675970013}
   - {fileID: 3743382990684978967}
+  - {fileID: 7269242551703656326}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1468333607796187642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5685931570127572029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 127824d51d0ecd641bb8efef0443e9cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NumberOfPeople: 0
+  RecordingTime: 0.1
+  Cooldown: 8
+  OnLitUp:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8411390436064515156}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  OnDeactivated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8411390436064515156}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5685931570675970011
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,6 +151,78 @@ MonoBehaviour:
   - {x: 1.6680298, y: -3.3132744, z: 0}
   - {x: 1.6985168, y: 2.4295368, z: 0}
   - {x: -1.5068054, y: 2.3766708, z: 0}
+--- !u!1 &8411390436064515156
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7269242551703656326}
+  - component: {fileID: 5264789055332125446}
+  m_Layer: 0
+  m_Name: LitUpIndicator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &7269242551703656326
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8411390436064515156}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5685931570127572030}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5264789055332125446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8411390436064515156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LightType: 0
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.5
+  m_Color: {r: 0.9622642, g: 0, b: 0.88470864, a: 1}
+  m_Intensity: 1
+  m_LightVolumeOpacity: 0
+  m_ApplyToSortingLayers: 00000000
+  m_LightCookieSprite: {fileID: 0}
+  m_UseNormalMap: 0
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_ShadowIntensity: 0
+  m_ShadowVolumeIntensity: 0
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1
+  m_PointLightDistance: 3
+  m_PointLightQuality: 1
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: 0.5, z: 0}
+  - {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &7657510451776836967
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -164,6 +283,11 @@ PrefabInstance:
     - target: {fileID: 7899447303334531186, guid: 8ddbe17454f398b4fb569c75e4dcf85f,
         type: 3}
       propertyPath: ExitedFrame.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7899447303334531186, guid: 8ddbe17454f398b4fb569c75e4dcf85f,
+        type: 3}
+      propertyPath: Recorded.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7899447303334531186, guid: 8ddbe17454f398b4fb569c75e4dcf85f,
@@ -225,6 +349,66 @@ PrefabInstance:
         type: 3}
       propertyPath: ExitedFrame.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7899447303334531186, guid: 8ddbe17454f398b4fb569c75e4dcf85f,
+        type: 3}
+      propertyPath: Recorded.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7899447303334531186, guid: 8ddbe17454f398b4fb569c75e4dcf85f,
+        type: 3}
+      propertyPath: Recorded.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7899447303334531186, guid: 8ddbe17454f398b4fb569c75e4dcf85f,
+        type: 3}
+      propertyPath: Recorded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1468333607796187642}
+    - target: {fileID: 7899447303334531186, guid: 8ddbe17454f398b4fb569c75e4dcf85f,
+        type: 3}
+      propertyPath: Recorded.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: IStreamYouScream.FamilyPainting, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7899447303334531186, guid: 8ddbe17454f398b4fb569c75e4dcf85f,
+        type: 3}
+      propertyPath: Recorded.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartRecording
+      objectReference: {fileID: 0}
+    - target: {fileID: 7899447303334531186, guid: 8ddbe17454f398b4fb569c75e4dcf85f,
+        type: 3}
+      propertyPath: Recorded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7899447303334531186, guid: 8ddbe17454f398b4fb569c75e4dcf85f,
+        type: 3}
+      propertyPath: ExitedFrame.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7899447303334531186, guid: 8ddbe17454f398b4fb569c75e4dcf85f,
+        type: 3}
+      propertyPath: ExitedFrame.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7899447303334531186, guid: 8ddbe17454f398b4fb569c75e4dcf85f,
+        type: 3}
+      propertyPath: ExitedFrame.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1468333607796187642}
+    - target: {fileID: 7899447303334531186, guid: 8ddbe17454f398b4fb569c75e4dcf85f,
+        type: 3}
+      propertyPath: ExitedFrame.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: IStreamYouScream.FamilyPainting, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7899447303334531186, guid: 8ddbe17454f398b4fb569c75e4dcf85f,
+        type: 3}
+      propertyPath: ExitedFrame.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ResetTimeToLitUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7899447303334531186, guid: 8ddbe17454f398b4fb569c75e4dcf85f,
+        type: 3}
+      propertyPath: ExitedFrame.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ddbe17454f398b4fb569c75e4dcf85f, type: 3}
