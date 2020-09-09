@@ -19,6 +19,8 @@ namespace IStreamYouScream
         public virtual void ShowFrame() { }
         public virtual void HideFrame() { }
         public virtual void OnUpdate() { }
+        public virtual void RegisterItem(RecordableItem item) { }
+        public virtual void UnregisterItem(RecordableItem item) { }
     }
 
     public class CameraIdleState : CameraState
@@ -75,6 +77,11 @@ namespace IStreamYouScream
             {
                 recordableItem.StartRecording();
             }
+        }
+
+        public override void RegisterItem(RecordableItem item)
+        {
+            item.StartRecording();
         }
 
         public override void Exit()
@@ -151,6 +158,17 @@ namespace IStreamYouScream
             {
                 Debug.DrawLine(transform.position, recordableItem.transform.position);
             }
+        }
+
+        public void RegisterItem(RecordableItem item)
+        {
+            RegisteredItems.Add(item);
+            CurrentState.RegisterItem(item);
+        }
+        public void UnregisterItem(RecordableItem item)
+        {
+            RegisteredItems.Remove(item);
+            CurrentState.UnregisterItem(item);
         }
 
         public void StartRecording() { CurrentState.StartRecording(); }
