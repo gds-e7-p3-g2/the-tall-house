@@ -67,9 +67,9 @@ namespace IStreamYouScream
         public List<Viewer> Viewers = new List<Viewer>();
         private int viewersToAdd = 0;
         public int CurrentNumberOfViewers { get { return Viewers.Count; } }
-        [SerializeField] int InitialViewers = 45;
+        [SerializeField] int InitialViewers = 5;
         [SerializeField] int InitialSatisfaction = 50;
-        [SerializeField] int NumberOfViewerFriends = 2;
+        [SerializeField] int NumberOfViewerFriends = 1;
         [SerializeField] int InvitationCooldown = 10;
         [SerializeField] IntEvent OnViewersCountChanged;
 

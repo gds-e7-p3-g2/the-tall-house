@@ -69,6 +69,11 @@ namespace IStreamYouScream
 
         public override void OnUpdate()
         {
+            if (GhostController.HP <= 0.05f)
+            {
+                GhostController.SetState(new GhostDefeatedState(GhostController));
+                return;
+            }
             if (GhostController.HP < GhostController.AlertedHPThreshold)
             {
                 StartAlerted();
@@ -111,6 +116,11 @@ namespace IStreamYouScream
                 StartPatroling();
                 return;
             }
+            if (GhostController.HP <= 0.05f)
+            {
+                GhostController.SetState(new GhostDefeatedState(GhostController));
+                return;
+            }
             Heal();
         }
         public override void GetHitByMelee()
@@ -150,6 +160,12 @@ namespace IStreamYouScream
         public override void GetRecorded()
         {
             GhostController.HP -= GhostController.DamageFromRecording;
+
+            if (GhostController.HP <= 0.05f)
+            {
+                GhostController.SetState(new GhostDefeatedState(GhostController));
+                return;
+            }
         }
         public override void GetHitByMelee()
         {
@@ -194,6 +210,12 @@ namespace IStreamYouScream
         public override void GetRecorded()
         {
             GhostController.HP -= GhostController.DamageFromRecording;
+
+            if (GhostController.HP <= 0.05f)
+            {
+                GhostController.SetState(new GhostDefeatedState(GhostController));
+                return;
+            }
         }
         public override void GetHitByMelee()
         {
@@ -264,6 +286,22 @@ namespace IStreamYouScream
     class GhostDefeatedState : GhostState
     {
         public GhostDefeatedState(GhostController ghostController) : base(ghostController) { }
+
+        public override void Enter()
+        {
+            GhostController.CurrentSpeed = 0.1f;
+
+            GhostController.Target = GhostController.DefeatedPoint;
+            GhostController.MusicController.PlayDefeated();
+
+            GhostController.ConeOfSight.SetActive(false);
+        }
+
+        public override void OnTargetReached()
+        {
+            Debug.Log("DESTROYING THE GHOST");
+            GhostController.Destroy(GhostController.GhostArea);
+        }
     }
 
     public class GhostController : StateMachine<GhostState>
@@ -273,6 +311,9 @@ namespace IStreamYouScream
         public GameObject LastSeenPoint;
         public GameObject AlertedTargetPoint;
         public GameObject PatrollingTargetPoint;
+        public GameObject DefeatedPoint;
+        public GameObject GhostArea;
+        public GameObject ConeOfSight;
         public float PatrolingSpeed = 3f;
         public float AlertedSpeed = 6f;
         public float AttackingSpeed = 4.5f;

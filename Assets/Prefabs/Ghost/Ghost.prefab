@@ -64,7 +64,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4653608590771579693
 Transform:
   m_ObjectHideFlags: 0
@@ -366,7 +366,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4653608592041908435
 Transform:
   m_ObjectHideFlags: 0
@@ -591,6 +591,8 @@ MonoBehaviour:
   LastSeenPoint: {fileID: 0}
   AlertedTargetPoint: {fileID: 0}
   PatrollingTargetPoint: {fileID: 0}
+  DefeatedPoint: {fileID: 0}
+  ConeOfSight: {fileID: 4653608591377927851}
   PatrolingSpeed: 3
   AlertedSpeed: 4
   AttackingSpeed: 5
@@ -1066,6 +1068,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 998603aa2eb6e3c4e82d9abff3670d35, type: 3}
+--- !u!1 &4653608591377927851 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 345719183212324961, guid: 998603aa2eb6e3c4e82d9abff3670d35,
+    type: 3}
+  m_PrefabInstance: {fileID: 4924912246718539466}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4653608591377927828 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 345719183212324958, guid: 998603aa2eb6e3c4e82d9abff3670d35,

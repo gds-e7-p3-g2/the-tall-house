@@ -37,5 +37,10 @@ namespace IStreamYouScream
         {
             PlaySource(AttackingMusic);
         }
+
+        public void PlayDefeated()
+        {
+            PlaySource(AttackingMusic);
+        }
     }
 }
