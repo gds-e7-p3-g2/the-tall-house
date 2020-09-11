@@ -322,6 +322,7 @@ namespace IStreamYouScream
         public float AlertedHPThreshold = 75f;
         public float FlashResistanceThreshold = 25f;
         public float StunnedCooldown = 5f;
+
         [SerializeField] TextSetter HPIndicator;
         public MusicController MusicController;
         private float _HP = 100f;
@@ -397,5 +398,7 @@ namespace IStreamYouScream
         public void StopBeingDefeated() { CurrentState.StopBeingDefeated(); }
         public void GetRecorded() { CurrentState.GetRecorded(); }
         public void GetHitByMelee() { CurrentState.GetHitByMelee(); }
+
+
     }
 }
