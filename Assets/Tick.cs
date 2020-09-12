@@ -13,6 +13,11 @@ namespace IStreamYouScream
         private IEnumerator corutine;
         void Start()
         {
+            Schedule();
+        }
+
+        public void Schedule()
+        {
             StartCoroutine(Ticker());
         }
 

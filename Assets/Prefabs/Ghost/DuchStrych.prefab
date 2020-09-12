@@ -585,8 +585,8 @@ MonoBehaviour:
   movementDirection: 1
   movingTo: 0
   PathSequence:
-  - {fileID: 8988514652616386736}
   - {fileID: 8988514653531694988}
+  - {fileID: 8988514652616386736}
 --- !u!1 &8988514654295783624
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,12 +633,12 @@ PrefabInstance:
     - target: {fileID: 981840766706194926, guid: 6d7ea2c4ef1580845a14c66df58629e5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 46.8
+      value: 69.4
       objectReference: {fileID: 0}
     - target: {fileID: 981840766706194926, guid: 6d7ea2c4ef1580845a14c66df58629e5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -92
+      value: 144.8
       objectReference: {fileID: 0}
     - target: {fileID: 981840766706194926, guid: 6d7ea2c4ef1580845a14c66df58629e5,
         type: 3}
@@ -1163,6 +1163,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ShapeLightParametricRadius
       value: 1.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 7320412771587677978, guid: ed6274675cd147c49b98af91079aad8c,
+        type: 3}
+      propertyPath: m_LightVolumeOpacity
+      value: 0.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 7320412771587677978, guid: ed6274675cd147c49b98af91079aad8c,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.7075472
+      objectReference: {fileID: 0}
+    - target: {fileID: 7320412771587677978, guid: ed6274675cd147c49b98af91079aad8c,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.1161445
+      objectReference: {fileID: 0}
+    - target: {fileID: 7320412771587677978, guid: ed6274675cd147c49b98af91079aad8c,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.1161445
       objectReference: {fileID: 0}
     - target: {fileID: 7878091638705272692, guid: ed6274675cd147c49b98af91079aad8c,
         type: 3}

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace IStreamYouScream
 {
@@ -65,6 +66,7 @@ namespace IStreamYouScream
         public override void GetRecorded()
         {
             GhostController.HP -= GhostController.DamageFromRecording;
+            StoryEvents.Instance.OnGhostRecorded.Invoke(GhostController);
         }
 
         public override void OnUpdate()
@@ -100,6 +102,7 @@ namespace IStreamYouScream
         public override void GetRecorded()
         {
             GhostController.HP = Mathf.Max(GhostController.HP - GhostController.DamageFromRecording, 0f);
+            StoryEvents.Instance.OnGhostRecorded.Invoke(GhostController);
         }
         public override void StartAttacking()
         {
@@ -159,6 +162,7 @@ namespace IStreamYouScream
 
         public override void GetRecorded()
         {
+            StoryEvents.Instance.OnGhostRecorded.Invoke(GhostController);
             GhostController.HP -= GhostController.DamageFromRecording;
 
             if (GhostController.HP <= 0.05f)
@@ -209,6 +213,7 @@ namespace IStreamYouScream
 
         public override void GetRecorded()
         {
+            StoryEvents.Instance.OnGhostRecorded.Invoke(GhostController);
             GhostController.HP -= GhostController.DamageFromRecording;
 
             if (GhostController.HP <= 0.05f)
@@ -231,6 +236,7 @@ namespace IStreamYouScream
 
         public override void Enter()
         {
+            StoryEvents.Instance.OnGhostStunned.Invoke(GhostController);
             GhostController.CurrentSpeed = 0f;
             GhostController.Invoke("StopBeingStuned", GhostController.StunnedCooldown);
             StartBlinking();
@@ -299,8 +305,7 @@ namespace IStreamYouScream
 
         public override void OnTargetReached()
         {
-            Debug.Log("DESTROYING THE GHOST");
-            GhostController.Destroy(GhostController.GhostArea);
+            GhostController.GhostArea.gameObject.SetActive(false);
         }
     }
 
@@ -322,6 +327,7 @@ namespace IStreamYouScream
         public float AlertedHPThreshold = 75f;
         public float FlashResistanceThreshold = 25f;
         public float StunnedCooldown = 5f;
+        public UnityEvent OnDefeated;
 
         [SerializeField] TextSetter HPIndicator;
         public MusicController musicController;
