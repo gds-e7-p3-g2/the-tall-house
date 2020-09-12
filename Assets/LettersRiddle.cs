@@ -14,6 +14,7 @@ namespace IStreamYouScream
         private int numberOfCorrectLettersLit = 0;
         private Letter[] allLetters;
         public UnityEvent OnSolved;
+        public UnityEvent OnWrongWord;
         void Start()
         {
             allLetters = letters.Concat(wrongLetters).ToArray();
