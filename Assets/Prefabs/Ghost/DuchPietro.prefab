@@ -116,6 +116,33 @@ MonoBehaviour:
   - {fileID: 3230783288511922200}
   - {fileID: 4984249370443895070}
   - {fileID: 8774265488063561848}
+--- !u!114 &8763151827671496593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2827147811356753180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb54ed07dd59dc64daf52a8c6d6d9463, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4489508748927087918}
+        m_TargetAssemblyTypeName: IStreamYouScream.GhostController, Assembly-CSharp
+        m_MethodName: GetHitByMelee
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2873143249458927837
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,6 +203,20 @@ Transform:
   m_Father: {fileID: 7873723837140314328}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9020898159025364610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3741860798627309862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b97c05678b7fdec45834b3b8130750e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TopLeft: {fileID: 343256662149769029}
+  BottomRight: {fileID: 5677101384863516471}
 --- !u!1 &4489508748089401182
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,20 +269,6 @@ MonoBehaviour:
   PathSequence:
   - {fileID: 4489508749767897786}
   - {fileID: 4489508748802260358}
---- !u!114 &9020898159025364610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3741860798627309862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b97c05678b7fdec45834b3b8130750e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TopLeft: {fileID: 343256662149769029}
-  BottomRight: {fileID: 5677101384863516471}
 --- !u!1 &4489508748490629826
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,6 +329,22 @@ Transform:
   m_Father: {fileID: 4489508748089401181}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &1813146043830648385
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4489508748927087913}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.29367575, y: -1.6122434}
+  m_Size: {x: 5.923817, y: 1.5368035}
+  m_Direction: 1
 --- !u!1 &4489508749016667691
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,49 +617,6 @@ Transform:
   m_Father: {fileID: 7873723837140314328}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &1813146043830648385
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4489508748927087913}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.29367575, y: -1.6122434}
-  m_Size: {x: 5.923817, y: 1.5368035}
-  m_Direction: 1
---- !u!114 &8763151827671496593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2827147811356753180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb54ed07dd59dc64daf52a8c6d6d9463, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnHit:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4489508748927087918}
-        m_TargetAssemblyTypeName: IStreamYouScream.GhostController, Assembly-CSharp
-        m_MethodName: GetHitByMelee
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1001 &3741860798723539950
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -896,12 +896,12 @@ PrefabInstance:
     - target: {fileID: 981840766706194926, guid: 6d7ea2c4ef1580845a14c66df58629e5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 46.8
+      value: -121.2
       objectReference: {fileID: 0}
     - target: {fileID: 981840766706194926, guid: 6d7ea2c4ef1580845a14c66df58629e5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -92
+      value: 129.6
       objectReference: {fileID: 0}
     - target: {fileID: 981840766706194926, guid: 6d7ea2c4ef1580845a14c66df58629e5,
         type: 3}
@@ -1423,12 +1423,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fc86c76cbd754a478d876e738e33ac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &2827147811356753180 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6477596579059661691, guid: ed6274675cd147c49b98af91079aad8c,
-    type: 3}
-  m_PrefabInstance: {fileID: 9140337126130566759}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4489508748927087918 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4653608592801100617, guid: ed6274675cd147c49b98af91079aad8c,
@@ -1441,3 +1435,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98c202385d38f3e429d172d383505cde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2827147811356753180 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6477596579059661691, guid: ed6274675cd147c49b98af91079aad8c,
+    type: 3}
+  m_PrefabInstance: {fileID: 9140337126130566759}
+  m_PrefabAsset: {fileID: 0}

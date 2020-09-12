@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace IStreamYouScream
 {
@@ -299,8 +300,7 @@ namespace IStreamYouScream
 
         public override void OnTargetReached()
         {
-            Debug.Log("DESTROYING THE GHOST");
-            GhostController.Destroy(GhostController.GhostArea);
+            GhostController.GhostArea.gameObject.SetActive(false);
         }
     }
 
@@ -322,6 +322,7 @@ namespace IStreamYouScream
         public float AlertedHPThreshold = 75f;
         public float FlashResistanceThreshold = 25f;
         public float StunnedCooldown = 5f;
+        public UnityEvent OnDefeated;
 
         [SerializeField] TextSetter HPIndicator;
         public MusicController musicController;

@@ -585,8 +585,8 @@ MonoBehaviour:
   movementDirection: 1
   movingTo: 0
   PathSequence:
-  - {fileID: 8988514652616386736}
   - {fileID: 8988514653531694988}
+  - {fileID: 8988514652616386736}
 --- !u!1 &8988514654295783624
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,12 +633,12 @@ PrefabInstance:
     - target: {fileID: 981840766706194926, guid: 6d7ea2c4ef1580845a14c66df58629e5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 46.8
+      value: 69.4
       objectReference: {fileID: 0}
     - target: {fileID: 981840766706194926, guid: 6d7ea2c4ef1580845a14c66df58629e5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -92
+      value: 144.8
       objectReference: {fileID: 0}
     - target: {fileID: 981840766706194926, guid: 6d7ea2c4ef1580845a14c66df58629e5,
         type: 3}

@@ -3791,6 +3791,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 58.70435, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1886648695}
   - {fileID: 626755917}
   - {fileID: 1656123062}
   - {fileID: 438671189}
@@ -4024,7 +4025,7 @@ PrefabInstance:
     - target: {fileID: 7899049846592466125, guid: 940494df440c9fd4a982b33a57b1ebd7,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7899049846592466125, guid: 940494df440c9fd4a982b33a57b1ebd7,
         type: 3}
@@ -4387,7 +4388,31 @@ MonoBehaviour:
   - {fileID: 2042491779}
   OnSolved:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1960398971}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 776947783}
+        m_TargetAssemblyTypeName: IStreamYouScream.ViewersController, Assembly-CSharp
+        m_MethodName: ReactToEvent
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 50
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnWrongWord:
     m_PersistentCalls:
       m_Calls:
@@ -4399,6 +4424,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 776947783}
+        m_TargetAssemblyTypeName: IStreamYouScream.ViewersController, Assembly-CSharp
+        m_MethodName: ReactToEvent
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: -20
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4757,7 +4794,7 @@ PrefabInstance:
     - target: {fileID: 7899049846592466125, guid: 940494df440c9fd4a982b33a57b1ebd7,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7899049846592466125, guid: 940494df440c9fd4a982b33a57b1ebd7,
         type: 3}
@@ -5487,7 +5524,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 431428397}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &626755918
 SpriteRenderer:
@@ -7330,7 +7367,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: -50
+          m_IntArgument: -10
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -10581,7 +10618,7 @@ PrefabInstance:
     - target: {fileID: 1430261975417293068, guid: 2618e187d463abc4c84f4aad8c9131d6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1430261975417293068, guid: 2618e187d463abc4c84f4aad8c9131d6,
         type: 3}
@@ -12256,17 +12293,29 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7816509011303568926}
-        m_TargetAssemblyTypeName: GhostSpawner, Assembly-CSharp
-        m_MethodName: Spawn
-        m_Mode: 1
+      - m_Target: {fileID: 1886648696}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 776947783}
+        m_TargetAssemblyTypeName: IStreamYouScream.ViewersController, Assembly-CSharp
+        m_MethodName: ReactToEvent
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 50
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!4 &1495546217 stripped
 Transform:
@@ -13939,7 +13988,7 @@ Transform:
   m_Children:
   - {fileID: 1904568690}
   m_Father: {fileID: 431428397}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1642351221
 SpriteRenderer:
@@ -14055,7 +14104,7 @@ PrefabInstance:
     - target: {fileID: 4282132306959108340, guid: 5e96730819d3f3b4996dea31cd0f0e18,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4282132306959108340, guid: 5e96730819d3f3b4996dea31cd0f0e18,
         type: 3}
@@ -15359,7 +15408,7 @@ PrefabInstance:
     - target: {fileID: 7212026308775375833, guid: 85e5206a2c02e5d4594f2e8b5dc7a165,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7212026308775375833, guid: 85e5206a2c02e5d4594f2e8b5dc7a165,
         type: 3}
@@ -16449,6 +16498,167 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7899049846592466125, guid: 940494df440c9fd4a982b33a57b1ebd7,
     type: 3}
   m_PrefabInstance: {fileID: 1860603149}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1886648694
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 431428397}
+    m_Modifications:
+    - target: {fileID: 1233395911712330303, guid: 623d7f3e95246174dac22c15ac1ad25d,
+        type: 3}
+      propertyPath: Recorded.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 776947783}
+    - target: {fileID: 1233395911712330303, guid: 623d7f3e95246174dac22c15ac1ad25d,
+        type: 3}
+      propertyPath: Recorded.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ReactToEvent
+      objectReference: {fileID: 0}
+    - target: {fileID: 1233395911712330303, guid: 623d7f3e95246174dac22c15ac1ad25d,
+        type: 3}
+      propertyPath: Recorded.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: IStreamYouScream.ViewersController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1233395911712330303, guid: 623d7f3e95246174dac22c15ac1ad25d,
+        type: 3}
+      propertyPath: Recorded.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8988514652616386736, guid: 623d7f3e95246174dac22c15ac1ad25d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8988514652616386736, guid: 623d7f3e95246174dac22c15ac1ad25d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 8988514653812534662, guid: 623d7f3e95246174dac22c15ac1ad25d,
+        type: 3}
+      propertyPath: m_Name
+      value: DuchStrych
+      objectReference: {fileID: 0}
+    - target: {fileID: 8988514653812534662, guid: 623d7f3e95246174dac22c15ac1ad25d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8988514653812534713, guid: 623d7f3e95246174dac22c15ac1ad25d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -225.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8988514653812534713, guid: 623d7f3e95246174dac22c15ac1ad25d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -29.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8988514653812534713, guid: 623d7f3e95246174dac22c15ac1ad25d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -17.31164
+      objectReference: {fileID: 0}
+    - target: {fileID: 8988514653812534713, guid: 623d7f3e95246174dac22c15ac1ad25d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8988514653812534713, guid: 623d7f3e95246174dac22c15ac1ad25d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8988514653812534713, guid: 623d7f3e95246174dac22c15ac1ad25d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8988514653812534713, guid: 623d7f3e95246174dac22c15ac1ad25d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8988514653812534713, guid: 623d7f3e95246174dac22c15ac1ad25d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8988514653812534713, guid: 623d7f3e95246174dac22c15ac1ad25d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8988514653812534713, guid: 623d7f3e95246174dac22c15ac1ad25d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8988514653812534713, guid: 623d7f3e95246174dac22c15ac1ad25d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8988514653859819300, guid: 623d7f3e95246174dac22c15ac1ad25d,
+        type: 3}
+      propertyPath: OnDefeated.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8988514653859819300, guid: 623d7f3e95246174dac22c15ac1ad25d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8988514653859819300, guid: 623d7f3e95246174dac22c15ac1ad25d,
+        type: 3}
+      propertyPath: OnDefeated.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8988514653859819300, guid: 623d7f3e95246174dac22c15ac1ad25d,
+        type: 3}
+      propertyPath: OnDefeated.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8988514653859819300, guid: 623d7f3e95246174dac22c15ac1ad25d,
+        type: 3}
+      propertyPath: OnDefeated.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 776947783}
+    - target: {fileID: 8988514653859819300, guid: 623d7f3e95246174dac22c15ac1ad25d,
+        type: 3}
+      propertyPath: OnDefeated.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: IStreamYouScream.ViewersController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8988514653859819300, guid: 623d7f3e95246174dac22c15ac1ad25d,
+        type: 3}
+      propertyPath: OnDefeated.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReactToEvent
+      objectReference: {fileID: 0}
+    - target: {fileID: 8988514653859819300, guid: 623d7f3e95246174dac22c15ac1ad25d,
+        type: 3}
+      propertyPath: OnDefeated.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8988514653859819300, guid: 623d7f3e95246174dac22c15ac1ad25d,
+        type: 3}
+      propertyPath: OnDefeated.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 20
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 623d7f3e95246174dac22c15ac1ad25d, type: 3}
+--- !u!4 &1886648695 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8988514653812534713, guid: 623d7f3e95246174dac22c15ac1ad25d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1886648694}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1886648696 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8988514653812534662, guid: 623d7f3e95246174dac22c15ac1ad25d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1886648694}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1892474962
 PrefabInstance:
@@ -22855,7 +23065,7 @@ PrefabInstance:
     - target: {fileID: 4252380862069972964, guid: b1e43767eb9262d4ea063221033b9f19,
         type: 3}
       propertyPath: OnFire.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4252380862069972964, guid: b1e43767eb9262d4ea063221033b9f19,
         type: 3}
@@ -22891,6 +23101,46 @@ PrefabInstance:
         type: 3}
       propertyPath: OnFire.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4252380862069972964, guid: b1e43767eb9262d4ea063221033b9f19,
+        type: 3}
+      propertyPath: OnFire.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: IStreamYouScream.ViewersController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4252380862069972964, guid: b1e43767eb9262d4ea063221033b9f19,
+        type: 3}
+      propertyPath: OnFire.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4252380862069972964, guid: b1e43767eb9262d4ea063221033b9f19,
+        type: 3}
+      propertyPath: OnFire.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4252380862069972964, guid: b1e43767eb9262d4ea063221033b9f19,
+        type: 3}
+      propertyPath: OnFire.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4252380862069972964, guid: b1e43767eb9262d4ea063221033b9f19,
+        type: 3}
+      propertyPath: OnFire.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 776947783}
+    - target: {fileID: 4252380862069972964, guid: b1e43767eb9262d4ea063221033b9f19,
+        type: 3}
+      propertyPath: OnFire.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ReactToEvent
+      objectReference: {fileID: 0}
+    - target: {fileID: 4252380862069972964, guid: b1e43767eb9262d4ea063221033b9f19,
+        type: 3}
+      propertyPath: OnFire.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4252380862069972964, guid: b1e43767eb9262d4ea063221033b9f19,
+        type: 3}
+      propertyPath: OnFire.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 4796291827102405194, guid: b1e43767eb9262d4ea063221033b9f19,
         type: 3}
@@ -23035,7 +23285,7 @@ PrefabInstance:
     - target: {fileID: 1511826144703893324, guid: a2a430f7c23fa8a4b9e42d1b2f49345d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1511826144703893324, guid: a2a430f7c23fa8a4b9e42d1b2f49345d,
         type: 3}
