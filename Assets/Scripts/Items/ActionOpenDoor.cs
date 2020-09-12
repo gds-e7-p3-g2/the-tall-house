@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 namespace IStreamYouScream
 {
     public class ActionOpenDoor : Action
     {
+        public UnityEvent OnOpened;
         [SerializeField]
         private bool _IsOpen;
         bool IsOpen
@@ -44,6 +46,7 @@ namespace IStreamYouScream
         public override void PerformAction()
         {
             IsOpen = !IsOpen;
+            OnOpened.Invoke();
         }
     }
 }
