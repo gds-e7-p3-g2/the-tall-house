@@ -35,6 +35,7 @@ namespace IStreamYouScream
                         "the father look kinda familiar idk"
                     }
                 },
+                { StoryEvents.Instance.OnGrandfatherPictureRecorder, new Messages() { "msg1", "msg2"}},
                 {
                     StoryEvents.Instance.OnGhostRecorded,
                     new Messages() {
@@ -53,13 +54,24 @@ namespace IStreamYouScream
                         "thats one tense ghost"
                     }
                 },
+                { StoryEvents.Instance.OnGhostStunned, new Messages() { "msg1", "msg2"}},
+                { StoryEvents.Instance.OnPlayerStunned, new Messages() { "msg1", "msg2"}},
                 {
                     StoryEvents.Instance.OnMeleeUsed,
                     new Messages() {
                         "Don't swing this phone",
                         "Can't see sith",
                     }
-                }
+                },
+                { StoryEvents.Instance.OnMusicboxFirstSpotted, new Messages() { "msg1", "msg2"}},
+                { StoryEvents.Instance.OnCoinInsertedToMusicbox, new Messages() { "msg1", "msg2"}},
+                { StoryEvents.Instance.OnMusicboxWrongChoice, new Messages() { "msg1", "msg2"}},
+                { StoryEvents.Instance.OnMusicboxWrongChoiceAgain, new Messages() { "msg1", "msg2"}},
+                { StoryEvents.Instance.OnGroundFloorPicturesRecorded, new Messages() { "msg1", "msg2"}},
+                { StoryEvents.Instance.OnMusicanBodyFound, new Messages() { "msg1", "msg2"}},
+                { StoryEvents.Instance.OnBoringPeriod, new Messages() { "msg1", "msg2"}},
+                { StoryEvents.Instance.OnRandom, new Messages() { "msg1", "msg2"}},
+                { StoryEvents.Instance.OnTick, new Messages() { "msg1", "msg2"}}
             };
             BindEvents();
         }
