@@ -1164,6 +1164,26 @@ PrefabInstance:
       propertyPath: m_ShapeLightParametricRadius
       value: 1.88
       objectReference: {fileID: 0}
+    - target: {fileID: 7320412771587677978, guid: ed6274675cd147c49b98af91079aad8c,
+        type: 3}
+      propertyPath: m_LightVolumeOpacity
+      value: 0.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 7320412771587677978, guid: ed6274675cd147c49b98af91079aad8c,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.7075472
+      objectReference: {fileID: 0}
+    - target: {fileID: 7320412771587677978, guid: ed6274675cd147c49b98af91079aad8c,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.1161445
+      objectReference: {fileID: 0}
+    - target: {fileID: 7320412771587677978, guid: ed6274675cd147c49b98af91079aad8c,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.1161445
+      objectReference: {fileID: 0}
     - target: {fileID: 7878091638705272692, guid: ed6274675cd147c49b98af91079aad8c,
         type: 3}
       propertyPath: CooldownInterval
