@@ -70,6 +70,7 @@ namespace IStreamYouScream
         private void WrongWord()
         {
             DeactivateAll();
+            OnWrongWord.Invoke();
         }
 
         private void DeactivateAll()
