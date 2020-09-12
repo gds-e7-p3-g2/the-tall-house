@@ -5,31 +5,52 @@ using UnityEngine.Events;
 
 namespace IStreamYouScream
 {
-    [System.Serializable] public class ItemEvent : UnityEvent { };
-    [System.Serializable] public class GhostEvent : UnityEvent<GhostController> { };
-    [System.Serializable] public class PlayerEvent : UnityEvent { };
-
-    [System.Serializable] public class StoryEvent : UnityEvent { };
-    [System.Serializable] public class MiscEvent : UnityEvent { };
     public class StoryEvents : MonoBehaviour
     {
         #region eventy
 
-        public ItemEvent OnFamilyPictureRecorded;
-        public ItemEvent OnGrandfatherPictureRecorder;
-        public GhostEvent OnGhostRecorded;
-        public GhostEvent OnGhostStunned;
-        public PlayerEvent OnPlayerStunned;
-        public PlayerEvent OnMeleeUsed;
+        #region property_by_string_access
+        public object this[string propertyName]
+        {
+            get { return this.GetType().GetProperty(propertyName).GetValue(this, null); }
+            set { this.GetType().GetProperty(propertyName).SetValue(this, value, null); }
+        }
+        #endregion
+
+        public UnityEvent OnFamilyPictureRecorded;
+        public UnityEvent OnGrandfatherPictureRecorder;
+        public UnityEvent OnGhostRecorded;
+        public UnityEvent OnGhostStunned;
+        public UnityEvent OnPlayerStunned;
+        public UnityEvent OnMeleeUsed;
         public UnityEvent OnMusicboxFirstSpotted;
         public UnityEvent OnCoinInsertedToMusicbox;
         public UnityEvent OnMusicboxWrongChoice;
         public UnityEvent OnMusicboxWrongChoiceAgain;
-        public StoryEvent OnGroundFloorPicturesRecorded;
-        public StoryEvent OnMusicanBodyFound;
-        public MiscEvent OnBoringPeriod;
-        public MiscEvent OnRandom;
+        public UnityEvent OnGroundFloorPicturesRecorded;
+        public UnityEvent OnMusicanBodyFound;
+        public UnityEvent OnBoringPeriod;
+        public UnityEvent OnRandom;
         public UnityEvent OnTick;
+
+        #endregion
+
+        #region callers
+        public void CallOnFamilyPictureRecorded0() { OnFamilyPictureRecorded.Invoke(); }
+        public void CallOnGrandfatherPictureRecorder() { OnGrandfatherPictureRecorder.Invoke(); }
+        public void CallOnGhostRecorded() { OnGhostRecorded.Invoke(); }
+        public void CallOnGhostStunned() { OnGhostStunned.Invoke(); }
+        public void CallOnPlayerStunned() { OnPlayerStunned.Invoke(); }
+        public void CallOnMeleeUsed() { OnMeleeUsed.Invoke(); }
+        public void CallOnMusicboxFirstSpotted() { OnMusicboxFirstSpotted.Invoke(); }
+        public void CallOnCoinInsertedToMusicbox() { OnCoinInsertedToMusicbox.Invoke(); }
+        public void CallOnMusicboxWrongChoice() { OnMusicboxWrongChoice.Invoke(); }
+        public void CallOnMusicboxWrongChoiceAgain() { OnMusicboxWrongChoiceAgain.Invoke(); }
+        public void CallOnGroundFloorPicturesRecorded() { OnGroundFloorPicturesRecorded.Invoke(); }
+        public void CallOnMusicanBodyFound() { OnMusicanBodyFound.Invoke(); }
+        public void CallOnBoringPeriod() { OnBoringPeriod.Invoke(); }
+        public void CallOnRandom() { OnRandom.Invoke(); }
+        public void CallOnTick() { OnTick.Invoke(); }
 
         #endregion
 

@@ -6,7 +6,6 @@ public class AutoSetInactive : MonoBehaviour
 {
     void OnDisable()
     {
-        Debug.Log("PrintOnDisable: script was disabled");
     }
 
     void OnEnable()

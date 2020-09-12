@@ -6,19 +6,19 @@ using UnityEngine.Events;
 namespace IStreamYouScream
 {
     [System.Serializable] public class ViewerEvent : UnityEvent<Viewer> { };
-    public class Viewer : MonoBehaviour
+    public class Viewer
     {
         public bool canInvite = true;
         private int numOfFriends;
-        private int __satisfaction;
+        private float __satisfaction;
         public ViewerEvent OnLeave = new ViewerEvent();
         public ViewerEvent OnInvite = new ViewerEvent();
-        public int satisfaction
+        public float satisfaction
         {
             get { return __satisfaction; }
             set
             {
-                __satisfaction = Mathf.Min(100, Mathf.Max(0, value));
+                __satisfaction = Mathf.Min(100f, Mathf.Max(0f, value));
 
                 if (__satisfaction <= 0)
                 {
@@ -50,7 +50,7 @@ namespace IStreamYouScream
 
             OnInvite.Invoke(this);
         }
-        public void ReactToEvent(int EventAttractiveness)
+        public void ReactToEvent(float EventAttractiveness)
         {
             bool DoIEvenCare = Random.Range(1, 100) < Mathf.Min(satisfaction, 30);
 
@@ -78,7 +78,7 @@ namespace IStreamYouScream
             viewersToAdd = InitialViewers;
             AddViewers();
         }
-        public void ReactToEvent(int EventAttractiveness)
+        public void ReactToEvent(float EventAttractiveness)
         {
             Viewers.ForEach(viewer => viewer.ReactToEvent(EventAttractiveness));
             Viewers.FindAll(viewer => viewer.satisfaction <= 0).ForEach(RemoveViewer);
