@@ -50,7 +50,7 @@ namespace IStreamYouScream
         {
             GhostController.Target = GhostController.PatrollingTargetPoint;
             GhostController.CurrentSpeed = GhostController.PatrolingSpeed;
-            GhostController.musicController.PlayAmbient();
+            MusicController.Instance.PlayAmbient();
         }
 
         public override void StartAttacking()
@@ -97,7 +97,7 @@ namespace IStreamYouScream
         {
             GhostController.Target = GhostController.AlertedTargetPoint;
             GhostController.CurrentSpeed = GhostController.AlertedSpeed;
-            GhostController.musicController.PlayAlerted();
+            MusicController.Instance.PlayAlerted();
         }
         public override void GetRecorded()
         {
@@ -139,7 +139,7 @@ namespace IStreamYouScream
         {
             GhostController.Target = GhostController.LastSeenPoint;
             GhostController.CurrentSpeed = GhostController.AttackingSpeed;
-            GhostController.musicController.PlayAttacking();
+            MusicController.Instance.PlayAttacking();
         }
 
         public override void OnTargetReached()
@@ -186,13 +186,13 @@ namespace IStreamYouScream
 
         public override void Enter()
         {
-            GhostController.musicController.PlayAttacking();
+            MusicController.Instance.PlayAttacking();
             GhostController.weapon.OnFire.AddListener(HitPlayer);
         }
 
         public override void Exit()
         {
-            GhostController.musicController.PlayAttacking();
+            MusicController.Instance.PlayAttacking();
             GhostController.weapon.OnFire.RemoveListener(HitPlayer);
         }
 
@@ -298,7 +298,7 @@ namespace IStreamYouScream
             GhostController.CurrentSpeed = 0.1f;
 
             GhostController.Target = GhostController.DefeatedPoint;
-            GhostController.musicController.PlayDefeated();
+            MusicController.Instance.PlayDefeated();
 
             GhostController.ConeOfSight.SetActive(false);
         }
@@ -330,7 +330,6 @@ namespace IStreamYouScream
         public UnityEvent OnDefeated;
 
         [SerializeField] TextSetter HPIndicator;
-        public MusicController musicController;
         private float _HP = 100f;
         private PlayerController player;
         public float HP
@@ -367,7 +366,6 @@ namespace IStreamYouScream
         }
         public void Start()
         {
-            musicController = GameObject.FindObjectOfType<MusicController>();
             SetState(new GhostPatrolingState(this));
             HP = _HP;
         }

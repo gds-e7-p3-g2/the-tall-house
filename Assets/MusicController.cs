@@ -42,5 +42,25 @@ namespace IStreamYouScream
         {
             PlaySource(AttackingMusic);
         }
+
+        #region singleton
+        private static MusicController _instance;
+
+        public static MusicController Instance { get { return _instance; } }
+
+        private void Awake()
+        {
+            if (_instance != null && _instance != this)
+            {
+                Destroy(this.gameObject);
+            }
+            else
+            {
+                _instance = this;
+            }
+        }
+
+        private void OnDestroy() { if (this == _instance) { _instance = null; } }
+        #endregion
     }
 }

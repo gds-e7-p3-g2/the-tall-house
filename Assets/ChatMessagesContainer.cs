@@ -2,22 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 namespace IStreamYouScream
 {
     public class ChatMessagesContainer : MonoBehaviour
     {
         [SerializeField] Text text;
-        [SerializeField] int MaxCharacters = 1000;
+        [SerializeField] int MaxMessages = 20;
+
+        private List<string> messages = new List<string>();
 
         public void AddMessage(string message)
         {
-            string newText = (text.text + "\n" + message);
-            if (newText.Length > MaxCharacters)
+            messages.Add(message);
+            while (messages.Count > MaxMessages)
             {
-                newText = newText.Substring(newText.Length - MaxCharacters);
+                messages.RemoveAt(0);
             }
-            text.text = newText;
+            UpdateText();
+        }
+
+        private void UpdateText()
+        {
+            text.text = messages.Aggregate((i, j) => i + "\n" + j);
         }
 
         #region singleton
