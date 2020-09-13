@@ -8,6 +8,12 @@ namespace IStreamYouScream
         [SerializeField] AudioSource AmbientMusic;
         [SerializeField] AudioSource AlertedMusic;
         [SerializeField] AudioSource AttackingMusic;
+        [SerializeField] AudioClip GhostDeath;
+        [SerializeField] AudioClip PickCoin;
+        [SerializeField] AudioClip CoinUsed;
+        [SerializeField] AudioClip PlugIn;
+        [SerializeField] AudioClip PlugOut;
+        [SerializeField] AudioClip PowerDrain;
         private AudioSource CurrentSource;
         private void PlaySource(AudioSource source)
         {
@@ -24,6 +30,11 @@ namespace IStreamYouScream
             CurrentSource.Play();
         }
 
+        private void PlayEffect(AudioClip clip)
+        {
+            GetComponent<AudioSource>().PlayOneShot(clip);
+        }
+
         public void PlayAmbient()
         {
             PlaySource(AmbientMusic);
@@ -38,9 +49,34 @@ namespace IStreamYouScream
             PlaySource(AttackingMusic);
         }
 
-        public void PlayDefeated()
+        public void PlayGhostDefeated()
         {
-            PlaySource(AttackingMusic);
+            PlayEffect(GhostDeath);
+        }
+
+        public void PlayPickedCoin()
+        {
+            PlayEffect(PickCoin);
+        }
+
+        public void PlayUseCoin()
+        {
+            PlayEffect(CoinUsed);
+        }
+
+        public void PlayPlugIn()
+        {
+            PlayEffect(PlugIn);
+        }
+
+        public void PlayPlugOut()
+        {
+            PlayEffect(PlugOut);
+        }
+
+        public void PlayLowBattery()
+        {
+            PlayEffect(PowerDrain);
         }
 
         #region singleton
