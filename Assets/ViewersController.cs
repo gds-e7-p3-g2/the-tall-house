@@ -128,6 +128,11 @@ namespace IStreamYouScream
             viewer.OnLeave.RemoveAllListeners();
             Viewers.Remove(viewer);
             OnViewersCountChanged.Invoke(CurrentNumberOfViewers);
+
+            if (CurrentNumberOfViewers <= 0)
+            {
+                StoryEvents.Instance.OnLostAllViewers.Invoke();
+            }
         }
     }
 }

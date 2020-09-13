@@ -33,6 +33,8 @@ namespace IStreamYouScream
         public UnityEvent OnCoinPicked;
         public UnityEvent OnRandom;
         public UnityEvent OnTick;
+        public UnityEvent OnLostAllViewers;
+        public UnityEvent OnReachedEndOfTheGame;
 
         #endregion
 

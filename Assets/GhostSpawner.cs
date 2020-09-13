@@ -2,13 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GhostSpawner : MonoBehaviour
+namespace IStreamYouScream
 {
-    public GameObject ghostPrefab;
-    public GameObject spawnPoint;
-
-    public void Spawn()
+    public class GhostSpawner : MonoBehaviour
     {
-        Instantiate(ghostPrefab, spawnPoint.transform.position, Quaternion.identity);
+        public GhostController ghostPrefab;
+        public GameObject spawnPoint;
+        private bool spawningEnabled = true;
+
+        public void Spawn()
+        {
+            if (!spawningEnabled)
+            {
+                return;
+            }
+            GhostController ghost = Instantiate(ghostPrefab, spawnPoint.transform.position, Quaternion.identity);
+            spawningEnabled = false;
+            ghost.OnDefeated.AddListener(EnableAgain);
+        }
+
+        private void EnableAgain()
+        {
+            spawningEnabled = true;
+        }
     }
 }

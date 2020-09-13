@@ -9,7 +9,7 @@ namespace IStreamYouScream
     {
         public override void PerformAction()
         {
-            Invoke("ReloadScene", 5);
+            StoryEvents.Instance.OnReachedEndOfTheGame.Invoke();
         }
 
         private void ReloadScene()
