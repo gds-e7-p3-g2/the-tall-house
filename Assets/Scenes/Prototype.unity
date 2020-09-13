@@ -678,7 +678,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 2.7199998, y: -11.88}
+  m_AnchoredPosition: {x: 2.7199993, y: -11.88}
   m_SizeDelta: {x: 1.7012795, y: 4.440138}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &108750736
@@ -1479,6 +1479,10 @@ Transform:
   - {fileID: 1671386103}
   - {fileID: 431428397}
   - {fileID: 1668250255}
+  - {fileID: 784130609}
+  - {fileID: 358427375}
+  - {fileID: 1306628351}
+  - {fileID: 311755338}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3039,12 +3043,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 311755336}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -161.37, y: 11.21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_Father: {fileID: 169089453}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &316052628
 GameObject:
@@ -3240,12 +3244,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 358427373}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -235.17249, y: 22.003616, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_Father: {fileID: 169089453}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &360113789
 GameObject:
@@ -4668,7 +4672,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
   OnWrongWord:
     m_PersistentCalls:
       m_Calls:
@@ -4695,7 +4699,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
 --- !u!1 &509819956
 GameObject:
   m_ObjectHideFlags: 0
@@ -7350,12 +7354,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 784130607}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -134.55467, y: 23.037167, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_Father: {fileID: 169089453}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &784989049
 GameObject:
@@ -7739,19 +7743,7 @@ MonoBehaviour:
   PlayerAnimation: {fileID: 154618358}
   OnStunned:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 776947783}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: ReactToEvent
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: -10
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!50 &814624707
 Rigidbody2D:
   serializedVersion: 4
@@ -7781,7 +7773,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 814624705}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -232.8, y: -17.9, z: 0}
+  m_LocalPosition: {x: -233.1, y: -18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4097922174733403431}
@@ -11408,12 +11400,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1306628349}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -132.98601, y: -5.991209, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_Father: {fileID: 169089453}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1309333421 stripped
 MonoBehaviour:
@@ -12742,15 +12734,15 @@ MonoBehaviour:
       - m_Target: {fileID: 776947783}
         m_TargetAssemblyTypeName: IStreamYouScream.ViewersController, Assembly-CSharp
         m_MethodName: ReactToEvent
-        m_Mode: 3
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 50
-          m_FloatArgument: 0
+          m_IntArgument: 500
+          m_FloatArgument: 50
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 2
+        m_CallState: 0
 --- !u!4 &1495546217 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7212026308775375833, guid: 85e5206a2c02e5d4594f2e8b5dc7a165,
@@ -16931,15 +16923,20 @@ PrefabInstance:
       propertyPath: Recorded.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1233395911712330303, guid: 623d7f3e95246174dac22c15ac1ad25d,
+        type: 3}
+      propertyPath: Recorded.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8988514652616386736, guid: 623d7f3e95246174dac22c15ac1ad25d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.9
+      value: 34.9
       objectReference: {fileID: 0}
     - target: {fileID: 8988514652616386736, guid: 623d7f3e95246174dac22c15ac1ad25d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.07
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 8988514653812534662, guid: 623d7f3e95246174dac22c15ac1ad25d,
         type: 3}
@@ -17006,10 +17003,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8988514653859819298, guid: 623d7f3e95246174dac22c15ac1ad25d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 28.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8988514653859819298, guid: 623d7f3e95246174dac22c15ac1ad25d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 14.2
+      objectReference: {fileID: 0}
     - target: {fileID: 8988514653859819300, guid: 623d7f3e95246174dac22c15ac1ad25d,
         type: 3}
       propertyPath: OnDefeated.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8988514653859819300, guid: 623d7f3e95246174dac22c15ac1ad25d,
         type: 3}
@@ -18699,7 +18706,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0.00000667572, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 13.813789, y: 13.891043}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1988065317
@@ -21631,7 +21638,7 @@ PrefabInstance:
     - target: {fileID: 4489508749074511756, guid: 81144477c184b8a46bb49ad30c757808,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4489508749074511795, guid: 81144477c184b8a46bb49ad30c757808,
         type: 3}
