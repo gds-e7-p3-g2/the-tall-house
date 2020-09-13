@@ -35,7 +35,7 @@ namespace IStreamYouScream
                         "the father look kinda familiar idk"
                     }
                 },
-                { StoryEvents.Instance.OnGrandfatherPictureRecorder, new Messages() { "msg1", "msg2"}},
+                { StoryEvents.Instance.OnGrandfatherPictureRecorder, new Messages() { "OnGrandfatherPictureRecorder GENERIC MESSAGE"}},
                 {
                     StoryEvents.Instance.OnGhostRecorded,
                     new Messages() {
@@ -54,8 +54,8 @@ namespace IStreamYouScream
                         "thats one tense ghost"
                     }
                 },
-                { StoryEvents.Instance.OnGhostStunned, new Messages() { "msg1", "msg2"}},
-                { StoryEvents.Instance.OnPlayerStunned, new Messages() { "msg1", "msg2"}},
+                { StoryEvents.Instance.OnGhostStunned, new Messages() { "OnGhostStunned GENERIC MESSAGE"}},
+                { StoryEvents.Instance.OnPlayerStunned, new Messages() { " OnPlayerStunned GENERIC MESSAGE"}},
                 {
                     StoryEvents.Instance.OnMeleeUsed,
                     new Messages() {
@@ -63,15 +63,15 @@ namespace IStreamYouScream
                         "Can't see sith",
                     }
                 },
-                { StoryEvents.Instance.OnMusicboxFirstSpotted, new Messages() { "msg1", "msg2"}},
-                { StoryEvents.Instance.OnCoinInsertedToMusicbox, new Messages() { "msg1", "msg2"}},
-                { StoryEvents.Instance.OnMusicboxWrongChoice, new Messages() { "msg1", "msg2"}},
-                { StoryEvents.Instance.OnMusicboxWrongChoiceAgain, new Messages() { "msg1", "msg2"}},
-                { StoryEvents.Instance.OnGroundFloorPicturesRecorded, new Messages() { "msg1", "msg2"}},
-                { StoryEvents.Instance.OnMusicanBodyFound, new Messages() { "msg1", "msg2"}},
-                { StoryEvents.Instance.OnBoringPeriod, new Messages() { "msg1", "msg2"}},
-                { StoryEvents.Instance.OnRandom, new Messages() { "msg1", "msg2"}},
-                { StoryEvents.Instance.OnTick, new Messages() { "msg1", "msg2"}}
+                { StoryEvents.Instance.OnMusicboxFirstSpotted, new Messages() { "OnMusicboxFirstSpotted GENERIC MESSAGE"}},
+                { StoryEvents.Instance.OnCoinInsertedToMusicbox, new Messages() { "OnCoinInsertedToMusicbox GENERIC MESSAGE"}},
+                { StoryEvents.Instance.OnMusicboxWrongChoice, new Messages() { "OnMusicboxWrongChoice GENERIC MESSAGE"}},
+                { StoryEvents.Instance.OnMusicboxWrongChoiceAgain, new Messages() { "OnMusicboxWrongChoiceAgain GENERIC MESSAGE"}},
+                { StoryEvents.Instance.OnGroundFloorPicturesRecorded, new Messages() { "OnGroundFloorPicturesRecorded GENERIC MESSAGE"}},
+                { StoryEvents.Instance.OnMusicanBodyFound, new Messages() { "OnMusicanBodyFound GENERIC MESSAGE"}},
+                { StoryEvents.Instance.OnBoringPeriod, new Messages() { "OnBoringPeriod GENERIC MESSAGE"}},
+                { StoryEvents.Instance.OnRandom, new Messages() { "OnRandom GENERIC MESSAGE"}},
+                { StoryEvents.Instance.OnTick, new Messages() { "OnTick GENERIC MESSAGE"}}
             };
             BindEvents();
         }
@@ -117,8 +117,6 @@ namespace IStreamYouScream
 
         private IEnumerator Cooldown(UnityEvent e)
         {
-            Debug.Log("COOLDOWN");
-            Debug.Log(e);
             event2cool[e] = true;
 
             yield return new WaitForSeconds(timeToCooldown);

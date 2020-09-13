@@ -52,16 +52,12 @@ namespace IStreamYouScream
         }
         public void ReactToEvent(float EventAttractiveness)
         {
-            // bool DoIEvenCare = Random.Range(1, 100) < Mathf.Min(satisfaction, 30);
+            bool DoIEvenCare = Random.Range(1, 100) < Mathf.Min(satisfaction, 30);
 
-            // Debug.Log("ReactToEvent    " + EventAttractiveness + "    " + DoIEvenCare);
-
-            // if (!DoIEvenCare)
-            // {
-            //     return;
-            // }
-
-            Debug.Log(EventAttractiveness);
+            if (!DoIEvenCare)
+            {
+                return;
+            }
 
             satisfaction += EventAttractiveness;
         }

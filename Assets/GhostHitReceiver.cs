@@ -17,19 +17,16 @@ namespace IStreamYouScream
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            Debug.Log("Ghost in melee range");
             player.MeleeWeapon.OnFire.AddListener(ReceiveHit);
         }
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            Debug.Log("Ghost OUT OF  melee range");
             player.MeleeWeapon.OnFire.RemoveListener(ReceiveHit);
         }
 
         private void ReceiveHit()
         {
-            Debug.Log("ReceiveHit");
             OnHit.Invoke();
         }
 

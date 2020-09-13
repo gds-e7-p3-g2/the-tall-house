@@ -1541,7 +1541,6 @@ GameObject:
   m_Component:
   - component: {fileID: 217935218}
   - component: {fileID: 217935217}
-  - component: {fileID: 217935219}
   m_Layer: 0
   m_Name: StoryEvents
   m_TagString: Untagged
@@ -1584,10 +1583,34 @@ MonoBehaviour:
         m_CallState: 2
   OnGhostStunned:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 776947783}
+        m_TargetAssemblyTypeName: IStreamYouScream.ViewersController, Assembly-CSharp
+        m_MethodName: ReactToEvent
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 25
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnPlayerStunned:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 776947783}
+        m_TargetAssemblyTypeName: IStreamYouScream.ViewersController, Assembly-CSharp
+        m_MethodName: ReactToEvent
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: -25
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnMeleeUsed:
     m_PersistentCalls:
       m_Calls:
@@ -1599,7 +1622,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: -2
+          m_FloatArgument: -15
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -1680,31 +1703,7 @@ MonoBehaviour:
       m_Calls: []
   OnTick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 757096617}
-        m_TargetAssemblyTypeName: IStreamYouScream.ChatBot, Assembly-CSharp
-        m_MethodName: SendRandomMessage
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 776947783}
-        m_TargetAssemblyTypeName: IStreamYouScream.ViewersController, Assembly-CSharp
-        m_MethodName: ReactToEvent
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: -20
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!4 &217935218
 Transform:
   m_ObjectHideFlags: 0
@@ -1719,46 +1718,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &217935219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 217935216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 500303a72bab6bb43bbcc158a93fb56f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interval: 1
-  OnTick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 217935217}
-        m_TargetAssemblyTypeName: IStreamYouScream.StoryEvents, Assembly-CSharp
-        m_MethodName: Tick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 0
-      - m_Target: {fileID: 217935219}
-        m_TargetAssemblyTypeName: IStreamYouScream.Tick, Assembly-CSharp
-        m_MethodName: Schedule
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &237644394 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7740193089284844913, guid: 2618e187d463abc4c84f4aad8c9131d6,
@@ -5446,6 +5405,76 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 764895455}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &768015881
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 768015882}
+  - component: {fileID: 768015883}
+  - component: {fileID: 768015884}
+  m_Layer: 18
+  m_Name: Muzyk
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &768015882
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768015881}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -166, y: 36, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2033094585}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &768015883
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768015881}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.3375626, y: 2.8921776}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 23.79979, y: 8.471458}
+  m_EdgeRadius: 0
+--- !u!114 &768015884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768015881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53651409ba612214086d04522ad2e773, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &771025129
 GameObject:
   m_ObjectHideFlags: 0
@@ -6072,7 +6101,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 814624705}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -235.4, y: -17.3, z: 0}
+  m_LocalPosition: {x: -232.7, y: -17.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4097922174733403431}
@@ -6300,6 +6329,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DebugCoin
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197147783462478432, guid: 0bb37a7a47543e84195713757c7d353b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4197147783462478433, guid: 0bb37a7a47543e84195713757c7d353b,
         type: 3}
@@ -16221,6 +16255,7 @@ Transform:
   - {fileID: 1525759153106008074}
   - {fileID: 823181188}
   - {fileID: 745873100811816833}
+  - {fileID: 768015882}
   m_Father: {fileID: 953192517}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
