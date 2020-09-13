@@ -3,12 +3,11 @@ guid: 39c15b1b938ae574d835a4db8489378c
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
-  fontSize: 16
-  forceTextureCase: -2
+  fontSize: 180
+  forceTextureCase: -1
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Neucha
   fontNames:
   - Neucha
   fallbackFontReferences: []

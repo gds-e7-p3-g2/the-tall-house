@@ -7,6 +7,7 @@ namespace IStreamYouScream
 {
     public class PlayerController : StateMachine<PlayerState>
     {
+        private bool _hasCoin = false;
         public CameraController cameraController;
         public GameObject WhatGhostsSee;
         public float walkSpeed = 40f;
@@ -18,6 +19,18 @@ namespace IStreamYouScream
 
         private float meleeInitialX;
 
+        public bool HasCoin()
+        {
+            return _hasCoin;
+        }
+        public void setHasCoin(bool v)
+        {
+            _hasCoin = v;
+            if (_hasCoin)
+            {
+                StoryEvents.Instance.OnCoinPicked.Invoke();
+            }
+        }
 
         public bool flipX
         {

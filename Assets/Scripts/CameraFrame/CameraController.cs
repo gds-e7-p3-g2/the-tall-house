@@ -51,6 +51,10 @@ namespace IStreamYouScream
         public override void OnUpdate()
         {
             CameraController.BaterryLevel = Mathf.Max(CameraController.BaterryLevel - CameraController.PowerConsumption * Time.deltaTime, 0f);
+            if (CameraController.BaterryLevel <= 15f)
+            {
+                LowBattery();
+            }
             if (CameraController.BaterryLevel <= 0f)
             {
                 StopRecording();
@@ -63,6 +67,11 @@ namespace IStreamYouScream
         public override void StopRecording()
         {
             CameraController.SetState(new CameraIdleState(CameraController));
+        }
+
+        private void LowBattery()
+        {
+            MusicController.Instance.PlayLowBattery();
         }
 
         private void ChangeColor(Color color)
@@ -128,9 +137,9 @@ namespace IStreamYouScream
 
     public class CameraController : StateMachine<CameraState>
     {
-        private float _BaterryLevel = 100f;
+        public float _BaterryLevel = 100f;
         public List<RecordableItem> RegisteredItems = new List<RecordableItem>();
-        public FloatEvent OnBatteryLevelChanged;
+
         public float BaterryLevel
         {
             get { return _BaterryLevel; }
@@ -143,11 +152,12 @@ namespace IStreamYouScream
         public float PowerConsumption = 1.5f;
         public float ChargingSpeed = 5.5f;
         public GameObject VisualRepresentation;
-
+        public FloatEvent OnBatteryLevelChanged;
 
         void Start()
         {
             SetState(new CameraIdleState(this));
+            BaterryLevel = _BaterryLevel;
         }
 
         // Update is called once per frame

@@ -30,6 +30,7 @@ namespace IStreamYouScream
         public UnityEvent OnGroundFloorPicturesRecorded;
         public UnityEvent OnMusicanBodyFound;
         public UnityEvent OnBoringPeriod;
+        public UnityEvent OnCoinPicked;
         public UnityEvent OnRandom;
         public UnityEvent OnTick;
 
@@ -50,6 +51,7 @@ namespace IStreamYouScream
         public void CallOnMusicanBodyFound() { OnMusicanBodyFound.Invoke(); }
         public void CallOnBoringPeriod() { OnBoringPeriod.Invoke(); }
         public void CallOnRandom() { OnRandom.Invoke(); }
+        public void CallOnCoinPicked() { OnCoinPicked.Invoke(); }
         public void CallOnTick() { OnTick.Invoke(); }
 
         #endregion
@@ -60,9 +62,6 @@ namespace IStreamYouScream
         {
             OnTick.Invoke();
         }
-
-
-
 
         #region singleton
         private static StoryEvents _instance;

@@ -3,32 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace IStreamYouScream
 {
-    public class ActionChargeBattery : Action
+    public class ActionTakeCoin : Action
     {
         private PlayerController playerController;
         [SerializeField] TextSetter TextHint;
+        [SerializeField] GameObject CoinVisuals;
+        private bool isItemAvaiable = true;
+        [SerializeField] bool IsDEBUG = false;
 
         void Start()
         {
-            TextHint.SetText("Charge battery");
             playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         }
 
         public override void PerformAction()
         {
-            playerController.ToggleCharging();
-
-            if (playerController.GetIsCharging())
+            if (IsDEBUG)
             {
-                TextHint.SetText("Stop charging");
-                MusicController.Instance.PlayPlugIn();
+                playerController.setHasCoin(true);
+                return;
             }
-            else
+            if (!isItemAvaiable)
             {
-                TextHint.SetText("Charge battery");
-                MusicController.Instance.PlayPlugOut();
+                return;
             }
-
+            playerController.setHasCoin(true);
+            isItemAvaiable = false;
+            gameObject.SetActive(false);
         }
     }
 }

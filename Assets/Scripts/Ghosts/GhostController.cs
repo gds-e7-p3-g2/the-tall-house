@@ -298,7 +298,8 @@ namespace IStreamYouScream
             GhostController.CurrentSpeed = 0.1f;
 
             GhostController.Target = GhostController.DefeatedPoint;
-            MusicController.Instance.PlayDefeated();
+            MusicController.Instance.PlayGhostDefeated();
+            MusicController.Instance.PlayAmbient();
 
             GhostController.ConeOfSight.SetActive(false);
         }

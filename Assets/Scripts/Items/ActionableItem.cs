@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 namespace IStreamYouScream
 {
     public class ActionableItem : MonoBehaviour
@@ -32,7 +33,10 @@ namespace IStreamYouScream
         }
 
         // Start is called before the first frame update
-        void Start() { }
+        void Start()
+        {
+            actionPerformer = GetComponent<Action>();
+        }
 
         void Update()
         {
