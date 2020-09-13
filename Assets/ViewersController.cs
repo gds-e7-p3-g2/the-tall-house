@@ -20,10 +20,10 @@ namespace IStreamYouScream
             {
                 __satisfaction = Mathf.Min(100f, Mathf.Max(0f, value));
 
-                if (__satisfaction <= 0)
-                {
-                    Leave();
-                }
+                // if (__satisfaction <= 0)
+                // {
+                //     Leave();
+                // }
                 if (__satisfaction >= 70)
                 {
                     InviteFriend();
@@ -52,12 +52,16 @@ namespace IStreamYouScream
         }
         public void ReactToEvent(float EventAttractiveness)
         {
-            bool DoIEvenCare = Random.Range(1, 100) < Mathf.Min(satisfaction, 30);
+            // bool DoIEvenCare = Random.Range(1, 100) < Mathf.Min(satisfaction, 30);
 
-            if (!DoIEvenCare)
-            {
-                return;
-            }
+            // Debug.Log("ReactToEvent    " + EventAttractiveness + "    " + DoIEvenCare);
+
+            // if (!DoIEvenCare)
+            // {
+            //     return;
+            // }
+
+            Debug.Log(EventAttractiveness);
 
             satisfaction += EventAttractiveness;
         }

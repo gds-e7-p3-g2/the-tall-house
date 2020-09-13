@@ -9,8 +9,6 @@ namespace IStreamYouScream
     {
         public override void PerformAction()
         {
-            Debug.Log("BRAVO YOU HAVE FINISHED THE GAME");
-
             Invoke("ReloadScene", 5);
         }
 

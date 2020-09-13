@@ -200,6 +200,9 @@ MonoBehaviour:
   GhostDeath: {fileID: 8300000, guid: c9e3e3e6d941d8b4f82160bbd699b6e9, type: 3}
   PickCoin: {fileID: 8300000, guid: bcd9dc32975d8824da60fb0b00b291db, type: 3}
   CoinUsed: {fileID: 8300000, guid: ff1063bc99b186a41b2d14bedbdbb05b, type: 3}
+  PlugIn: {fileID: 0}
+  PlugOut: {fileID: 0}
+  PowerDrain: {fileID: 0}
 --- !u!4 &16932030
 Transform:
   m_ObjectHideFlags: 0
@@ -1690,6 +1693,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 776947783}
+        m_TargetAssemblyTypeName: IStreamYouScream.ViewersController, Assembly-CSharp
+        m_MethodName: ReactToEvent
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: -20
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &217935218
 Transform:
   m_ObjectHideFlags: 0
@@ -1702,7 +1717,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &217935219
 MonoBehaviour:
@@ -9475,45 +9490,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'asdasdasdasd
-
-    asdasda
-
-    sdasdas
-
-    dasda
-
-    sdasdasdasasd
-
-    asdasdasdasd
-
-    asdasda
-
-    sdasdas
-
-    dasda
-
-    sdasdasdasasd
-
-    asdasdasdasd
-
-    asdasda
-
-    sdasdas
-
-    dasda
-
-    sdasdasdasasd
-
-    asdasdasdasd
-
-    asdasda
-
-    sdasdas
-
-    dasda
-
-    sdasdasdasasd'
+  m_Text: ===== Welcome to the Stream =====
 --- !u!222 &1433561435
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11526,7 +11503,7 @@ Transform:
   - {fileID: 1438975496}
   - {fileID: 16932030}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1671386102
 GameObject:
