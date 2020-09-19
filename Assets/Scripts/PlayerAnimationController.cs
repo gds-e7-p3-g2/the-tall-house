@@ -18,8 +18,11 @@ public class PlayerAnimationController : MonoBehaviour
             _flipX = value;
 
             updateFacingSide();
+            FixX(xDiff);
         }
     }
+
+    private float xDiff = 0;
     private void updateFacingSide()
     {
         animator.transform.rotation = Quaternion.LookRotation(flipX ? Vector3.back : Vector3.forward);
@@ -39,10 +42,15 @@ public class PlayerAnimationController : MonoBehaviour
     };
     private void SetState(STATES state)
     {
-        Debug.Log("STATE " + state);
         animator.enabled = true;
         animator.SetInteger("State", (int)state);
         SetSpeedMultiplied(StateToSpeed[(int)state]);
+        FixX();
+    }
+    private void FixX(float _xDiff = 0)
+    {
+        xDiff = _xDiff;
+        animator.transform.localPosition = new Vector3((flipX ? -1 : 1) * xDiff, 0, 0);
     }
     private void SetSpeedMultiplied(float value)
     {
@@ -50,9 +58,18 @@ public class PlayerAnimationController : MonoBehaviour
     }
     public void SetIdle() { SetState(STATES.IDLE); }
     public void SetCharging() { SetState(STATES.IDLE); }
+    public void SetStunned() { SetState(STATES.IDLE); }
     public void SetWalk() { SetState(STATES.WALK); }
-    public void SetRun() { SetState(STATES.RUN); }
-    public void SetMelee() { SetState(STATES.MELEE); }
+    public void SetRun()
+    {
+        SetState(STATES.RUN);
+        FixX(-0.82f);
+    }
+    public void SetMelee()
+    {
+        SetState(STATES.MELEE);
+        FixX(1.35f);
+    }
     public void SetHiding()
     {
         SetState(STATES.IDLE);

@@ -14,6 +14,7 @@ namespace IStreamYouScream
             PlayerController.Invoke("StopBeingStuned", PlayerController.StunnedTime);
             StartBlinking();
             PlayerController.OnStunned.Invoke();
+            PlayerController.animationController.SetStunned();
         }
 
         private void StartBlinking()
