@@ -11,6 +11,7 @@ namespace IStreamYouScream
             base.Enter();
             PlayerController.cameraController.ShowFrame();
             PlayerController.PlayerAnimation.GetComponent<Animator>().speed = 1;
+            PlayerController.animationController.SetWalk();
         }
 
         public override void Exit()

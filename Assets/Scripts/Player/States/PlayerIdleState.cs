@@ -16,6 +16,7 @@ namespace IStreamYouScream
             rigidbody2D = PlayerController.GetComponent<Rigidbody2D>();
             PlayerController.cameraController.ShowFrame();
             PlayerController.PlayerAnimation.GetComponent<Animator>().speed = 0;
+            PlayerController.animationController.SetIdle();
         }
         public override void OnUpdate()
         {

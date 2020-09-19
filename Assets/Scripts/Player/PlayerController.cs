@@ -50,9 +50,12 @@ namespace IStreamYouScream
                 tmp = MeleeWeapon.transform.localScale;
                 tmp.x = value ? -1 : 1;
                 MeleeWeapon.transform.localScale = tmp;
-
-
             }
+        }
+
+        public PlayerAnimationController animationController
+        {
+            get { return PlayerAnimation.GetComponent<PlayerAnimationController>(); }
         }
 
         public void Start()

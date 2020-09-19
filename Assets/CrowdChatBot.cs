@@ -35,7 +35,10 @@ namespace IStreamYouScream
                         "the father look kinda familiar idk"
                     }
                 },
-                { StoryEvents.Instance.OnGrandfatherPictureRecorder, new Messages() { "OnGrandfatherPictureRecorder GENERIC MESSAGE"}},
+                { StoryEvents.Instance.OnGrandfatherPictureRecorder, new Messages() {
+                    "OnGrandfatherPictureRecorder GENERIC MESSAGE" ,
+
+                }},
                 {
                     StoryEvents.Instance.OnGhostRecorded,
                     new Messages() {

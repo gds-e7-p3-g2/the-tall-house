@@ -14,6 +14,7 @@ namespace IStreamYouScream
             PlayerController.cameraController.HideFrame();
             PlayerController.PlayerAnimation.GetComponent<Animator>().speed = 1.5f;
             PlayerController.PlayerAnimation.GetComponent<Animator>().SetFloat("Direction", 1.0f);
+            PlayerController.animationController.SetRun();
         }
 
         public override void OnFixedUpdate()
