@@ -34,15 +34,16 @@ namespace IStreamYouScream
 
         public bool flipX
         {
-            get { return PlayerAnimation.GetComponent<SpriteRenderer>().flipX; }
+            get { return animationController.flipX; }
             set
             {
-                if (PlayerAnimation.GetComponent<SpriteRenderer>().flipX == value)
+                if (flipX == value)
                 {
                     return;
                 }
-                PlayerAnimation.GetComponent<SpriteRenderer>().flipX = value;
+                animationController.flipX = value;
 
+                // HERE BE DRAGONS
                 var tmp = MeleeWeapon.transform.position;
                 tmp.x += value ? -1.37f * 2f : 1.37f * 2f;
                 MeleeWeapon.transform.position = tmp;
@@ -50,6 +51,7 @@ namespace IStreamYouScream
                 tmp = MeleeWeapon.transform.localScale;
                 tmp.x = value ? -1 : 1;
                 MeleeWeapon.transform.localScale = tmp;
+                // HERE BE DRAGONS - END
             }
         }
 
