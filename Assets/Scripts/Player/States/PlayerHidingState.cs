@@ -10,13 +10,12 @@ namespace IStreamYouScream
         public override void Enter()
         {
             PlayerController.cameraController.HideFrame();
-            PlayerController.PlayerAnimation.GetComponent<SpriteRenderer>().color = Color.black;
-            PlayerController.PlayerAnimation.GetComponent<Animator>().speed = 0;
+            PlayerController.animationController.SetHiding();
             PlayerController.WhatGhostsSee.SetActive(false);
         }
         public override void Exit()
         {
-            PlayerController.PlayerAnimation.GetComponent<SpriteRenderer>().color = Color.white;
+            PlayerController.animationController.LeaveHiding();
             PlayerController.WhatGhostsSee.SetActive(true);
         }
 

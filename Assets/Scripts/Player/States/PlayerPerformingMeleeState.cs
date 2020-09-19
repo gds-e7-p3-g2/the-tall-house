@@ -6,12 +6,13 @@ namespace IStreamYouScream
 {
     class PlayerPerformingMeleeState : PlayerState
     {
-
         public PlayerPerformingMeleeState(PlayerController playerController) : base(playerController) { }
 
         public override void Enter()
         {
             PlayerController.IsRecording = false;
+            PlayerController.animationController.SetMelee();
+            PlayerController.cameraController.HideFrame();
             PlayerController.MeleeWeapon.OnReady.AddListener(GoToIdle);
             PlayerController.MeleeWeapon.Shoot();
         }

@@ -6,7 +6,6 @@ public class PlayerAnimationController : MonoBehaviour
 {
     private Animator animator { get { return gameObject.GetComponent<Animator>(); } }
     private bool _flipX = false;
-
     public bool flipX
     {
         get { return _flipX; }
@@ -21,16 +20,10 @@ public class PlayerAnimationController : MonoBehaviour
             updateFacingSide();
         }
     }
-
     private void updateFacingSide()
     {
-        Quaternion.LookRotation(new Vector3(0, 180, 0));
-        if (flipX)
-            animator.transform.rotation = Quaternion.LookRotation(Vector3.back);
-        else
-            animator.transform.rotation = Quaternion.LookRotation(Vector3.forward);
+        animator.transform.rotation = Quaternion.LookRotation(flipX ? Vector3.back : Vector3.forward);
     }
-
     enum STATES : int
     {
         IDLE = 0,
@@ -38,16 +31,16 @@ public class PlayerAnimationController : MonoBehaviour
         RUN = 2,
         MELEE = 3
     }
-
     private Dictionary<int, float> StateToSpeed = new Dictionary<int, float>(){
         { (int)STATES.IDLE, 0f },
         { (int)STATES.WALK, 1f },
         { (int)STATES.RUN, 1f },
         { (int)STATES.MELEE, 1f }
     };
-
     private void SetState(STATES state)
     {
+        Debug.Log("STATE " + state);
+        animator.enabled = true;
         animator.SetInteger("State", (int)state);
         SetSpeedMultiplied(StateToSpeed[(int)state]);
     }
@@ -60,4 +53,18 @@ public class PlayerAnimationController : MonoBehaviour
     public void SetWalk() { SetState(STATES.WALK); }
     public void SetRun() { SetState(STATES.RUN); }
     public void SetMelee() { SetState(STATES.MELEE); }
+    public void SetHiding()
+    {
+        SetState(STATES.IDLE);
+        animator.GetComponent<SpriteRenderer>().color = Color.black;
+    }
+    public void LeaveHiding()
+    {
+        animator.GetComponent<SpriteRenderer>().color = Color.white;
+    }
+
+    public void SetDirection(float direction)
+    {
+        SetSpeedMultiplied(direction);
+    }
 }

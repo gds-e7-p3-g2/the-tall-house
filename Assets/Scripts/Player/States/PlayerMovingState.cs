@@ -31,10 +31,6 @@ namespace IStreamYouScream
         {
             rigidbody2D.velocity = VelocityZero;
         }
-        public override void OnUpdate()
-        {
-            UpdateAnimation();
-        }
 
         protected virtual void OnStopMoving()
         {
@@ -52,18 +48,7 @@ namespace IStreamYouScream
             PlayerController.Move(horizontalMove);
         }
 
-        protected virtual void UpdateAnimation()
-        {
-            // is the player going backwards
-            if (PlayerController.IsCameraOnLeft() && horizontalMove > 0.0f || !PlayerController.IsCameraOnLeft() && horizontalMove < 0.0f)
-            {
-                PlayerController.PlayerAnimation.GetComponent<Animator>().SetFloat("Direction", -1.0f);
-            }
-            else
-            {
-                PlayerController.PlayerAnimation.GetComponent<Animator>().SetFloat("Direction", 1.0f);
-            }
-        }
+
 
     }
 }

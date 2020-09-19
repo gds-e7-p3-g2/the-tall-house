@@ -18,6 +18,7 @@ namespace IStreamYouScream
             PlayerController.LookAtCamera();
             CheckRecording();
             CheckRunning();
+            UpdateAnimation();
         }
         public override void FlipX(bool flipX)
         {
@@ -47,6 +48,12 @@ namespace IStreamYouScream
                 return;
             }
             PlayerController.SetState(new PlayerPerformingMeleeState(PlayerController));
+        }
+        protected virtual void UpdateAnimation()
+        {
+            bool goingBackwards = PlayerController.IsCameraOnLeft() && horizontalMove > 0.0f || !PlayerController.IsCameraOnLeft() && horizontalMove < 0.0f;
+
+            PlayerController.animationController.SetDirection(goingBackwards ? -1f : 1f);
         }
     }
 }

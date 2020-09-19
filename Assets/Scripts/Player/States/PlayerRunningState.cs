@@ -12,8 +12,6 @@ namespace IStreamYouScream
         {
             base.Enter();
             PlayerController.cameraController.HideFrame();
-            PlayerController.PlayerAnimation.GetComponent<Animator>().speed = 1.5f;
-            PlayerController.PlayerAnimation.GetComponent<Animator>().SetFloat("Direction", 1.0f);
             PlayerController.animationController.SetRun();
         }
 
@@ -25,22 +23,7 @@ namespace IStreamYouScream
                 PlayerController.SetState(new PlayerWalkingState(PlayerController));
             }
 
-            if (horizontalMove < 0)
-            {
-                PlayerController.flipX = true;
-                PlayerController.PlayerAnimation.GetComponent<Animator>().SetFloat("Direction", 1.0f);
-            }
-            else
-            {
-                PlayerController.flipX = false;
-                PlayerController.PlayerAnimation.GetComponent<Animator>().SetFloat("Direction", 1.0f);
-            }
-
-        }
-
-        protected override void UpdateAnimation()
-        {
-            // leave empty 
+            PlayerController.flipX = horizontalMove < 0;
         }
     }
 
