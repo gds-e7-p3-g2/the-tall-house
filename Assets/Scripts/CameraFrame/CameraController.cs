@@ -19,6 +19,7 @@ namespace IStreamYouScream
         public virtual void ShowFrame() { }
         public virtual void HideFrame() { }
         public virtual void OnUpdate() { }
+        public virtual bool IsRecording() { return false; }
         public virtual void RegisterItem(RecordableItem item) { }
         public virtual void UnregisterItem(RecordableItem item) { }
     }
@@ -59,6 +60,10 @@ namespace IStreamYouScream
             {
                 StopRecording();
             }
+        }
+        public override bool IsRecording()
+        {
+            return true;
         }
         public override void HideFrame()
         {
@@ -187,5 +192,6 @@ namespace IStreamYouScream
         public void StopCharging() { CurrentState.StopCharging(); }
         public void ShowFrame() { CurrentState.ShowFrame(); }
         public void HideFrame() { CurrentState.HideFrame(); }
+        public bool IsRecording() { return CurrentState.IsRecording(); }
     }
 }

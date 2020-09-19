@@ -8,6 +8,7 @@ namespace IStreamYouScream
     public class Weapon : MonoBehaviour
     {
         public UnityEvent OnFire;
+        public UnityEvent OnReady;
         public float CooldownInterval = 1f;
         public float AmountOfDamage = 1f;
         private bool isReadyToShoot = true;
@@ -32,6 +33,7 @@ namespace IStreamYouScream
             isReadyToShoot = false;
             yield return new WaitForSeconds(CooldownInterval);
             isReadyToShoot = true;
+            OnReady.Invoke();
         }
     }
 }

@@ -39,35 +39,25 @@ public class PlayerAnimationController : MonoBehaviour
         MELEE = 3
     }
 
-    private void SetState(int state)
+    private Dictionary<int, float> StateToSpeed = new Dictionary<int, float>(){
+        { (int)STATES.IDLE, 0f },
+        { (int)STATES.WALK, 1f },
+        { (int)STATES.RUN, 1f },
+        { (int)STATES.MELEE, 1f }
+    };
+
+    private void SetState(STATES state)
     {
-        animator.SetInteger("State", state);
+        animator.SetInteger("State", (int)state);
+        SetSpeedMultiplied(StateToSpeed[(int)state]);
     }
     private void SetSpeedMultiplied(float value)
     {
         animator.SetFloat("Direction", value);
     }
-    public void SetIdle()
-    {
-        SetState((int)STATES.IDLE);
-        SetSpeedMultiplied(0);
-    }
-
-    public void SetWalk()
-    {
-        SetState((int)STATES.WALK);
-        SetSpeedMultiplied(1);
-    }
-
-    public void SetRun()
-    {
-        SetState((int)STATES.RUN);
-        SetSpeedMultiplied(1);
-    }
-
-    public void SetMelee()
-    {
-        SetState((int)STATES.MELEE);
-        SetSpeedMultiplied(1);
-    }
+    public void SetIdle() { SetState(STATES.IDLE); }
+    public void SetCharging() { SetState(STATES.IDLE); }
+    public void SetWalk() { SetState(STATES.WALK); }
+    public void SetRun() { SetState(STATES.RUN); }
+    public void SetMelee() { SetState(STATES.MELEE); }
 }

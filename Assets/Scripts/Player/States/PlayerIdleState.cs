@@ -23,14 +23,10 @@ namespace IStreamYouScream
             if (InputManager.Horizontal != 0.0f)
             {
                 PlayerController.SetState(new PlayerWalkingState(PlayerController));
+                return;
             }
-            if (InputManager.Recording)
-            {
-                PlayerController.SetState(new PlayerIdleRecordingState(PlayerController));
-            }
-            // add other transitions:
-            // start recording 
-            // get spotted by ghost
+
+            PlayerController.IsRecording = InputManager.Recording;
         }
         public override void OnFixedUpdate()
         {
@@ -54,7 +50,11 @@ namespace IStreamYouScream
 
         public override void PerformMelee()
         {
-            PlayerController.MeleeWeapon.Shoot();
+            if (PlayerController.IsRecording)
+            {
+                return;
+            }
+            PlayerController.SetState(new PlayerPerformingMeleeState(PlayerController));
         }
 
     }

@@ -849,9 +849,11 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4097922174733403431}
+  - {fileID: 1928566321}
   m_Father: {fileID: 814624708}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &154618360
 SpriteRenderer:
@@ -6105,6 +6107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beaa991ef075824429b3011ea7ee32e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InDanger: 0
   cameraController: {fileID: 433086554}
   WhatGhostsSee: {fileID: 1928566320}
   walkSpeed: 40
@@ -6147,8 +6150,6 @@ Transform:
   m_LocalPosition: {x: -232.66, y: -18.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4097922174733403431}
-  - {fileID: 1928566321}
   - {fileID: 1094134248}
   - {fileID: 154618359}
   - {fileID: 1029597835}
@@ -7370,7 +7371,7 @@ Transform:
   m_Children:
   - {fileID: 433086552}
   m_Father: {fileID: 814624708}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1029597837
 MonoBehaviour:
@@ -7664,7 +7665,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 814624708}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!114 &1094134249
 MonoBehaviour:
@@ -14574,11 +14575,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1928566320}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 814624708}
+  m_Father: {fileID: 154618359}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &1928566323
@@ -14594,8 +14595,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.24129295, y: -0.21914196}
-  m_Size: {x: 1.9477806, y: 6.171114}
+  m_Offset: {x: -0.24127197, y: -0.082491875}
+  m_Size: {x: 1.619812, y: 6.444414}
   m_Direction: 0
 --- !u!114 &1939322760 stripped
 MonoBehaviour:
@@ -18638,7 +18639,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 814624708}
+    m_TransformParent: {fileID: 154618359}
     m_Modifications:
     - target: {fileID: 478937754270337649, guid: b1e43767eb9262d4ea063221033b9f19,
         type: 3}
@@ -18810,10 +18811,15 @@ PrefabInstance:
       propertyPath: m_GravityScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5692063451239900760, guid: b1e43767eb9262d4ea063221033b9f19,
+        type: 3}
+      propertyPath: OnDeactivated.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 154618362}
     - target: {fileID: 6851936990028236235, guid: b1e43767eb9262d4ea063221033b9f19,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.37
+      value: 1.3699951
       objectReference: {fileID: 0}
     - target: {fileID: 6851936990028236235, guid: b1e43767eb9262d4ea063221033b9f19,
         type: 3}
@@ -18828,17 +18834,17 @@ PrefabInstance:
     - target: {fileID: 6851936990028236235, guid: b1e43767eb9262d4ea063221033b9f19,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6851936990028236235, guid: b1e43767eb9262d4ea063221033b9f19,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6851936990028236235, guid: b1e43767eb9262d4ea063221033b9f19,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6851936990028236235, guid: b1e43767eb9262d4ea063221033b9f19,
         type: 3}
@@ -19020,34 +19026,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7478305118795874540}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8315435317901702861
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8315435317901702860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51a177d64911c8d40afe375a222434a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cooldown: 2
-  OnDeactivated:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 154618362}
-        m_TargetAssemblyTypeName: PlayerAnimationController, Assembly-CSharp
-        m_MethodName: SetIdle
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &8788371301511367558
 MonoBehaviour:
   m_ObjectHideFlags: 0

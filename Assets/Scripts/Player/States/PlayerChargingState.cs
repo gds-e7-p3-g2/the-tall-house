@@ -11,7 +11,7 @@ namespace IStreamYouScream
         public override void Enter()
         {
             PlayerController.cameraController.StartCharging();
-            PlayerController.PlayerAnimation.GetComponent<Animator>().speed = 0;
+            PlayerController.animationController.SetCharging();
         }
         public override void Exit()
         {
@@ -27,7 +27,5 @@ namespace IStreamYouScream
         {
             return true;
         }
-
     }
-
 }

@@ -7,6 +7,23 @@ namespace IStreamYouScream
 {
     public class PlayerController : StateMachine<PlayerState>
     {
+        [HideInInspector] public bool InDanger = false;
+        [HideInInspector]
+        public bool IsRecording
+        {
+            get { return cameraController.IsRecording(); }
+            set
+            {
+                if (value)
+                {
+                    cameraController.StartRecording();
+                }
+                else
+                {
+                    cameraController.StopRecording();
+                }
+            }
+        }
         private bool _hasCoin = false;
         public CameraController cameraController;
         public GameObject WhatGhostsSee;
@@ -42,16 +59,6 @@ namespace IStreamYouScream
                     return;
                 }
                 animationController.flipX = value;
-
-                // HERE BE DRAGONS
-                var tmp = MeleeWeapon.transform.position;
-                tmp.x += value ? -1.37f * 2f : 1.37f * 2f;
-                MeleeWeapon.transform.position = tmp;
-
-                tmp = MeleeWeapon.transform.localScale;
-                tmp.x = value ? -1 : 1;
-                MeleeWeapon.transform.localScale = tmp;
-                // HERE BE DRAGONS - END
             }
         }
 
@@ -63,7 +70,6 @@ namespace IStreamYouScream
         public void Start()
         {
             SetState(new PlayerIdleState(this));
-            // meleeInitialX = MeleeWeapon.transform.position.x;
         }
         public void Move(float distance)
         {

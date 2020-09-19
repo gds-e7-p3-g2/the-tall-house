@@ -10,21 +10,14 @@ namespace IStreamYouScream
         {
             base.Enter();
             PlayerController.cameraController.ShowFrame();
-            PlayerController.PlayerAnimation.GetComponent<Animator>().speed = 1;
             PlayerController.animationController.SetWalk();
         }
-
-        public override void Exit()
-        {
-            PlayerController.PlayerAnimation.GetComponent<Animator>().SetFloat("Direction", 1.0f);
-        }
-
         public override void OnFixedUpdate()
         {
             base.OnFixedUpdate();
             PlayerController.LookAtCamera();
-            CheckRunning();
             CheckRecording();
+            CheckRunning();
         }
         public override void FlipX(bool flipX)
         {
@@ -33,6 +26,10 @@ namespace IStreamYouScream
 
         public virtual void CheckRunning()
         {
+            if (PlayerController.IsRecording)
+            {
+                return;
+            }
             if (InputManager.Run)
             {
                 PlayerController.SetState(new PlayerRunningState(PlayerController));
@@ -41,14 +38,15 @@ namespace IStreamYouScream
 
         public virtual void CheckRecording()
         {
-            if (InputManager.Recording)
-            {
-                PlayerController.SetState(new PlayerWalkingRecordingState(PlayerController));
-            }
+            PlayerController.IsRecording = InputManager.Recording;
         }
         public override void PerformMelee()
         {
-            PlayerController.MeleeWeapon.Shoot();
+            if (PlayerController.IsRecording)
+            {
+                return;
+            }
+            PlayerController.SetState(new PlayerPerformingMeleeState(PlayerController));
         }
     }
 }
