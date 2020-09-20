@@ -14,10 +14,10 @@ namespace IStreamYouScream
     {
         public KeyboardAndMouseProfile()
         {
+            #region tech fields
             Name = "Keyboard/Mouse";
             Meta = "A keyboard and mouse combination profile appropriate for FPS.";
 
-            // This profile only works on desktops.
             SupportedPlatforms = new[]
             {
                 "Windows",
@@ -28,58 +28,50 @@ namespace IStreamYouScream
             Sensitivity = 1.0f;
             LowerDeadZone = 0.0f;
             UpperDeadZone = 1.0f;
+            #endregion
 
             ButtonMappings = new[]
             {
                 new InputControlMapping
                 {
-                    Handle = "Fire - Mouse",
-                    Target = InputControlType.Action1,
-                    Source = MouseButton0
+                    Handle = "Melee",
+                    Target = PadMapping.MELEE,
+                    Source = MouseButton0  // Left mouse button
                 },
                 new InputControlMapping
                 {
-                    Handle = "Fire - Keyboard",
-                    Target = InputControlType.Action1,
-					// KeyCodeButton fires when any of the provided KeyCode params are down.
-					Source = KeyCodeButton( KeyCode.F, KeyCode.Return )
-                },
-                new InputControlMapping
-                {
-                    Handle = "Interact",
-                    Target = InputControlType.Action4,
+                    Handle = "Use",
+                    Target = PadMapping.USE,
                     Source = KeyCodeButton( KeyCode.E )
                 },
                 new InputControlMapping
                 {
-                    Handle = "Recording",
-                    Target = InputControlType.RightBumper,
-                    Source = MouseButton1
+                    Handle = "Record",
+                    Target = PadMapping.RECORD,
+                    Source = MouseButton1 // right mouse button
                 },
                 new InputControlMapping
                 {
                     Handle = "Run",
-                    Target = InputControlType.LeftBumper,
-					// KeyCodeComboButton requires that all KeyCode params are down simultaneously.
-					Source = KeyCodeComboButton( KeyCode.LeftShift )
+                    Target = PadMapping.RUN,
+                    Source = KeyCodeComboButton( KeyCode.LeftShift )
                 },
             };
 
+            #region AnalogMappings
             AnalogMappings = new[]
             {
                 new InputControlMapping
                 {
                     Handle = "Move X",
                     Target = InputControlType.LeftStickX,
-					// KeyCodeAxis splits the two KeyCodes over an axis. The first is negative, the second positive.
-					Source = KeyCodeAxis( KeyCode.A, KeyCode.D )
+                    Source = KeyCodeAxis( KeyCode.A, KeyCode.D )
                 },
                 new InputControlMapping
                 {
                     Handle = "Move Y",
                     Target = InputControlType.LeftStickY,
-					// Notes that up is positive in Unity, therefore the order of KeyCodes is down, up.
-					Source = KeyCodeAxis( KeyCode.S, KeyCode.W )
+                    Source = KeyCodeAxis( KeyCode.S, KeyCode.W )
                 },
                 new InputControlMapping {
                     Handle = "Move X Alternate",
@@ -116,6 +108,7 @@ namespace IStreamYouScream
                     Scale  = 1f
                 }
             };
+            #endregion
         }
     }
 }
