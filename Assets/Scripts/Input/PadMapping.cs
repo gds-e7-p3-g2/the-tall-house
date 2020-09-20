@@ -9,8 +9,8 @@ namespace IStreamYouScream
     {
         public static InputControlType MELEE = InputControlType.Action2;
         public static InputControlType RECORD = InputControlType.RightBumper;
-        public static InputControlType USE = InputControlType.Action3;
-        public static InputControlType RUN = InputControlType.Action1;
+        public static InputControlType USE = InputControlType.Action1;
+        public static InputControlType RUN = InputControlType.Action3;
         public static InputControlType FLASH = InputControlType.LeftTrigger;
     }
 
