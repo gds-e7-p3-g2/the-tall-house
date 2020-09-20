@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Experimental.Rendering.LWRP;
+using UnityEngine.Experimental.Rendering.Universal;
 namespace IStreamYouScream
 {
     public class CameraState : State
@@ -28,6 +28,14 @@ namespace IStreamYouScream
     {
 
         public CameraIdleState(CameraController cameraController) : base(cameraController) { }
+
+        public override void Enter()
+        {
+            if (CameraController.BaterryLevel <= 0)
+            {
+                CameraController.SetState(new CameraNoEnergyState(CameraController));
+            }
+        }
 
         public override void StartRecording()
         {
@@ -81,7 +89,7 @@ namespace IStreamYouScream
 
         private void ChangeColor(Color color)
         {
-            CameraController.VisualRepresentation.GetComponent<UnityEngine.Experimental.Rendering.Universal.Light2D>().color = color;
+            CameraController.VisualRepresentation.GetComponent<Light2D>().color = color;
         }
 
         public override void Enter()
@@ -120,6 +128,26 @@ namespace IStreamYouScream
         }
     }
 
+    public class CameraNoEnergyState : CameraState
+    {
+        public CameraNoEnergyState(CameraController cameraController) : base(cameraController) { }
+
+        public override void Enter()
+        {
+            CameraController.VisualRepresentation.GetComponent<Light2D>().intensity = 0;
+        }
+
+        public override void Exit()
+        {
+            CameraController.VisualRepresentation.GetComponent<Light2D>().intensity = 1;
+        }
+
+        public override void StartCharging()
+        {
+            CameraController.SetState(new CameraChargingState(CameraController));
+        }
+    }
+
     public class CameraHiddenState : CameraState
     {
         public CameraHiddenState(CameraController cameraController) : base(cameraController) { }
@@ -143,6 +171,8 @@ namespace IStreamYouScream
     public class CameraController : StateMachine<CameraState>
     {
         public float _BaterryLevel = 100f;
+        public GameObject LowBatteryIndicator;
+        public float LowBatteryThreshold = 15f;
         public List<RecordableItem> RegisteredItems = new List<RecordableItem>();
 
         public float BaterryLevel
@@ -152,6 +182,7 @@ namespace IStreamYouScream
             {
                 _BaterryLevel = value;
                 OnBatteryLevelChanged.Invoke(BaterryLevel);
+                LowBatteryIndicator.SetActive(BaterryLevel < LowBatteryThreshold);
             }
         }
         public float PowerConsumption = 1.5f;
