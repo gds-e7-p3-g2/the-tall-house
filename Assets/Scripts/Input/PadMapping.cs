@@ -19,10 +19,10 @@ namespace IStreamYouScream
     // InputControlType.DPadLeft
     // InputControlType.DPadRight
 
-    // InputControlType.Action1   -    X on PS4
-    // InputControlType.Action2   -    Circle on PS4
-    // InputControlType.Action3   -    Square on PS4
-    // InputControlType.Action4   -    Triangle on PS4
+    // InputControlType.Action1   -    X on PS4          |    A   on xbox
+    // InputControlType.Action2   -    Circle on PS4     |    B   on xbox
+    // InputControlType.Action3   -    Square on PS4     |    X   on xbox
+    // InputControlType.Action4   -    Triangle on PS4   |    Y   on xbox
 
     // InputControlType.LeftTrigger
     // InputControlType.RightTrigger
