@@ -25,6 +25,11 @@ namespace IStreamYouScream
                 return;
             }
 
+            if (InputManager.FlashLoading)
+            {
+                PlayerController.cameraController.FlashLoadingPressed();
+            }
+
             PlayerController.IsRecording = InputManager.Recording;
         }
         public override void OnFixedUpdate()

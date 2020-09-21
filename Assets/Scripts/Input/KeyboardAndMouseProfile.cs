@@ -56,6 +56,12 @@ namespace IStreamYouScream
                     Target = PadMapping.RUN,
                     Source = KeyCodeComboButton( KeyCode.LeftShift )
                 },
+                new InputControlMapping
+                {
+                    Handle = "Flash",
+                    Target = PadMapping.FLASH,
+                    Source = KeyCodeComboButton( KeyCode.Space )
+                },
             };
 
             #region AnalogMappings

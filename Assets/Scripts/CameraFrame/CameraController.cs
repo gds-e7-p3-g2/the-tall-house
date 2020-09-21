@@ -14,6 +14,8 @@ namespace IStreamYouScream
         }
         public virtual void StartRecording() { }
         public virtual void StopRecording() { }
+        public virtual void FlashLoadingPressed() { }
+        public virtual void FlashLoadingReleased() { }
         public virtual void StartCharging() { }
         public virtual void StopCharging() { }
         public virtual void ShowFrame() { }
@@ -51,6 +53,11 @@ namespace IStreamYouScream
         {
             CameraController.SetState(new CameraHiddenState(CameraController));
         }
+
+        public override void FlashLoadingPressed()
+        {
+            CameraController.SetState(new CameraFlashLoadingState(CameraController));
+        }
     }
 
     public class CameraRecordingState : CameraState
@@ -65,6 +72,10 @@ namespace IStreamYouScream
             {
                 StopRecording();
             }
+        }
+        public override void FlashLoadingPressed()
+        {
+            CameraController.SetState(new CameraFlashLoadingState(CameraController));
         }
         public override bool IsRecording()
         {
@@ -159,10 +170,32 @@ namespace IStreamYouScream
         }
     }
 
-    public class CameraLoadingFlashState : CameraState
+    public class CameraFlashLoadingState : CameraState
     {
 
-        public CameraLoadingFlashState(CameraController cameraController) : base(cameraController) { }
+        public CameraFlashLoadingState(CameraController cameraController) : base(cameraController) { }
+
+        public override void Enter()
+        {
+            if (CameraController.BaterryLevel < CameraController.FlashPowerConsumption)
+            {
+                CameraController.FlashPowerTooLowIndicator.SetActive(true);
+                CameraController.SetState(new CameraIdleState(CameraController));
+                return;
+            }
+            // if not enough energy - 
+            //      Display Notification
+            //      go to idle
+            // start loading flash
+            // in Update - if flash loading stoped - go to idle
+            // in Invoke - go to FlashShotReady
+        }
+    }
+
+    public class CameraFlashReadyState : CameraState
+    {
+
+        public CameraFlashReadyState(CameraController cameraController) : base(cameraController) { }
 
         public override void Enter()
         {
@@ -170,10 +203,7 @@ namespace IStreamYouScream
             //      Display Notification
             //       go to idle
             // start loading flash
-
-
             // in Update - if flash loading stoped - go to idle
-
             // in Invoke - go to FlashShotReady
         }
     }
@@ -185,6 +215,7 @@ namespace IStreamYouScream
         public float LowBatteryThreshold = 15f;
         public float FlashLoadingTime = 3f;
         public float FlashPowerConsumption = 25f;
+        public GameObject FlashPowerTooLowIndicator;
         public List<RecordableItem> RegisteredItems = new List<RecordableItem>();
 
         public float BaterryLevel
@@ -236,6 +267,8 @@ namespace IStreamYouScream
 
         public void StartRecording() { CurrentState.StartRecording(); }
         public void StopRecording() { CurrentState.StopRecording(); }
+        public void FlashLoadingPressed() { CurrentState.FlashLoadingPressed(); }
+        public void FlashLoadingReleased() { CurrentState.FlashLoadingReleased(); }
         public void StartCharging() { CurrentState.StartCharging(); }
         public void StopCharging() { CurrentState.StopCharging(); }
         public void ShowFrame() { CurrentState.ShowFrame(); }
