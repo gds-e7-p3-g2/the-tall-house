@@ -183,6 +183,11 @@ namespace IStreamYouScream
                 CameraController.SetState(new CameraIdleState(CameraController));
                 return;
             }
+
+            //DEBUG
+            CameraController.SetState(new CameraIdleState(CameraController));
+
+
             // if not enough energy - 
             //      Display Notification
             //      go to idle
