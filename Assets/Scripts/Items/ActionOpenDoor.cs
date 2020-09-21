@@ -6,6 +6,8 @@ namespace IStreamYouScream
 {
     public class ActionOpenDoor : Action
     {
+        [SerializeField] private string OpenDoorText = "Open door";
+        [SerializeField] private string CloseDoorText = "Close door";
         public UnityEvent OnOpened;
         [SerializeField]
         private bool _IsOpen;
@@ -31,13 +33,13 @@ namespace IStreamYouScream
         {
             if (IsOpen)
             {
-                TextHint.SetText("Close door");
+                TextHint.SetText(CloseDoorText);
                 DoorsOpen.SetActive(true);
                 DoorsClosed.SetActive(false);
             }
             else
             {
-                TextHint.SetText("Open door");
+                TextHint.SetText(OpenDoorText);
                 DoorsOpen.SetActive(false);
                 DoorsClosed.SetActive(true);
             }
