@@ -22,8 +22,8 @@ namespace IStreamYouScream
         public virtual void HideFrame() { }
         public virtual void OnUpdate() { }
         public virtual bool IsRecording() { return false; }
-        public virtual void RegisterItem(RecordableItem item) { }
-        public virtual void UnregisterItem(RecordableItem item) { }
+        public virtual void RegisterRecordableItem(RecordableItem item) { }
+        public virtual void UnregisterRecordableItem(RecordableItem item) { }
     }
 
     public class CameraIdleState : CameraState
@@ -97,13 +97,13 @@ namespace IStreamYouScream
         public override void Enter()
         {
             ChangeColor(Color.red);
-            foreach (RecordableItem recordableItem in CameraController.RegisteredItems)
+            foreach (RecordableItem recordableItem in CameraController.RegisteredRecordableItems)
             {
-                recordableItem.StartRecording();
+                RegisterRecordableItem(recordableItem);
             }
         }
 
-        public override void RegisterItem(RecordableItem item)
+        public override void RegisterRecordableItem(RecordableItem item)
         {
             item.StartRecording();
         }
@@ -111,7 +111,7 @@ namespace IStreamYouScream
         public override void Exit()
         {
             ChangeColor(Color.green);
-            foreach (RecordableItem recordableItem in CameraController.RegisteredItems)
+            foreach (RecordableItem recordableItem in CameraController.RegisteredRecordableItems)
             {
                 recordableItem.StopRecording();
             }
@@ -175,6 +175,8 @@ namespace IStreamYouScream
 
         public CameraFlashLoadingState(CameraController cameraController) : base(cameraController) { }
 
+        IEnumerator coroutine;
+
         public override void Enter()
         {
             if (CameraController.BaterryLevel < CameraController.FlashPowerConsumption)
@@ -184,32 +186,55 @@ namespace IStreamYouScream
                 return;
             }
 
-            //DEBUG
+            coroutine = WaitAndGoToFlashShotReady();
+            CameraController.StartCoroutine(coroutine);
+        }
+
+        public override void Exit()
+        {
+            if (coroutine != null)
+            {
+                CameraController.StopCoroutine(coroutine);
+            }
+        }
+
+        IEnumerator WaitAndGoToFlashShotReady()
+        {
+            yield return new WaitForSeconds(CameraController.FlashLoadingTime);
+
+            CameraController.SetState(new CameraFlashReadyState(CameraController));
+        }
+
+        public override void FlashLoadingReleased()
+        {
             CameraController.SetState(new CameraIdleState(CameraController));
-
-
-            // if not enough energy - 
-            //      Display Notification
-            //      go to idle
-            // start loading flash
-            // in Update - if flash loading stoped - go to idle
-            // in Invoke - go to FlashShotReady
         }
     }
 
     public class CameraFlashReadyState : CameraState
     {
-
         public CameraFlashReadyState(CameraController cameraController) : base(cameraController) { }
 
         public override void Enter()
         {
-            // if not enough energy - 
-            //      Display Notification
-            //       go to idle
-            // start loading flash
-            // in Update - if flash loading stoped - go to idle
-            // in Invoke - go to FlashShotReady
+            CameraController.FlashReadyIndicator.SetActive(true);
+        }
+
+        public override void Exit()
+        {
+            CameraController.FlashReadyIndicator.SetActive(false);
+        }
+
+        public override void FlashLoadingReleased()
+        {
+            FIRE();
+        }
+
+        private void FIRE()
+        {
+            // inform all registered flashable items that they were flashed.
+            CameraController.BaterryLevel -= CameraController.FlashPowerConsumption;
+            CameraController.SetState(new CameraIdleState(CameraController));
         }
     }
 
@@ -221,7 +246,8 @@ namespace IStreamYouScream
         public float FlashLoadingTime = 3f;
         public float FlashPowerConsumption = 25f;
         public GameObject FlashPowerTooLowIndicator;
-        public List<RecordableItem> RegisteredItems = new List<RecordableItem>();
+        public GameObject FlashReadyIndicator;
+        public List<RecordableItem> RegisteredRecordableItems = new List<RecordableItem>();
 
         public float BaterryLevel
         {
@@ -253,21 +279,21 @@ namespace IStreamYouScream
         void Update()
         {
             CurrentState.OnUpdate();
-            foreach (RecordableItem recordableItem in RegisteredItems)
+            foreach (RecordableItem recordableItem in RegisteredRecordableItems)
             {
                 Debug.DrawLine(transform.position, recordableItem.transform.position);
             }
         }
 
-        public void RegisterItem(RecordableItem item)
+        public void RegisterRecordableItem(RecordableItem item)
         {
-            RegisteredItems.Add(item);
-            CurrentState.RegisterItem(item);
+            RegisteredRecordableItems.Add(item);
+            CurrentState.RegisterRecordableItem(item);
         }
-        public void UnregisterItem(RecordableItem item)
+        public void UnregisterRecordableItem(RecordableItem item)
         {
-            RegisteredItems.Remove(item);
-            CurrentState.UnregisterItem(item);
+            RegisteredRecordableItems.Remove(item);
+            CurrentState.UnregisterRecordableItem(item);
         }
 
         public void StartRecording() { CurrentState.StartRecording(); }

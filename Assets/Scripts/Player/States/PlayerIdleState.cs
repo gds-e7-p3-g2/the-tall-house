@@ -29,6 +29,10 @@ namespace IStreamYouScream
             {
                 PlayerController.cameraController.FlashLoadingPressed();
             }
+            if (InputManager.FlashLoadingReleased)
+            {
+                PlayerController.cameraController.FlashLoadingReleased();
+            }
 
             PlayerController.IsRecording = InputManager.Recording;
         }

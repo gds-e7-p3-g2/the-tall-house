@@ -39,6 +39,15 @@ namespace IStreamYouScream
 
         public virtual void CheckRecording()
         {
+            if (InputManager.FlashLoading)
+            {
+                PlayerController.cameraController.FlashLoadingPressed();
+            }
+            if (InputManager.FlashLoadingReleased)
+            {
+                PlayerController.cameraController.FlashLoadingReleased();
+            }
+
             PlayerController.IsRecording = InputManager.Recording;
         }
         public override void PerformMelee()
