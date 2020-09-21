@@ -3004,7 +3004,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 433086550}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 3.87, y: -3.48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1295028351}
@@ -3050,6 +3050,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _BaterryLevel: 76
+  LowBatteryIndicator: {fileID: 1420964619}
+  LowBatteryThreshold: 15
+  FlashLoadingTime: 3
+  FlashPowerConsumption: 25
   RegisteredItems: []
   PowerConsumption: 1.5
   ChargingSpeed: 15
@@ -9516,7 +9520,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1420964620
 Transform:
   m_ObjectHideFlags: 0
@@ -19179,7 +19183,7 @@ PrefabInstance:
     - target: {fileID: 4252380862069972964, guid: b1e43767eb9262d4ea063221033b9f19,
         type: 3}
       propertyPath: CooldownInterval
-      value: 1.35
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4796291827102405194, guid: b1e43767eb9262d4ea063221033b9f19,
         type: 3}

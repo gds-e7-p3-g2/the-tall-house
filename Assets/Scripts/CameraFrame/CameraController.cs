@@ -59,11 +59,8 @@ namespace IStreamYouScream
 
         public override void OnUpdate()
         {
-            CameraController.BaterryLevel = Mathf.Max(CameraController.BaterryLevel - CameraController.PowerConsumption * Time.deltaTime, 0f);
-            if (CameraController.BaterryLevel <= 15f)
-            {
-                LowBattery();
-            }
+            CameraController.BaterryLevel -= CameraController.PowerConsumption * Time.deltaTime;
+
             if (CameraController.BaterryLevel <= 0f)
             {
                 StopRecording();
@@ -81,12 +78,6 @@ namespace IStreamYouScream
         {
             CameraController.SetState(new CameraIdleState(CameraController));
         }
-
-        private void LowBattery()
-        {
-            MusicController.Instance.PlayLowBattery();
-        }
-
         private void ChangeColor(Color color)
         {
             CameraController.VisualRepresentation.GetComponent<Light2D>().color = color;
@@ -168,11 +159,32 @@ namespace IStreamYouScream
         }
     }
 
+    public class CameraLoadingFlashState : CameraState
+    {
+
+        public CameraLoadingFlashState(CameraController cameraController) : base(cameraController) { }
+
+        public override void Enter()
+        {
+            // if not enough energy - 
+            //      Display Notification
+            //       go to idle
+            // start loading flash
+
+
+            // in Update - if flash loading stoped - go to idle
+
+            // in Invoke - go to FlashShotReady
+        }
+    }
+
     public class CameraController : StateMachine<CameraState>
     {
         public float _BaterryLevel = 100f;
         public GameObject LowBatteryIndicator;
         public float LowBatteryThreshold = 15f;
+        public float FlashLoadingTime = 3f;
+        public float FlashPowerConsumption = 25f;
         public List<RecordableItem> RegisteredItems = new List<RecordableItem>();
 
         public float BaterryLevel
@@ -180,9 +192,14 @@ namespace IStreamYouScream
             get { return _BaterryLevel; }
             set
             {
-                _BaterryLevel = value;
+                _BaterryLevel = Mathf.Min(Mathf.Max(value, 0f), 100f);
                 OnBatteryLevelChanged.Invoke(BaterryLevel);
                 LowBatteryIndicator.SetActive(BaterryLevel < LowBatteryThreshold);
+
+                if (BaterryLevel < LowBatteryThreshold)
+                {
+                    MusicController.Instance.PlayLowBattery();
+                }
             }
         }
         public float PowerConsumption = 1.5f;
