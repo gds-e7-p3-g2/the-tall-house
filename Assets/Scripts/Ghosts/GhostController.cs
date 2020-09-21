@@ -35,6 +35,7 @@ namespace IStreamYouScream
         public virtual void GetHitByFlash() { }
         public virtual void GetHitByMelee() { }
         public virtual void GetRecorded() { }
+        public virtual void GetFlashed() { }
         public virtual void OnTargetReached() { }
         public virtual void Heal()
         {
@@ -73,7 +74,7 @@ namespace IStreamYouScream
         {
             if (GhostController.HP <= 0.05f)
             {
-                GhostController.SetState(new GhostDefeatedState(GhostController));
+                GhostController.SetState(new GhostSusceptibleToFlashState(GhostController));
                 return;
             }
             if (GhostController.HP < GhostController.AlertedHPThreshold)
@@ -121,7 +122,7 @@ namespace IStreamYouScream
             }
             if (GhostController.HP <= 0.05f)
             {
-                GhostController.SetState(new GhostDefeatedState(GhostController));
+                GhostController.SetState(new GhostSusceptibleToFlashState(GhostController));
                 return;
             }
             Heal();
@@ -167,7 +168,7 @@ namespace IStreamYouScream
 
             if (GhostController.HP <= 0.05f)
             {
-                GhostController.SetState(new GhostDefeatedState(GhostController));
+                GhostController.SetState(new GhostSusceptibleToFlashState(GhostController));
                 return;
             }
         }
@@ -218,7 +219,7 @@ namespace IStreamYouScream
 
             if (GhostController.HP <= 0.05f)
             {
-                GhostController.SetState(new GhostDefeatedState(GhostController));
+                GhostController.SetState(new GhostSusceptibleToFlashState(GhostController));
                 return;
             }
         }
@@ -288,7 +289,70 @@ namespace IStreamYouScream
     class GhostHidingState : GhostState
     {
         public GhostHidingState(GhostController ghostController) : base(ghostController) { }
+        private IEnumerator corutine;
+
+        public override void Enter()
+        {
+            corutine = WaitAndComeBack();
+            GhostController.StartCoroutine(corutine);
+
+            // GhostController.GhostArea.gameObject.SetActive(false);
+        }
+
+        public override void Exit()
+        {
+            if (corutine != null)
+            {
+                GhostController.StopCoroutine(corutine);
+            }
+        }
+
+        private IEnumerator WaitAndComeBack()
+        {
+            yield return new WaitForSeconds(15f);
+            GhostController.HP = 100;
+            GhostController.GhostArea.gameObject.SetActive(true);
+            GhostController.SetState(new GhostPatrolingState(GhostController));
+        }
+
     }
+
+    class GhostSusceptibleToFlashState : GhostState
+    {
+        public GhostSusceptibleToFlashState(GhostController ghostController) : base(ghostController) { }
+        private IEnumerator corutine;
+
+        public override void Enter()
+        {
+            GhostController.Target = GhostController.PatrollingTargetPoint;
+            GhostController.CurrentSpeed = 0.3f;
+            MusicController.Instance.PlayAmbient();
+
+            corutine = WaitAndGoToHideout();
+            GhostController.StartCoroutine(corutine);
+        }
+
+        public override void Exit()
+        {
+            if (corutine != null)
+            {
+                GhostController.StopCoroutine(corutine);
+            }
+        }
+
+        private IEnumerator WaitAndGoToHideout()
+        {
+            yield return new WaitForSeconds(60f);
+            GhostController.SetState(new GhostHidingState(GhostController));
+        }
+
+        public override void GetFlashed()
+        {
+            GhostController.SetState(new GhostDefeatedState(GhostController));
+        }
+
+    }
+
     class GhostDefeatedState : GhostState
     {
         public GhostDefeatedState(GhostController ghostController) : base(ghostController) { }
@@ -403,6 +467,7 @@ namespace IStreamYouScream
         public void StartBeingDefeated() { CurrentState.StartBeingDefeated(); }
         public void StopBeingDefeated() { CurrentState.StopBeingDefeated(); }
         public void GetRecorded() { CurrentState.GetRecorded(); }
+        public void GetFlashed() { CurrentState.GetFlashed(); }
         public void GetHitByMelee() { CurrentState.GetHitByMelee(); }
 
 

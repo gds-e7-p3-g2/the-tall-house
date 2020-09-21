@@ -12,6 +12,7 @@ namespace IStreamYouScream
         public UnityEvent EnteredFrame;
         public UnityEvent ExitedFrame;
         public UnityEvent Recorded;
+        public UnityEvent Flashed;
         private bool IsBeingRecorded = false;
         private IEnumerator coroutine;
         private bool IsInFrame;
@@ -34,6 +35,15 @@ namespace IStreamYouScream
                 coroutine = WaitAndRecord();
                 StartCoroutine(coroutine);
             }
+        }
+
+        public void GetFlashed()
+        {
+            if (!IsInFrame)
+            {
+                return;
+            }
+            Flashed.Invoke();
         }
 
         public void StopRecording()
