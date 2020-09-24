@@ -28,8 +28,8 @@ TagManager:
   - PlayerWeapon
   - GhostHitBox
   - GbostArea
-  - 
-  - 
+  - FogOfWar
+  - AnitiFog
   - 
   - 
   - 
@@ -53,6 +53,9 @@ TagManager:
     locked: 0
   - name: HouseClosePlan
     uniqueID: 2790103833
+    locked: 0
+  - name: FogOfWar
+    uniqueID: 3190150839
     locked: 0
   - name: UI
     uniqueID: 2525947549
