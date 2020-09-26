@@ -9,6 +9,7 @@ namespace IStreamYouScream
         [SerializeField] private string OpenDoorText = "Open door";
         [SerializeField] private string CloseDoorText = "Close door";
         public UnityEvent OnOpened;
+        public UnityEvent OnClosed;
         [SerializeField]
         private bool _IsOpen;
         bool IsOpen
@@ -48,7 +49,11 @@ namespace IStreamYouScream
         public override void PerformAction()
         {
             IsOpen = !IsOpen;
-            OnOpened.Invoke();
+            if (IsOpen) {
+                OnOpened.Invoke();
+            } else {
+                OnClosed.Invoke();
+            }
         }
     }
 }
