@@ -376,6 +376,8 @@ namespace IStreamYouScream
 
     public class GhostController : StateMachine<GhostState>
     {
+        private float prevX = 0;
+        private bool isGoingLeft { get { return transform.position.x < prevX; } }
         public Weapon weapon;
         public GameObject VisualRepresentation;
         public GameObject LastSeenPoint;
@@ -405,6 +407,23 @@ namespace IStreamYouScream
                 _HP = value;
                 HPIndicator.SetText("HP " + HP.ToString("#.00") + "%");
             }
+        }
+        public bool flipX
+        {
+            get { return animationController.flipX; }
+            set
+            {
+                if (flipX == value)
+                {
+                    return;
+                }
+                animationController.flipX = value;
+            }
+        }
+
+        public GhostAnimationController animationController
+        {
+            get { return VisualRepresentation.GetComponent<GhostAnimationController>(); }
         }
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -449,7 +468,21 @@ namespace IStreamYouScream
             StopFighting();
         }
 
-        void Update() { CurrentState.OnUpdate(); }
+        private void FixFacingSide()
+        {
+            flipX = !isGoingLeft;
+        }
+
+        private void LateUpdate()
+        {
+            prevX = transform.position.x;
+        }
+
+        void Update()
+        {
+            FixFacingSide();
+            CurrentState.OnUpdate();
+        }
         void FixedUpdate() { CurrentState.OnFixedUpdate(); }
         public void OnTargetReached() { CurrentState.OnTargetReached(); }
         public void StartPatroling() { CurrentState.StartPatroling(); }

@@ -6,7 +6,6 @@ using UnityEngine.Events;
 
 namespace IStreamYouScream
 {
-
     public class ConeOfSight : MonoBehaviour
     {
         public Vector3Event OnSeen;

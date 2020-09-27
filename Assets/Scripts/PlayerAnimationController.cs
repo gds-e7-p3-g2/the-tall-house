@@ -73,11 +73,11 @@ public class PlayerAnimationController : MonoBehaviour
     public void SetHiding()
     {
         SetState(STATES.IDLE);
-        animator.GetComponent<SpriteRenderer>().color = Color.black;
+        // animator.GetComponent<SpriteRenderer>().color = Color.black;
     }
     public void LeaveHiding()
     {
-        animator.GetComponent<SpriteRenderer>().color = Color.white;
+        // animator.GetComponent<SpriteRenderer>().color = Color.white;
     }
 
     public void SetDirection(float direction)
