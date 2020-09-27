@@ -9,6 +9,7 @@ namespace IStreamYouScream
         [SerializeField] GameObject CameraFrame;
         [SerializeField] float MaxHorizontalDistance = 3f;
         [SerializeField] float MaxVerticalDistance = 20f;
+
         void Start()
         {
             FixPosition();

@@ -6,7 +6,8 @@ namespace IStreamYouScream
 {
     public class CameraMovementRightAnalog : MonoBehaviour
     {
-        public Camera camera;
+        public GameObject LeftBottomLimit;
+        public GameObject RightTopLimit;
         private Vector3 startPos;
         private Transform thisTransform;
         public float sensitivity = 0.2f;
@@ -23,14 +24,11 @@ namespace IStreamYouScream
 
             Vector3 newPosition = transform.position + inputDirection * sensitivity;
 
-            var bottomLeft = camera.ScreenToWorldPoint(Vector3.zero);
-            var topRight = camera.ScreenToWorldPoint(new Vector3(camera.pixelWidth, camera.pixelHeight));
-
             var cameraRect = new Rect(
-                bottomLeft.x + 2f,
-                bottomLeft.y + 2f,
-                topRight.x - bottomLeft.x - 4f,
-                topRight.y - bottomLeft.y - 4f);
+                LeftBottomLimit.transform.position.x,
+                LeftBottomLimit.transform.position.y,
+                RightTopLimit.transform.position.x - LeftBottomLimit.transform.position.x,
+                RightTopLimit.transform.position.y - LeftBottomLimit.transform.position.y);
 
             newPosition = new Vector3(
                Mathf.Clamp(newPosition.x, cameraRect.xMin, cameraRect.xMax),
