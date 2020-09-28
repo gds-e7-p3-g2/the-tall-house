@@ -19,7 +19,7 @@ namespace IStreamYouScream
         public PathTypes PathType; //Indicates type of path (Linear or Looping)
         public int movementDirection = 1; //1 clockwise/forward || -1 counter clockwise/backwards
         public int movingTo = 0; //used to identify point in PathSequence we are moving to
-        public Transform[] PathSequence; //Array of all points in the path
+        public Vector3[] PathSequence; //Array of all points in the path
         #endregion //Public Variables
 
         #region Private Variables
@@ -50,14 +50,14 @@ namespace IStreamYouScream
             for (var i = 1; i < PathSequence.Length; i++)
             {
                 //Draw a line between the points
-                Gizmos.DrawLine(PathSequence[i - 1].position, PathSequence[i].position);
+                Gizmos.DrawLine(transform.position + PathSequence[i - 1], transform.position + PathSequence[i]);
             }
 
             //If your path loops back to the begining when it reaches the end
             if (PathType == PathTypes.loop)
             {
                 //Draw a line from the last point to the first point in the sequence
-                Gizmos.DrawLine(PathSequence[0].position, PathSequence[PathSequence.Length - 1].position);
+                Gizmos.DrawLine(transform.position + PathSequence[0], transform.position + PathSequence[PathSequence.Length - 1]);
             }
         }
         #endregion //Main Methods
@@ -71,7 +71,7 @@ namespace IStreamYouScream
         #region Coroutines
         //GetNextPathPoint() returns the transform component of the next point in our path
         //FollowPath.cs script will inturn move the object it is on to that point in the game
-        public IEnumerator<Transform> GetNextPathPoint()
+        public IEnumerator<Vector3> GetNextPathPoint()
         {
             //Make sure that your sequence has points in it
             //and that there are at least two points to constitute a path

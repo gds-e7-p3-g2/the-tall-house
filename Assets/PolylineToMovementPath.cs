@@ -1,0 +1,23 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEditor;
+using IStreamYouScream;
+
+[ExecuteInEditMode]
+public class PolylineToMovementPath : MonoBehaviour
+{
+    Polyline polyline;
+    MovementPath movementPath;
+
+    void Awake()
+    {
+        polyline = gameObject.GetComponent<Polyline>();
+        movementPath = gameObject.GetComponent<MovementPath>();
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        movementPath.PathSequence = new List<Vector3>(polyline.nodes).ToArray();
+    }
+}

@@ -446,17 +446,19 @@ namespace IStreamYouScream
         public float CurrentSpeed
         {
             get { return GetComponent<SmoothMoveToTarget>().Speed; }
-            set { GetComponent<SmoothMoveToTarget>().Speed = value; }
+            set
+            {
+                if (Target.GetComponent<FollowPath>() != null)
+                {
+                    Target.GetComponent<FollowPath>().Speed = value;
+                }
+                GetComponent<SmoothMoveToTarget>().Speed = value;
+            }
         }
         public void Start()
         {
             SetState(new GhostPatrolingState(this));
             HP = _HP;
-        }
-
-        public GameObject GetCurrentTarget()
-        {
-            return GetComponent<SmoothMoveToTarget>().Target;
         }
 
         private void OnPlayerInReach(PlayerController player)
@@ -473,15 +475,12 @@ namespace IStreamYouScream
             flipX = !isGoingLeft;
         }
 
-        private void LateUpdate()
-        {
-            prevX = transform.position.x;
-        }
-
         void Update()
         {
             FixFacingSide();
             CurrentState.OnUpdate();
+
+            prevX = transform.position.x;
         }
         void FixedUpdate() { CurrentState.OnFixedUpdate(); }
         public void OnTargetReached() { CurrentState.OnTargetReached(); }
@@ -502,7 +501,5 @@ namespace IStreamYouScream
         public void GetRecorded() { CurrentState.GetRecorded(); }
         public void GetFlashed() { CurrentState.GetFlashed(); }
         public void GetHitByMelee() { CurrentState.GetHitByMelee(); }
-
-
     }
 }

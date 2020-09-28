@@ -25,7 +25,7 @@ namespace IStreamYouScream
         #endregion //Public Variables
 
         #region Private Variables
-        private IEnumerator<Transform> pointInPath; //Used to reference points returned from MyPath.GetNextPathPoint
+        private IEnumerator<Vector3> pointInPath; //Used to reference points returned from MyPath.GetNextPathPoint
         #endregion //Private Variables
 
         // (Unity Named Methods)
@@ -52,7 +52,7 @@ namespace IStreamYouScream
             }
 
             //Set the position of this object to the position of our starting point
-            transform.position = pointInPath.Current.position;
+            transform.position = MyPath.transform.position + pointInPath.Current;
         }
 
         //Update is called by Unity every frame
@@ -69,14 +69,14 @@ namespace IStreamYouScream
                 //Move to the next point in path using MoveTowards
                 transform.position =
                     Vector3.MoveTowards(transform.position,
-                                        pointInPath.Current.position,
+                                        MyPath.transform.position + pointInPath.Current,
                                         Time.deltaTime * Speed);
             }
             else if (Type == MovementType.LerpTowards) //If you are using LerpTowards movement type
             {
                 //Move towards the next point in path using Lerp
                 transform.position = Vector3.Lerp(transform.position,
-                                                    pointInPath.Current.position,
+                                                    MyPath.transform.position + pointInPath.Current,
                                                     Time.deltaTime * Speed);
             }
 
@@ -84,7 +84,7 @@ namespace IStreamYouScream
             //Using Pythagorean Theorem
             //per unity suaring a number is faster than the square root of a number
             //Using .sqrMagnitude 
-            var distanceSquared = (transform.position - pointInPath.Current.position).sqrMagnitude;
+            var distanceSquared = (transform.position - (MyPath.transform.position + pointInPath.Current)).sqrMagnitude;
             if (distanceSquared < MaxDistanceToGoal * MaxDistanceToGoal) //If you are close enough
             {
                 pointInPath.MoveNext(); //Get next point in MovementPath

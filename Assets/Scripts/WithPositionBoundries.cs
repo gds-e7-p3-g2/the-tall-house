@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class WithPositionBoundries : MonoBehaviour
 {
-    public GameObject TopLeft;
-    public GameObject BottomRight;
+    public GameObject TopRight;
+    public GameObject BottomLeft;
 
-    // Update is called once per frame
     void Update()
     {
         CheckBoundries();
@@ -15,24 +14,23 @@ public class WithPositionBoundries : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        if (TopLeft == null || BottomRight == null)
+        if (TopRight == null || BottomLeft == null)
         {
             return;
         }
-        Gizmos.color = new Color(1, 1, 1, 0.2f);
-        Gizmos.DrawCube((TopLeft.transform.position + BottomRight.transform.position) / 2, TopLeft.transform.position - BottomRight.transform.position);
-
+        Gizmos.color = new Color(1, 1, 1, 0.1f);
+        Gizmos.DrawWireCube((TopRight.transform.position + BottomLeft.transform.position) / 2, TopRight.transform.position - BottomLeft.transform.position);
     }
 
     private void CheckBoundries()
     {
-        if (TopLeft == null || BottomRight == null)
+        if (BottomLeft == null || TopRight == null)
         {
             return;
         }
         Vector3 pos = transform.position;
-        pos.x = Mathf.Clamp(pos.x, TopLeft.transform.position.x, BottomRight.transform.position.x);
-        // pos.y = Mathf.Clamp(pos.y, TopLeft.transform.position.y, BottomRight.transform.position.y);
+        pos.x = Mathf.Clamp(pos.x, BottomLeft.transform.position.x, TopRight.transform.position.x);
+        pos.y = Mathf.Clamp(pos.y, BottomLeft.transform.position.y, TopRight.transform.position.y);
         transform.position = pos;
     }
 }
