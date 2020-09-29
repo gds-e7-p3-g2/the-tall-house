@@ -114,9 +114,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cdcf31bbfdc769458abc203a984b979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NormalColor: {r: 1, g: 1, b: 1, a: 1}
+  DangerLoadingColor: {r: 1, g: 0, b: 0, a: 1}
   OnSeen:
     m_PersistentCalls:
       m_Calls: []
+  OnSpotted:
+    m_PersistentCalls:
+      m_Calls: []
+  LastKnownPosition: {x: 0, y: 0, z: 0}
+  LoadingTime: 2
+  colorTimeCurr: 0
 --- !u!114 &1610276429897125062
 MonoBehaviour:
   m_ObjectHideFlags: 0
