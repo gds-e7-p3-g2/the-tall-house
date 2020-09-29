@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1668738882300355667}
   - component: {fileID: 345719183212324956}
   - component: {fileID: 1610276429897125062}
-  - component: {fileID: 1404790709207020961}
   m_Layer: 15
   m_Name: ConeOfSight
   m_TagString: Untagged
@@ -131,22 +130,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   polygon: {fileID: 345719183212324959}
---- !u!95 &1404790709207020961
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 345719183212324961}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1aa1d57284cc0454a986ba622dfe9e97, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0

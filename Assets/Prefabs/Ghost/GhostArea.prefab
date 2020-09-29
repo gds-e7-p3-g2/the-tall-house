@@ -842,9 +842,44 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4653608591377927830, guid: ed6274675cd147c49b98af91079aad8c,
         type: 3}
+      propertyPath: OnSeen.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653608591377927830, guid: ed6274675cd147c49b98af91079aad8c,
+        type: 3}
       propertyPath: OnSeen.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 3288063795550682413}
+    - target: {fileID: 4653608591377927830, guid: ed6274675cd147c49b98af91079aad8c,
+        type: 3}
+      propertyPath: OnSeen.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653608591377927830, guid: ed6274675cd147c49b98af91079aad8c,
+        type: 3}
+      propertyPath: OnSeen.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653608591377927830, guid: ed6274675cd147c49b98af91079aad8c,
+        type: 3}
+      propertyPath: OnSeen.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.Transform, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653608591377927830, guid: ed6274675cd147c49b98af91079aad8c,
+        type: 3}
+      propertyPath: OnSeen.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: set_position
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653608591377927830, guid: ed6274675cd147c49b98af91079aad8c,
+        type: 3}
+      propertyPath: OnSeen.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653608591377927830, guid: ed6274675cd147c49b98af91079aad8c,
+        type: 3}
+      propertyPath: OnSpotted.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartAttacking
+      objectReference: {fileID: 0}
     - target: {fileID: 4653608592801100616, guid: ed6274675cd147c49b98af91079aad8c,
         type: 3}
       propertyPath: Target
