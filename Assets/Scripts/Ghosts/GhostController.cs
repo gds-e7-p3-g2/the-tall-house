@@ -183,6 +183,7 @@ namespace IStreamYouScream
         public GhostFightingState(GhostController ghostController, PlayerController _player) : base(ghostController)
         {
             player = _player;
+            GhostController.Target = GameObject.FindWithTag("PlayerFront");
         }
 
         public override void Enter()
@@ -200,6 +201,12 @@ namespace IStreamYouScream
         public override void OnUpdate()
         {
             GhostController.weapon.Shoot();
+            LookAtPlayer();
+        }
+
+        private void LookAtPlayer()
+        {
+            GhostController.flipX = player.transform.position.x > GhostController.gameObject.transform.position.x;
         }
 
         public override void HitPlayer()
@@ -463,11 +470,14 @@ namespace IStreamYouScream
 
         private void OnPlayerInReach(PlayerController player)
         {
+            this.player = player;
             StartFighting(player);
+            player.InDanger = true;
         }
         private void OnPlayerOutOfReach()
         {
             StopFighting();
+            player.InDanger = false;
         }
 
         private void FixFacingSide()

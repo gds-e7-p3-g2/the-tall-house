@@ -26,9 +26,4 @@ namespace IStreamYouScream
             PlayerController.flipX = horizontalMove < 0;
         }
     }
-
-    class PlayerRunningInDangerState : PlayerRunningState
-    {
-        public PlayerRunningInDangerState(PlayerController playerController) : base(playerController) { }
-    }
 }

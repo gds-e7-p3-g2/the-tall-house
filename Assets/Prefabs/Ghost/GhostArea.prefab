@@ -751,32 +751,32 @@ PrefabInstance:
     - target: {fileID: 7678138100813186505, guid: d11bdf4683df4d74b9cfcc4e46695c3f,
         type: 3}
       propertyPath: PathSequence.Array.data[0].x
-      value: -7.3344164
+      value: 31.29766
       objectReference: {fileID: 0}
     - target: {fileID: 7678138100813186505, guid: d11bdf4683df4d74b9cfcc4e46695c3f,
         type: 3}
       propertyPath: PathSequence.Array.data[0].y
-      value: -1.5439062
+      value: -2.3134432
       objectReference: {fileID: 0}
     - target: {fileID: 7678138100813186505, guid: d11bdf4683df4d74b9cfcc4e46695c3f,
         type: 3}
       propertyPath: PathSequence.Array.data[0].z
-      value: -0.00015938282
+      value: -0.0010176897
       objectReference: {fileID: 0}
     - target: {fileID: 7678138100813186505, guid: d11bdf4683df4d74b9cfcc4e46695c3f,
         type: 3}
       propertyPath: PathSequence.Array.data[1].x
-      value: 14.177273
+      value: -10.139412
       objectReference: {fileID: 0}
     - target: {fileID: 7678138100813186505, guid: d11bdf4683df4d74b9cfcc4e46695c3f,
         type: 3}
       propertyPath: PathSequence.Array.data[1].y
-      value: -1.5439062
+      value: -2.3134432
       objectReference: {fileID: 0}
     - target: {fileID: 7678138100813186505, guid: d11bdf4683df4d74b9cfcc4e46695c3f,
         type: 3}
       propertyPath: PathSequence.Array.data[1].z
-      value: -0.00015938282
+      value: -0.0010176897
       objectReference: {fileID: 0}
     - target: {fileID: 7678138100813186519, guid: d11bdf4683df4d74b9cfcc4e46695c3f,
         type: 3}
@@ -919,6 +919,11 @@ PrefabInstance:
         type: 3}
       propertyPath: BottomRight
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653608592801100617, guid: ed6274675cd147c49b98af91079aad8c,
+        type: 3}
+      propertyPath: AttackingSpeed
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4653608592801100622, guid: ed6274675cd147c49b98af91079aad8c,
         type: 3}

@@ -43,6 +43,10 @@ namespace IStreamYouScream
 
         public override void ToggleHiding()
         {
+            if (PlayerController.InDanger)
+            {
+                return;
+            }
             PlayerController.SetState(new PlayerHidingState(PlayerController));
         }
 
