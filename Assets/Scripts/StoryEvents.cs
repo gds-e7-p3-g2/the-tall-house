@@ -35,6 +35,8 @@ namespace IStreamYouScream
         public UnityEvent OnTick;
         public UnityEvent OnLostAllViewers;
         public UnityEvent OnReachedEndOfTheGame;
+        public FloatEvent OnCollectableRecorded;
+        public StringEvent OnNamedCollectableRecorded;
 
         #endregion
 
@@ -55,6 +57,8 @@ namespace IStreamYouScream
         public void CallOnRandom() { OnRandom.Invoke(); }
         public void CallOnCoinPicked() { OnCoinPicked.Invoke(); }
         public void CallOnTick() { OnTick.Invoke(); }
+
+        public void CallOnCollectableRecorded(float val) { OnCollectableRecorded.Invoke(val); }
 
         #endregion
 

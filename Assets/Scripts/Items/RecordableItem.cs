@@ -9,6 +9,8 @@ namespace IStreamYouScream
         private CameraController CameraFrame;
         [SerializeField] float RecordingRate = 1f / 30f; // once per frame for 30 FPS
         [SerializeField] bool IsOneTime = false;
+
+        private bool WasRecordedOneTime = false;
         public UnityEvent EnteredFrame;
         public UnityEvent ExitedFrame;
         public UnityEvent Recorded;
@@ -22,6 +24,13 @@ namespace IStreamYouScream
         }
         public void StartRecording()
         {
+
+            Debug.Log("Recidring collectable");
+
+            if (WasRecordedOneTime)
+            {
+                return;
+            }
             if (!IsInFrame)
             {
                 return;
@@ -29,6 +38,7 @@ namespace IStreamYouScream
             if (IsOneTime)
             {
                 Recorded.Invoke();
+                WasRecordedOneTime = true;
             }
             else
             {
@@ -39,6 +49,10 @@ namespace IStreamYouScream
 
         public void GetFlashed()
         {
+            if (WasRecordedOneTime)
+            {
+                return;
+            }
             if (!IsInFrame)
             {
                 return;
@@ -48,6 +62,10 @@ namespace IStreamYouScream
 
         public void StopRecording()
         {
+            if (WasRecordedOneTime)
+            {
+                return;
+            }
             if (coroutine == null)
             {
                 return;
@@ -65,16 +83,29 @@ namespace IStreamYouScream
         }
         private void OnTriggerEnter2D(Collider2D other)
         {
+            if (WasRecordedOneTime)
+            {
+                return;
+            }
             if (other.gameObject.CompareTag("CameraFrame"))
             {
                 EnteredFrame.Invoke();
                 IsInFrame = true;
                 CameraFrame.RegisterRecordableItem(this);
-
             }
         }
         private void OnTriggerExit2D(Collider2D other)
         {
+            if (WasRecordedOneTime)
+            {
+                if (other.gameObject.CompareTag("CameraFrame"))
+                {
+                    CameraFrame.UnregisterRecordableItem(this);
+                    IsInFrame = false;
+                    StopRecording();
+                }
+                return;
+            }
             if (other.gameObject.CompareTag("CameraFrame"))
             {
                 CameraFrame.UnregisterRecordableItem(this);
