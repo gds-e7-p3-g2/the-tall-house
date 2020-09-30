@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace IStreamYouScream
 {
@@ -9,6 +10,7 @@ namespace IStreamYouScream
         private bool CanPerformAction = false;
         public ActionHint actionHint;
         public Action actionPerformer;
+        public UnityEvent OnPerformed;
 
         public void ShowActionHint()
         {
@@ -43,6 +45,7 @@ namespace IStreamYouScream
             if (InputManager.Interact && CanPerformAction)
             {
                 actionPerformer.PerformAction();
+                OnPerformed.Invoke();
             }
         }
     }
