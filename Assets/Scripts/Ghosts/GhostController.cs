@@ -362,21 +362,26 @@ namespace IStreamYouScream
 
     class GhostDefeatedState : GhostState
     {
+        private IEnumerator corutine;
         public GhostDefeatedState(GhostController ghostController) : base(ghostController) { }
 
         public override void Enter()
         {
-            GhostController.CurrentSpeed = 0.1f;
+            GhostController.CurrentSpeed = 0;
 
-            GhostController.Target = GhostController.DefeatedPoint;
             MusicController.Instance.PlayGhostDefeated();
             MusicController.Instance.PlayAmbient();
 
             GhostController.ConeOfSight.SetActive(false);
+
+            GhostController.animationController.MarkDead();
+
+            GhostController.StartCoroutine(WaitAndDie());
         }
 
-        public override void OnTargetReached()
+        private IEnumerator WaitAndDie()
         {
+            yield return new WaitForSeconds(1.5f);
             GhostController.GhostArea.gameObject.SetActive(false);
         }
     }

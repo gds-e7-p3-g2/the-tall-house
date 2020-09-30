@@ -186,8 +186,12 @@ namespace IStreamYouScream
                 return;
             }
 
-            coroutine = WaitAndGoToFlashShotReady();
-            CameraController.StartCoroutine(coroutine);
+            // Go straigh to FIRE. We don't want to load the flash anymore;
+
+            CameraController.SetState(new CameraFlashReadyState(CameraController));
+
+            // coroutine = WaitAndGoToFlashShotReady();
+            // CameraController.StartCoroutine(coroutine);
         }
 
         public override void Exit()
@@ -218,21 +222,31 @@ namespace IStreamYouScream
         public override void Enter()
         {
             CameraController.FlashReadyIndicator.SetActive(true);
+
+            // FIRE at once, we don't want to wait for the trigger release anymore.
+
+            FIRE();
         }
 
         public override void Exit()
         {
-            CameraController.FlashReadyIndicator.SetActive(false);
+            // CameraController.FlashReadyIndicator.SetActive(false);
         }
 
-        public override void FlashLoadingReleased()
-        {
-            FIRE();
-        }
+        // public override void FlashLoadingReleased()
+        // {
+        //     FIRE();
+        // }
 
         private void FIRE()
         {
             // inform all registered flashable items that they were flashed.
+
+            foreach (RecordableItem recordableItem in CameraController.RegisteredRecordableItems)
+            {
+                recordableItem.GetFlashed();
+            }
+
             CameraController.BaterryLevel -= CameraController.FlashPowerConsumption;
             CameraController.SetState(new CameraIdleState(CameraController));
         }

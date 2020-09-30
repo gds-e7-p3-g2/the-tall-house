@@ -24,4 +24,9 @@ public class GhostAnimationController : MonoBehaviour
     {
         animator.transform.rotation = Quaternion.LookRotation(flipX ? Vector3.back : Vector3.forward);
     }
+
+    public void MarkDead()
+    {
+        animator.SetBool("Alive", false);
+    }
 }
