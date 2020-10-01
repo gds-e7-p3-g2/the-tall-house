@@ -7551,7 +7551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8f03e8cd34684943b88398eefbcb9b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitialViewers: 20
+  InitialViewers: 500
   InitialPopularity: 50
   OnViewersCountChanged:
     m_PersistentCalls:
@@ -13638,7 +13638,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 39c15b1b938ae574d835a4db8489378c, type: 3}
-    m_FontSize: 16
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -13649,7 +13649,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: ===== Welcome to the Stream =====
+  m_Text: Welcome to the Stream
 --- !u!222 &1433561435
 CanvasRenderer:
   m_ObjectHideFlags: 0

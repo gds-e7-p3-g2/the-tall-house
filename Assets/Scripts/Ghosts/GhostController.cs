@@ -141,6 +141,12 @@ namespace IStreamYouScream
             GhostController.Target = GhostController.LastSeenPoint;
             GhostController.CurrentSpeed = GhostController.AttackingSpeed;
             MusicController.Instance.PlayAttacking();
+            GhostController.animationController.attacking = true;
+        }
+
+        public override void Exit()
+        {
+            GhostController.animationController.attacking = false;
         }
 
         public override void OnTargetReached()

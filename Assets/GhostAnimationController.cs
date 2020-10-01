@@ -5,6 +5,11 @@ using UnityEngine;
 public class GhostAnimationController : MonoBehaviour
 {
     private Animator animator { get { return gameObject.GetComponent<Animator>(); } }
+    public bool attacking
+    {
+        get { return animator.GetBool("Attacking"); }
+        set { animator.SetBool("Attacking", value); }
+    }
     private bool _flipX = false;
     public bool flipX
     {
@@ -29,4 +34,6 @@ public class GhostAnimationController : MonoBehaviour
     {
         animator.SetBool("Alive", false);
     }
+
+
 }
