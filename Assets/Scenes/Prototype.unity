@@ -3817,7 +3817,7 @@ MonoBehaviour:
   m_Intensity: 3.3
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: a7c33bce00000000e94c0ab4673afef1199b4da6b7d625be9de68e96
-  m_LightCookieSprite: {fileID: 21300000, guid: 33fa9ed83b585a646afed362a1a4e35f,
+  m_LightCookieSprite: {fileID: 21300000, guid: 3e80a990197ca334993a9b3d08f445b4,
     type: 3}
   m_UseNormalMap: 1
   m_LightOrder: 0
@@ -6020,7 +6020,7 @@ MonoBehaviour:
   m_Intensity: 3.3
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: a7c33bce00000000e94c0ab4673afef1199b4da6b7d625be9de68e96
-  m_LightCookieSprite: {fileID: 21300000, guid: 33fa9ed83b585a646afed362a1a4e35f,
+  m_LightCookieSprite: {fileID: 21300000, guid: 3e80a990197ca334993a9b3d08f445b4,
     type: 3}
   m_UseNormalMap: 1
   m_LightOrder: 0
@@ -8600,56 +8600,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e9af95a4af81144cb5a52505e0d9d31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &856165714 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2306333804084342167, guid: 61ad3b1d2baaa434c8a96d2e597fe17e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1861464313}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &856165715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 856165714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_LightType: 1
-  m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.5
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0
-  m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 673afef1e94c0ab4
-  m_LightCookieSprite: {fileID: 21300000, guid: 99470232f0d7d37468d9434ddc852794,
-    type: 3}
-  m_UseNormalMap: 0
-  m_LightOrder: 0
-  m_AlphaBlendOnOverlap: 0
-  m_ShadowIntensity: 0
-  m_ShadowVolumeIntensity: 0
-  m_PointLightInnerAngle: 360
-  m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 1
-  m_PointLightDistance: 3
-  m_PointLightQuality: 1
-  m_ShapeLightParametricSides: 5
-  m_ShapeLightParametricAngleOffset: 0
-  m_ShapeLightParametricRadius: 1
-  m_ShapeLightFalloffSize: 0.5
-  m_ShapeLightFalloffOffset: {x: 0, y: 0}
-  m_ShapePath:
-  - {x: 0.62976074, y: -2.0066757, z: 0}
-  - {x: 1.6566772, y: -1.3609581, z: 0}
-  - {x: -0.05142212, y: 1.8990593, z: 0}
-  - {x: -0.7286377, y: 1.764534, z: 0}
-  - {x: -1.5621643, y: -0.2480278, z: 0}
-  - {x: -1.1855774, y: -1.0955353, z: 0}
 --- !u!1 &859554491
 GameObject:
   m_ObjectHideFlags: 0
@@ -21714,7 +21664,7 @@ MonoBehaviour:
   m_Intensity: 3.3
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: a7c33bce00000000e94c0ab4673afef1199b4da6b7d625be9de68e96
-  m_LightCookieSprite: {fileID: 21300000, guid: 33fa9ed83b585a646afed362a1a4e35f,
+  m_LightCookieSprite: {fileID: 21300000, guid: 3e80a990197ca334993a9b3d08f445b4,
     type: 3}
   m_UseNormalMap: 1
   m_LightOrder: 0

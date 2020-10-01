@@ -146,6 +146,9 @@ namespace IStreamYouScream
         public void ReactToEvent(float EventAttractiveness)
         {
             numOfViewers += (int)EventAttractiveness;
+
+            Debug.Log("WIZOWIE " + numOfViewers);
+
             OnViewersCountChanged.Invoke(numOfViewers);
         }
 
