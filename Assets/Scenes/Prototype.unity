@@ -23093,6 +23093,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64b04bc51c9c48d40a5bb57f9b76d002, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Usernames:
+  - nitpicker
 --- !u!1 &2137125845
 GameObject:
   m_ObjectHideFlags: 0
@@ -25160,6 +25162,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 560033510}
     m_Modifications:
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Name
+      value: Portret testowy
+      objectReference: {fileID: 0}
     - target: {fileID: 8709879779419650990, guid: a32c87b5b89d0e544b11e139ed95d998,
         type: 3}
       propertyPath: m_LocalPosition.x

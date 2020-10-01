@@ -4,10 +4,18 @@ using UnityEngine;
 
 namespace IStreamYouScream
 {
+    public class ListOfStrings : List<string> { };
+    public class MessagesMap : Dictionary<string, List<string>> { }
+
     public class CollectableChatBot : MonoBehaviour
     {
-        private List<string> Usernames = new List<string>() {
+        public List<string> Usernames = new List<string>() {
             "nitpicker"
+        };
+
+        public MessagesMap messages = new MessagesMap() {
+            {"Portret testowy", new List<string>(){ "Wiadomosc na testowa znajdzke 1", "Wiadomosc na testowa znajdzke 2"} },
+            {"NAZWA ZNAJDZKI", new List<string>(){ "Msg 1", "Msg 2"} }
         };
 
         private List<Color> Colors = new List<Color>() {
@@ -40,11 +48,15 @@ namespace IStreamYouScream
         private Color GetUserColor(string username)
         {
             return Color.blue;
-            // if (!name2color.ContainsKey(username))
-            // {
-            //     name2color[username] = Colors[Random.Range(0, Colors.Count)];
-            // }
-            // return name2color[username];
+        }
+
+        private string GetRandomMessage(string collectableName)
+        {
+            if (messages[collectableName] != null)
+            {
+                return messages[collectableName][Random.Range(0, messages[collectableName].Count)];
+            }
+            return "I see you Found " + collectableName;
         }
 
         private void SendRandomMessage(string collectableName)
@@ -53,19 +65,10 @@ namespace IStreamYouScream
             string username = GetRandomUsername();
             Color color = GetUserColor(username);
             string colorHex = ColorUtility.ToHtmlStringRGB(color);
-            string message = "I see you Found " + collectableName;
+            string message = GetRandomMessage(collectableName);
 
             ChatMessagesContainer.Instance.AddMessage($"<color=#{colorHex}>{username}:</color>: {message}");
 
         }
-
-        // private IEnumerator Cooldown(UnityEvent e)
-        // {
-        //     event2cool[e] = true;
-
-        //     yield return new WaitForSeconds(timeToCooldown);
-
-        //     event2cool[e] = false;
-        // }
     }
 }
