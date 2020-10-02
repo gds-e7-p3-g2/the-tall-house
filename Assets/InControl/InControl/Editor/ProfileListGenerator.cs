@@ -62,7 +62,6 @@ namespace InControl
             var code = FixNewLines(code1 + code2 + code3);
             if (PutFileContents(filePath, code))
             {
-                // Debug.Log( "InControl has updated the autodiscover profiles list." );
             }
         }
 

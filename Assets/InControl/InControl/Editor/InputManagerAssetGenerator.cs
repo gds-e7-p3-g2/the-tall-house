@@ -28,7 +28,6 @@ namespace InControl
         static void GenerateInputManagerAsset()
         {
             ApplyAxisPresets();
-            // Debug.Log(productName + " has successfully generated new InputManager settings.");
         }
 
 
@@ -37,7 +36,6 @@ namespace InControl
         {
             if (CheckAxisPresets())
             {
-                // Debug.Log( "InputManager settings are fine." );
             }
             else
             {

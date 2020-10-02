@@ -158,8 +158,8 @@ public class Simple2DTerrainEditor : Editor
         mesh.triangles = indecies;
         mesh.uv = Vec3ToVec2Array(vertices.ToArray());
 
-        PolygonCollider2D collider= terrain.GetComponent<PolygonCollider2D>();
-        collider.points= Vec3ToVec2Array(vertices.ToArray());
+        PolygonCollider2D collider = terrain.GetComponent<PolygonCollider2D>();
+        collider.points = Vec3ToVec2Array(vertices.ToArray());
     }
 
     private Vector2[] Vec3ToVec2Array(Vector3[] data)
@@ -172,7 +172,7 @@ public class Simple2DTerrainEditor : Editor
 
     bool CheckAlignment(Vector3[] worldNodes, float offset, int index, ref Vector3 position, out List<Vector3> alignedTo)
     {
-        //Debug.Log("Check aligmnet with index:" + index);
+        //"Check aligmnet with index:" + index);
         //check vertical
         //check with the prev node
         bool aligned = false;
