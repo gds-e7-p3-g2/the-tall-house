@@ -13,6 +13,17 @@ namespace IStreamYouScream
         public static InputControlType RUN = InputControlType.Action3;
         public static InputControlType FLASH = InputControlType.LeftTrigger;
         public static InputControlType MENU_ACCEPT = InputControlType.Action1;
+        public static InputControlType MENU_DENY = InputControlType.Action2;
+        public static InputControlType[] ESCAPE = {
+            InputControlType.Back,
+            InputControlType.Start,
+            InputControlType.Select,
+            InputControlType.System,
+            InputControlType.Pause,
+            InputControlType.Menu,
+            InputControlType.View,
+            InputControlType.Options
+        };
     }
 
     // InputControlType.DPadUp

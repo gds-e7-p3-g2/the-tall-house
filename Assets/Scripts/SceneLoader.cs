@@ -12,11 +12,24 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadGame()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("prototype");
+    }
+
+    public void LoadMenuDelayed(float delay = 1f)
+    {
+        Invoke("LoadMenu", delay);
+    }
+
+    public void LoadMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Menu");
     }
 
     public void LoadLevel(string scene)
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(scene);
     }
 }
