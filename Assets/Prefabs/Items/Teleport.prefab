@@ -105,6 +105,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -122,7 +123,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Put the text here
+  m_Text: Use stairs
 --- !u!1 &4797000025471532809
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,6 +217,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionHint: {fileID: 4797000025471532808}
   actionPerformer: {fileID: 6586635690962316470}
+  OnPerformed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!61 &4797000026666137147
 BoxCollider2D:
   m_ObjectHideFlags: 0
