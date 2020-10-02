@@ -51,12 +51,12 @@ namespace IStreamYouScream
         {
             GhostController.Target = GhostController.PatrollingTargetPoint;
             GhostController.CurrentSpeed = GhostController.PatrolingSpeed;
-            MusicController.Instance.PlayAmbient();
+            // MusicController.Instance.PlayAmbient();
         }
 
         public override void StartAttacking()
         {
-            GhostController.SetState(new GhostAttackingState(GhostController));
+            GhostController.SetState(new GhostPreAttackingState(GhostController));
         }
 
         public override void StartAlerted()
@@ -107,7 +107,7 @@ namespace IStreamYouScream
         }
         public override void StartAttacking()
         {
-            GhostController.SetState(new GhostAttackingState(GhostController));
+            GhostController.SetState(new GhostPreAttackingState(GhostController));
         }
         public override void StartPatroling()
         {
@@ -115,7 +115,9 @@ namespace IStreamYouScream
         }
         public override void OnUpdate()
         {
-            if (GhostController.HP >= GhostController.AlertedHPThreshold)
+            SFX.Play("GhostAlerted");
+
+            if (GhostController.HP >= 99f)
             {
                 StartPatroling();
                 return;
@@ -132,6 +134,28 @@ namespace IStreamYouScream
             StartBeingStuned();
         }
     }
+
+    class GhostPreAttackingState : GhostState
+    {
+        public GhostPreAttackingState(GhostController ghostController) : base(ghostController) { }
+
+        public override void Enter()
+        {
+            GhostController.Target = GhostController.LastSeenPoint;
+            GhostController.CurrentSpeed = 0;
+
+            SFX.Play("GhostAttackStart");
+
+            GhostController.StartCoroutine(WaitAndAtack());
+        }
+
+        IEnumerator WaitAndAtack()
+        {
+            yield return new WaitForSeconds(1);
+            GhostController.SetState(new GhostAttackingState(GhostController));
+        }
+    }
+
     class GhostAttackingState : GhostState
     {
         public GhostAttackingState(GhostController ghostController) : base(ghostController) { }
@@ -147,6 +171,7 @@ namespace IStreamYouScream
         public override void Exit()
         {
             GhostController.animationController.attacking = false;
+            MusicController.Instance.PlayAmbient();
         }
 
         public override void OnTargetReached()
@@ -194,13 +219,13 @@ namespace IStreamYouScream
 
         public override void Enter()
         {
-            MusicController.Instance.PlayAttacking();
+            MusicController.Instance.PlayFighting();
             GhostController.weapon.OnFire.AddListener(HitPlayer);
         }
 
         public override void Exit()
         {
-            MusicController.Instance.PlayAttacking();
+            MusicController.Instance.PlayAmbient();
             GhostController.weapon.OnFire.RemoveListener(HitPlayer);
         }
 
@@ -375,7 +400,7 @@ namespace IStreamYouScream
         {
             GhostController.CurrentSpeed = 0;
 
-            MusicController.Instance.PlayGhostDefeated();
+            // MusicController.Instance.PlayGhostDefeated();
             MusicController.Instance.PlayAmbient();
 
             GhostController.ConeOfSight.SetActive(false);
@@ -383,6 +408,8 @@ namespace IStreamYouScream
             GhostController.animationController.MarkDead();
 
             GhostController.StartCoroutine(WaitAndDie());
+
+            SFX.Play("GhostDefeated");
         }
 
         private IEnumerator WaitAndDie()
@@ -479,6 +506,12 @@ namespace IStreamYouScream
             HP = _HP;
         }
 
+        public void Awake()
+        {
+            SetState(new GhostPatrolingState(this));
+            HP = _HP;
+        }
+
         private void OnPlayerInReach(PlayerController player)
         {
             this.player = player;
@@ -498,6 +531,10 @@ namespace IStreamYouScream
 
         void Update()
         {
+            if (CurrentState == null)
+            {
+                SetState(new GhostPatrolingState(this));
+            }
             FixFacingSide();
             CurrentState.OnUpdate();
 

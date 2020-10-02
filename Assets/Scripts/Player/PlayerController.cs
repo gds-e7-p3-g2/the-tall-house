@@ -78,6 +78,10 @@ namespace IStreamYouScream
 
         void Update()
         {
+            if (CurrentState == null)
+            {
+                SetState(new PlayerIdleState(this));
+            }
             CurrentState.OnUpdate();
 
             if (InputManager.Melee)

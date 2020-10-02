@@ -49,10 +49,15 @@ namespace IStreamYouScream
         public override void PerformAction()
         {
             IsOpen = !IsOpen;
-            if (IsOpen) {
+            if (IsOpen)
+            {
                 OnOpened.Invoke();
-            } else {
+                SoundsController.Instance.findSound("DoorOpen").Play();
+            }
+            else
+            {
                 OnClosed.Invoke();
+                SoundsController.Instance.findSound("DoorClose").Play();
             }
         }
     }

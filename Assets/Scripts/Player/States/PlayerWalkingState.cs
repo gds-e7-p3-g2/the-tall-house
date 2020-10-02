@@ -19,6 +19,8 @@ namespace IStreamYouScream
             CheckRecording();
             CheckRunning();
             UpdateAnimation();
+
+            SoundsController.Instance.findSound("Walking").Play();
         }
         public override void FlipX(bool flipX)
         {

@@ -15,6 +15,11 @@ namespace IStreamYouScream
         [SerializeField] AudioClip PlugOut;
         [SerializeField] AudioClip PowerDrain;
         private AudioSource CurrentSource;
+
+        private void Start()
+        {
+            PlayAmbient();
+        }
         private void PlaySource(AudioSource source)
         {
             AudioSource NewSource = source.GetComponent<AudioSource>();
@@ -40,6 +45,11 @@ namespace IStreamYouScream
             PlaySource(AmbientMusic);
         }
         public void PlayAlerted()
+        {
+            // PlaySource(AlertedMusic);
+
+        }
+        public void PlayFighting()
         {
             PlaySource(AlertedMusic);
 

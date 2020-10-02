@@ -114,6 +114,10 @@ namespace IStreamYouScream
 
         private void Update()
         {
+            if (CurrentState == null)
+            {
+                SetState(new CoSIdleState(this));
+            }
             CurrentState.Update();
             ColorUpdate();
         }

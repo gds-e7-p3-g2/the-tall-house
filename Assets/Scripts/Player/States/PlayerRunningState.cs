@@ -24,6 +24,8 @@ namespace IStreamYouScream
             }
 
             PlayerController.flipX = horizontalMove < 0;
+
+            SoundsController.Instance.findSound("Running").Play();
         }
     }
 }

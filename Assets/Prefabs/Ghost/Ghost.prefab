@@ -393,7 +393,7 @@ MonoBehaviour:
   ConeOfSight: {fileID: 4653608591377927851}
   PatrolingSpeed: 3
   AlertedSpeed: 4
-  AttackingSpeed: 3
+  AttackingSpeed: 1.5
   DamageFromRecording: 0.3
   HealingSpeed: 0.5
   AlertedHPThreshold: 75

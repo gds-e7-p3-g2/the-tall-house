@@ -13,6 +13,12 @@ namespace IStreamYouScream
             PlayerController.animationController.SetHiding();
             PlayerController.WhatGhostsSee.SetActive(false);
         }
+
+        public override void OnUpdate()
+        {
+            SoundsController.Instance.findSound("HeartBeat").Play();
+        }
+
         public override void Exit()
         {
             PlayerController.animationController.LeaveHiding();

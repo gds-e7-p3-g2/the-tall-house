@@ -12,6 +12,19 @@ namespace IStreamYouScream
         {
             PlayerController.cameraController.StartCharging();
             PlayerController.animationController.SetCharging();
+
+            SoundsController.Instance.findSound("BatteryCharging").Play();
+        }
+
+        private bool PlayedBatteryFull = false;
+
+        public override void OnUpdate()
+        {
+            if (!PlayedBatteryFull && PlayerController.cameraController.BaterryLevel > 99f)
+            {
+                SoundsController.Instance.findSound("BatteryFull").Play();
+                PlayedBatteryFull = true;
+            }
         }
         public override void Exit()
         {

@@ -24,9 +24,6 @@ namespace IStreamYouScream
         }
         public void StartRecording()
         {
-
-            Debug.Log("Recidring collectable");
-
             if (WasRecordedOneTime)
             {
                 return;

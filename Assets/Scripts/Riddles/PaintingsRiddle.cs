@@ -28,6 +28,9 @@ namespace IStreamYouScream
                 return;
             }
             numberOfLitPaintings++;
+
+            SFX.Play("GoodPainting");
+
             if (numberOfLitPaintings == paintings.Length)
             {
                 CorrectNumber();
@@ -42,6 +45,7 @@ namespace IStreamYouScream
         private void CorrectNumber()
         {
             OnSolved.Invoke();
+            SoundsController.Instance.findSound("PaintingsSolved").Play();
         }
 
         private void TimesOut()

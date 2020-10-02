@@ -19,9 +19,19 @@ namespace IStreamYouScream
 
         public void ReactToEvent(float EventAttractiveness)
         {
-            Debug.Log("ReactToEvent " + EventAttractiveness);
+            int prev = numOfViewers;
+
             numOfViewersf += EventAttractiveness;
             numOfViewers = (int)numOfViewersf;
+
+            if (prev < numOfViewers)
+            {
+                SoundsController.Instance.findSound("MoreViewers").Play();
+            }
+            else if (prev > numOfViewers)
+            {
+                SoundsController.Instance.findSound("LessViewers").Play();
+            }
 
             OnViewersCountChanged.Invoke(numOfViewers);
 

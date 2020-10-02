@@ -66,6 +66,7 @@ namespace IStreamYouScream
 
         public override void OnUpdate()
         {
+            SFX.Play("Recording");
             CameraController.BaterryLevel -= CameraController.PowerConsumption * Time.deltaTime;
 
             if (CameraController.BaterryLevel <= 0f)
@@ -226,6 +227,8 @@ namespace IStreamYouScream
             // FIRE at once, we don't want to wait for the trigger release anymore.
 
             FIRE();
+
+            SoundsController.Instance.findSound("Flash").Play();
         }
 
         public override void Exit()
@@ -268,13 +271,14 @@ namespace IStreamYouScream
             get { return _BaterryLevel; }
             set
             {
+                float prev = BaterryLevel;
                 _BaterryLevel = Mathf.Min(Mathf.Max(value, 0f), 100f);
                 OnBatteryLevelChanged.Invoke(BaterryLevel);
                 LowBatteryIndicator.SetActive(BaterryLevel < LowBatteryThreshold);
 
                 if (BaterryLevel < LowBatteryThreshold)
                 {
-                    MusicController.Instance.PlayLowBattery();
+                    SoundsController.Instance.findSound("BatteryLow").Play();
                 }
             }
         }
@@ -292,6 +296,10 @@ namespace IStreamYouScream
         // Update is called once per frame
         void Update()
         {
+            if (CurrentState == null)
+            {
+                SetState(new CameraIdleState(this));
+            }
             CurrentState.OnUpdate();
             foreach (RecordableItem recordableItem in RegisteredRecordableItems)
             {
