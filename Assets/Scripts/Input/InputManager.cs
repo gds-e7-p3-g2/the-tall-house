@@ -11,7 +11,7 @@ namespace IStreamYouScream
         static public bool Run { get { return GetControl(PadMapping.RUN) != 0; } }
         static public bool Interact { get { return GetControl(PadMapping.USE).WasPressed; } }
         static public bool Recording { get { return GetControl(PadMapping.RECORD).IsPressed; } }
-        static public bool FlashLoading { get { return GetControl(PadMapping.FLASH).IsPressed; } }
+        static public bool FlashLoading { get { return GetControl(PadMapping.FLASH).WasPressed; } }
         static public bool FlashLoadingReleased { get { return GetControl(PadMapping.FLASH).WasReleased; } }
         static public bool Melee { get { return GetControl(PadMapping.MELEE).IsPressed; } }
         static public bool MenuAccept { get { return GetControl(PadMapping.MENU_ACCEPT).IsPressed; } }
