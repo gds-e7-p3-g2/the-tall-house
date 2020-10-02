@@ -9176,7 +9176,7 @@ MonoBehaviour:
   cameraController: {fileID: 433086554}
   WhatGhostsSee: {fileID: 1928566320}
   walkSpeed: 40
-  runSpeed: 80
+  runSpeed: 60
   MeleeWeapon: {fileID: 6686503213841637128}
   StunnedTime: 2.5
   PlayerAnimation: {fileID: 154618358}
