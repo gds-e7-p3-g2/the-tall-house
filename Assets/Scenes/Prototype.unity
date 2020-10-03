@@ -11216,8 +11216,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
         type: 3}
+      propertyPath: Messages.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
       propertyPath: Name
       value: OnGrandfatherPictureRecorder
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Messages.Array.data[1]
+      value: retty sure this old guy is a freaking ghost here
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Messages.Array.data[2]
+      value: NO MOM T_T
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Messages.Array.data[3]
+      value: old man = CREEP VIBES
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Messages.Array.data[4]
+      value: kid looks sad and innocent... but that is TOTAL PSYCHO
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Messages.Array.data[0]
+      value: yo is that harry p :D
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Attractivness
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8709879779419650990, guid: a32c87b5b89d0e544b11e139ed95d998,
         type: 3}
@@ -13464,8 +13499,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
         type: 3}
+      propertyPath: Messages.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
       propertyPath: Name
       value: OnFamilyPictureRecorded
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Attractivness
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Messages.Array.data[1]
+      value: dem haunt here fo sho
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Messages.Array.data[2]
+      value: you think the ghost killed them?
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Messages.Array.data[3]
+      value: there is something seriously creepy about the father
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Messages.Array.data[4]
+      value: awww! they look so nice...in a creepy kind of way!
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Messages.Array.data[0]
+      value: that poor family! what happened to them
       objectReference: {fileID: 0}
     - target: {fileID: 8709879779419650990, guid: a32c87b5b89d0e544b11e139ed95d998,
         type: 3}
