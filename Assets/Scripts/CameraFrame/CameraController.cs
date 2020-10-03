@@ -93,6 +93,7 @@ namespace IStreamYouScream
         private void ChangeColor(Color color)
         {
             CameraController.VisualRepresentation.GetComponent<Light2D>().color = color;
+            CameraController.VisualRepresentation.GetComponent<Light2D>().enabled = true;
         }
 
         public override void Enter()
@@ -116,6 +117,8 @@ namespace IStreamYouScream
             {
                 recordableItem.StopRecording();
             }
+
+            CameraController.VisualRepresentation.GetComponent<Light2D>().enabled = false;
         }
     }
     public class CameraChargingState : CameraState
