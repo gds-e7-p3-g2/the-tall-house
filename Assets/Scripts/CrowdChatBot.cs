@@ -166,6 +166,9 @@ namespace IStreamYouScream
 						"Wee",
 						"dafuq shaky cam",
 						"dont overuse it harvey",
+						"WE CANT SEE ANYTHING WHEN YOU DO THIS",
+						"dat swing tho",
+						"easy with the phone bro",
                     }
                 },
                 { StoryEvents.Instance.OnMusicboxFirstSpotted, new Messages() { 
@@ -177,7 +180,15 @@ namespace IStreamYouScream
 						"lul play sum music :D",
 						"dude is that ghost somehow connected to this?",
 						}},
-                { StoryEvents.Instance.OnCoinInsertedToMusicbox, new Messages() { "OnCoinInsertedToMusicbox GENERIC MESSAGE"}},
+                { StoryEvents.Instance.OnCoinInsertedToMusicbox, new Messages() { 
+						"WHACK?!",
+						"wow thats creepy af"
+						"bloody letters on the wall, how creepy....",
+						"so I guess family was WHACKing people?",
+						"I know this name! :O",
+						"WHACK was my fav band in the 90... they dissapeared years ago?",
+						"wait wasnt WHACK the band that vanished during the tour?",
+				}},
                 { StoryEvents.Instance.OnMusicboxWrongChoice, new Messages() { "OnMusicboxWrongChoice GENERIC MESSAGE"}},
                 { StoryEvents.Instance.OnMusicboxWrongChoiceAgain, new Messages() { "OnMusicboxWrongChoiceAgain GENERIC MESSAGE"}},
                 { StoryEvents.Instance.OnGroundFloorPicturesRecorded, new Messages() { "OnGroundFloorPicturesRecorded GENERIC MESSAGE"}},

@@ -10,7 +10,7 @@ namespace IStreamYouScream
 
         void Start()
         {
-            TextHint.SetText("Press E to charge battery and record the Ghost");
+            TextHint.SetText("Press  E  to Charge");
             playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         }
 
@@ -20,12 +20,12 @@ namespace IStreamYouScream
 
             if (playerController.GetIsCharging())
             {
-                TextHint.SetText("E to stop charging");
+                TextHint.SetText("E  to stop charging");
                 MusicController.Instance.PlayPlugIn();
             }
             else
             {
-                TextHint.SetText("E to charge");
+                TextHint.SetText("E  to charge");
                 MusicController.Instance.PlayPlugOut();
             }
 
