@@ -74,6 +74,18 @@ namespace IStreamYouScream
                     Target = PadMapping.ESCAPE[0],
                     Source = KeyCodeComboButton( KeyCode.P )
                 },
+                new InputControlMapping
+                {
+                    Handle = "Menu accept",
+                    Target = PadMapping.MENU_ACCEPT,
+                    Source = KeyCodeComboButton( KeyCode.Return )
+                },
+                new InputControlMapping
+                {
+                    Handle = "MENU_DENY",
+                    Target = PadMapping.MENU_DENY,
+                    Source = KeyCodeComboButton( KeyCode.Escape )
+                },
             };
 
             #region AnalogMappings
