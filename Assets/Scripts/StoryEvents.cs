@@ -36,7 +36,7 @@ namespace IStreamYouScream
         public UnityEvent OnLostAllViewers;
         public UnityEvent OnReachedEndOfTheGame;
         public FloatEvent OnCollectableRecorded;
-        public StringEvent OnNamedCollectableRecorded;
+        public StringsEvent OnNamedCollectableRecorded;
 
         #endregion
 
