@@ -205,6 +205,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionHint: {fileID: 4197147782506949457}
   actionPerformer: {fileID: 7068005614727117419}
+  OnPerformed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!61 &4197147783462478434
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -245,6 +248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TextHint: {fileID: 7822716140638677427}
   CoinVisuals: {fileID: 8345530487719957859}
+  IsDEBUG: 0
 --- !u!1 &7214364108298145257
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,7 +327,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Loot
+  m_Text: Pickup Coin
 --- !u!1 &8032849824287222478
 GameObject:
   m_ObjectHideFlags: 0
