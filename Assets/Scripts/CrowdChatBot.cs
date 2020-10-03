@@ -182,7 +182,7 @@ namespace IStreamYouScream
 						}},
                 { StoryEvents.Instance.OnCoinInsertedToMusicbox, new Messages() { 
 						"WHACK?!",
-						"wow thats creepy af"
+						"wow thats creepy af",
 						"bloody letters on the wall, how creepy....",
 						"so I guess family was WHACKing people?",
 						"I know this name! :O",
