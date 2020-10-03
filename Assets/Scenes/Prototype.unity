@@ -3379,7 +3379,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 306205719}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -131.07, y: 13.65, z: 0}
+  m_LocalPosition: {x: -130.75, y: 14.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1298021465}
@@ -11227,7 +11227,7 @@ PrefabInstance:
     - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
         type: 3}
       propertyPath: Messages.Array.data[1]
-      value: retty sure this old guy is a freaking ghost here
+      value: pretty sure this old guy is a freaking ghost here
       objectReference: {fileID: 0}
     - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
         type: 3}
@@ -11242,7 +11242,7 @@ PrefabInstance:
     - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
         type: 3}
       propertyPath: Messages.Array.data[4]
-      value: kid looks sad and innocent... but that is TOTAL PSYCHO
+      value: kid looks sad and innocent... but dad looks like  TOTAL PSYCHO
       objectReference: {fileID: 0}
     - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
         type: 3}
