@@ -371,6 +371,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fadeouter
       objectReference: {fileID: 0}
+    - target: {fileID: 4718917618898804765, guid: de5406465f3d350459ba59a0735302be,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 4718917618898804766, guid: de5406465f3d350459ba59a0735302be,
         type: 3}
       propertyPath: m_LocalPosition.x
