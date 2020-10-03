@@ -51,6 +51,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionHint: {fileID: 2920525714036291412}
   actionPerformer: {fileID: 2920525713116937831}
+  OnPerformed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2920525713116937831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,7 +66,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 130b9f204383ce640baa566a956c4cfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OpenDoorText: Open door
+  CloseDoorText: Close door
   OnOpened:
+    m_PersistentCalls:
+      m_Calls: []
+  OnClosed:
     m_PersistentCalls:
       m_Calls: []
   _IsOpen: 0
@@ -613,8 +621,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 100
+    m_Font: {fileID: 12800000, guid: f4cc8742ab2370c4a8da4b4612cd34f4, type: 3}
+    m_FontSize: 180
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1

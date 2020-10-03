@@ -5,6 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
+    public void LoadTutDelayed(float delay = 1f)
+    {
+        Invoke("loadTut", delay);
+    }
+
+    public void loadTut()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("tutorial");
+    }
+
     public void LoadGameDelayed(float delay = 1f)
     {
         Invoke("LoadGame", delay);
