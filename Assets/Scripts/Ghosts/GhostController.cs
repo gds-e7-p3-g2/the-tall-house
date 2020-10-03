@@ -67,7 +67,8 @@ namespace IStreamYouScream
         public override void GetRecorded()
         {
             GhostController.HP -= GhostController.DamageFromRecording;
-            StoryEvents.Instance.OnGhostRecorded.Invoke();
+            if (StoryEvents.Instance != null)
+                StoryEvents.Instance.OnGhostRecorded.Invoke();
         }
 
         public override void OnUpdate()
@@ -103,7 +104,8 @@ namespace IStreamYouScream
         public override void GetRecorded()
         {
             GhostController.HP = Mathf.Max(GhostController.HP - GhostController.DamageFromRecording, 0f);
-            StoryEvents.Instance.OnGhostRecorded.Invoke();
+            if (StoryEvents.Instance != null)
+                StoryEvents.Instance.OnGhostRecorded.Invoke();
         }
         public override void StartAttacking()
         {
@@ -194,7 +196,8 @@ namespace IStreamYouScream
 
         public override void GetRecorded()
         {
-            StoryEvents.Instance.OnGhostRecorded.Invoke();
+            if (StoryEvents.Instance != null)
+                StoryEvents.Instance.OnGhostRecorded.Invoke();
             GhostController.HP -= GhostController.DamageFromRecording;
 
             if (GhostController.HP <= 0.05f)
@@ -252,7 +255,8 @@ namespace IStreamYouScream
 
         public override void GetRecorded()
         {
-            StoryEvents.Instance.OnGhostRecorded.Invoke();
+            if (StoryEvents.Instance != null)
+                StoryEvents.Instance.OnGhostRecorded.Invoke();
             GhostController.HP -= GhostController.DamageFromRecording;
 
             if (GhostController.HP <= 0.05f)
@@ -275,7 +279,8 @@ namespace IStreamYouScream
 
         public override void Enter()
         {
-            StoryEvents.Instance.OnGhostStunned.Invoke();
+            if (StoryEvents.Instance != null)
+                StoryEvents.Instance.OnGhostStunned.Invoke();
             GhostController.CurrentSpeed = 0f;
             GhostController.Invoke("StopBeingStuned", GhostController.StunnedCooldown);
             StartBlinking();

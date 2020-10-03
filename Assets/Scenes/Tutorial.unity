@@ -1096,7 +1096,7 @@ PrefabInstance:
     - target: {fileID: 2920525713116937830, guid: 35b1e2e7ef373e447b5d82a134ab4f57,
         type: 3}
       propertyPath: OnPerformed.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2920525713116937830, guid: 35b1e2e7ef373e447b5d82a134ab4f57,
         type: 3}
@@ -1136,7 +1136,7 @@ PrefabInstance:
     - target: {fileID: 2920525713116937831, guid: 35b1e2e7ef373e447b5d82a134ab4f57,
         type: 3}
       propertyPath: OnOpened.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2920525713116937831, guid: 35b1e2e7ef373e447b5d82a134ab4f57,
         type: 3}
@@ -2459,13 +2459,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 729056861}
-  m_LocalRotation: {x: -0, y: -0, z: 0.053178683, w: 0.998585}
-  m_LocalPosition: {x: -9.91, y: 6.73, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.015707303, w: 0.9998767}
+  m_LocalPosition: {x: -11.79, y: 6.34, z: 0}
+  m_LocalScale: {x: 1.7755637, y: 1.7755637, z: 1.7755637}
   m_Children: []
   m_Father: {fileID: 1023614044}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 6.097}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 1.8}
 --- !u!212 &729056863
 SpriteRenderer:
   m_ObjectHideFlags: 0
