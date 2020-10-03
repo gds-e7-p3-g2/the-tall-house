@@ -329,6 +329,11 @@ namespace IStreamYouScream
         public void StopCharging() { CurrentState.StopCharging(); }
         public void ShowFrame() { CurrentState.ShowFrame(); }
         public void HideFrame() { CurrentState.HideFrame(); }
+
+        public void ForceHideFrame()
+        {
+            SetState(new CameraHiddenState(this));
+        }
         public bool IsRecording() { return CurrentState.IsRecording(); }
     }
 }

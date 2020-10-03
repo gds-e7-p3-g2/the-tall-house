@@ -46,12 +46,29 @@ namespace IStreamYouScream
     class GhostPatrolingState : GhostState
     {
         public GhostPatrolingState(GhostController ghostController) : base(ghostController) { }
+        IEnumerator c;
 
         public override void Enter()
         {
             GhostController.Target = GhostController.PatrollingTargetPoint;
             GhostController.CurrentSpeed = GhostController.PatrolingSpeed;
-            // MusicController.Instance.PlayAmbient();
+            c = WaitAndPlayAmbient();
+            GhostController.StartCoroutine(c);
+        }
+
+        public override void Exit()
+        {
+            if (c != null)
+            {
+                GhostController.StopCoroutine(c);
+            }
+
+        }
+
+        IEnumerator WaitAndPlayAmbient()
+        {
+            yield return new WaitForSeconds(.5f);
+            MusicController.Instance.PlayAmbient();
         }
 
         public override void StartAttacking()
@@ -149,6 +166,7 @@ namespace IStreamYouScream
             SFX.Play("GhostAttackStart");
 
             GhostController.StartCoroutine(WaitAndAtack());
+            GhostController.animationController.attacking = true;
         }
 
         IEnumerator WaitAndAtack()
@@ -167,13 +185,11 @@ namespace IStreamYouScream
             GhostController.Target = GhostController.LastSeenPoint;
             GhostController.CurrentSpeed = GhostController.AttackingSpeed;
             MusicController.Instance.PlayAttacking();
-            GhostController.animationController.attacking = true;
         }
 
         public override void Exit()
         {
             GhostController.animationController.attacking = false;
-            MusicController.Instance.PlayAmbient();
         }
 
         public override void OnTargetReached()
@@ -214,27 +230,42 @@ namespace IStreamYouScream
     class GhostFightingState : GhostState
     {
         private PlayerController player;
+        IEnumerator corutine;
+        IEnumerator corutine2;
+        bool waiting = false;
         public GhostFightingState(GhostController ghostController, PlayerController _player) : base(ghostController)
         {
             player = _player;
-            GhostController.Target = GameObject.FindWithTag("PlayerFront");
         }
 
         public override void Enter()
         {
+            GhostController.Target = GameObject.FindWithTag("PlayerFront");
             MusicController.Instance.PlayFighting();
             GhostController.weapon.OnFire.AddListener(HitPlayer);
+            GhostController.CurrentSpeed = GhostController.AttackingSpeed;
+            GhostController.animationController.attacking = true;
         }
 
         public override void Exit()
         {
-            MusicController.Instance.PlayAmbient();
             GhostController.weapon.OnFire.RemoveListener(HitPlayer);
+
+            if (corutine != null)
+            {
+                GhostController.StopCoroutine(corutine);
+            }
+
+            if (corutine2 != null)
+            {
+                GhostController.StopCoroutine(corutine2);
+            }
         }
 
         public override void OnUpdate()
         {
-            GhostController.weapon.Shoot();
+            if (!waiting)
+                GhostController.weapon.Shoot();
             LookAtPlayer();
         }
 
@@ -246,11 +277,35 @@ namespace IStreamYouScream
         public override void HitPlayer()
         {
             player.GetHitByGhost(GhostController.weapon.AmountOfDamage);
+
+            corutine = Wait();
+            GhostController.StartCoroutine(corutine);
+        }
+
+        IEnumerator Wait()
+        {
+            waiting = true;
+            GhostController.CurrentSpeed = .1f;
+            yield return new WaitForSeconds(3f);
+            GhostController.CurrentSpeed = GhostController.AttackingSpeed;
+            waiting = false;
+            corutine = null;
+        }
+
+        IEnumerator WaitAndGetBackToAttacking()
+        {
+            waiting = true;
+            GhostController.CurrentSpeed = .1f;
+            yield return new WaitForSeconds(.5f);
+            GhostController.SetState(new GhostPreAttackingState(GhostController));
+            waiting = false;
+            corutine2 = null;
         }
 
         public override void StopFighting()
         {
-            GhostController.SetState(new GhostAttackingState(GhostController));
+            corutine2 = WaitAndGetBackToAttacking();
+            GhostController.StartCoroutine(corutine2);
         }
 
         public override void GetRecorded()
@@ -375,6 +430,7 @@ namespace IStreamYouScream
             GhostController.StartCoroutine(corutine);
 
             GhostController.OnFlashable.Invoke();
+            GhostController.ConeOfSight.SetActive(false);
         }
 
         public override void Exit()

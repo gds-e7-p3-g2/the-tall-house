@@ -15,6 +15,7 @@ namespace IStreamYouScream
             StartBlinking();
             PlayerController.OnStunned.Invoke();
             PlayerController.animationController.SetStunned();
+            PlayerController.cameraController.ForceHideFrame();
         }
 
         private void StartBlinking()
@@ -61,6 +62,7 @@ namespace IStreamYouScream
             StopBlinking();
             PlayerController.PlayerAnimation.GetComponent<SpriteRenderer>().color = Color.white;
             PlayerController.WhatGhostsSee.SetActive(true);
+            PlayerController.cameraController.ShowFrame();
         }
     }
 }

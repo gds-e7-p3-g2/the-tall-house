@@ -56,7 +56,7 @@ namespace IStreamYouScream
         }
         public void PlayAttacking()
         {
-            PlaySource(AttackingMusic);
+            PlaySource(AlertedMusic);
         }
 
         public void PlayGhostDefeated()

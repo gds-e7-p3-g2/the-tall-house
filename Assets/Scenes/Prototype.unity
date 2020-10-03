@@ -15335,7 +15335,7 @@ PrefabInstance:
     - target: {fileID: 2818183950879199559, guid: e2e16245bb10f494cbd283ea29e30c8a,
         type: 3}
       propertyPath: cooldown
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2818183950879199559, guid: e2e16245bb10f494cbd283ea29e30c8a,
         type: 3}
@@ -26020,6 +26020,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 639476590183324248, guid: c7fdc70ad21d37843aa4dc3d34c93204,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 639476590292757196, guid: c7fdc70ad21d37843aa4dc3d34c93204,
         type: 3}
       propertyPath: OnBatteryLevelChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
