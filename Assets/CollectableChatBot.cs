@@ -9,15 +9,12 @@ namespace IStreamYouScream
 
     public class CollectableChatBot : MonoBehaviour
     {
+        private Dictionary<string, Color> name2color = new Dictionary<string, Color>();
         public List<string> Usernames = new List<string>() {
-            "nitpicker"
+            "nitpicker", "h1n732"
         };
 
-        public MessagesMap messages = new MessagesMap() {
-            {"Portret testowy", new List<string>(){ "Wiadomosc na testowa znajdzke 1", "Wiadomosc na testowa znajdzke 2"} },
-            {"NAZWA ZNAJDZKI", new List<string>(){ "Msg 1", "Msg 2"} }
-        };
-
+        [SerializeField]
         private List<Color> Colors = new List<Color>() {
             Color.red, Color.blue, Color.cyan, Color.gray, Color.yellow
         };
@@ -27,17 +24,9 @@ namespace IStreamYouScream
             StoryEvents.Instance.OnNamedCollectableRecorded.AddListener(React);
         }
 
-        void React(string collectableName)
+        void React(List<string> messages)
         {
-            SendRandomMessage(collectableName);
-        }
-
-        private void BindEvents()
-        {
-            // foreach (KeyValuePair<UnityEvent, Messages> entry in event2msg)
-            // {
-            //     entry.Key.AddListener(() => SendRandomMessage(entry.Key, entry.Value));
-            // }
+            SendRandomMessage(messages);
         }
 
         private string GetRandomUsername()
@@ -47,25 +36,25 @@ namespace IStreamYouScream
 
         private Color GetUserColor(string username)
         {
-            return Color.blue;
-        }
-
-        private string GetRandomMessage(string collectableName)
-        {
-            if (messages[collectableName] != null)
+            if (!name2color.ContainsKey(username))
             {
-                return messages[collectableName][Random.Range(0, messages[collectableName].Count)];
+                name2color[username] = Colors[Random.Range(0, Colors.Count)];
             }
-            return "I see you Found " + collectableName;
+            return name2color[username];
         }
 
-        private void SendRandomMessage(string collectableName)
+        private string GetRandomMessage(List<string> messages)
+        {
+            return messages[Random.Range(0, messages.Count)];
+        }
+
+        private void SendRandomMessage(List<string> messages)
         {
 
             string username = GetRandomUsername();
             Color color = GetUserColor(username);
             string colorHex = ColorUtility.ToHtmlStringRGB(color);
-            string message = GetRandomMessage(collectableName);
+            string message = GetRandomMessage(messages);
 
             ChatMessagesContainer.Instance.AddMessage($"<color=#{colorHex}>{username}:</color>: {message}");
 

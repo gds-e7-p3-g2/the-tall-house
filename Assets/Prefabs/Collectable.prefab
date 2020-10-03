@@ -130,7 +130,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Attractivness: 5
-  Name: "Znajd\u017Aka"
+  Messages:
+  - Generic chat message
 --- !u!1 &8709879779951135478
 GameObject:
   m_ObjectHideFlags: 0
@@ -640,7 +641,7 @@ PrefabInstance:
     - target: {fileID: 7899447303334531186, guid: 8ddbe17454f398b4fb569c75e4dcf85f,
         type: 3}
       propertyPath: Recorded.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
+      value: UnityEngine.Renderer, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7899447303334531186, guid: 8ddbe17454f398b4fb569c75e4dcf85f,
         type: 3}
@@ -661,11 +662,11 @@ PrefabInstance:
         type: 3}
       propertyPath: Recorded.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
-      objectReference: {fileID: 8709879780639586600}
+      objectReference: {fileID: 8709879780639586606}
     - target: {fileID: 7899447303334531186, guid: 8ddbe17454f398b4fb569c75e4dcf85f,
         type: 3}
       propertyPath: Recorded.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
-      value: SetActive
+      value: set_enabled
       objectReference: {fileID: 0}
     - target: {fileID: 7899447303334531186, guid: 8ddbe17454f398b4fb569c75e4dcf85f,
         type: 3}
@@ -675,7 +676,7 @@ PrefabInstance:
     - target: {fileID: 7899447303334531186, guid: 8ddbe17454f398b4fb569c75e4dcf85f,
         type: 3}
       propertyPath: Recorded.m_PersistentCalls.m_Calls.Array.data[4].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
+      value: UnityEngine.Renderer, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7899447303334531186, guid: 8ddbe17454f398b4fb569c75e4dcf85f,
         type: 3}
@@ -691,11 +692,11 @@ PrefabInstance:
         type: 3}
       propertyPath: Recorded.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
-      objectReference: {fileID: 8709879779951135478}
+      objectReference: {fileID: 8709879779951135476}
     - target: {fileID: 7899447303334531186, guid: 8ddbe17454f398b4fb569c75e4dcf85f,
         type: 3}
       propertyPath: Recorded.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
-      value: SetActive
+      value: set_enabled
       objectReference: {fileID: 0}
     - target: {fileID: 7899447303334531186, guid: 8ddbe17454f398b4fb569c75e4dcf85f,
         type: 3}
