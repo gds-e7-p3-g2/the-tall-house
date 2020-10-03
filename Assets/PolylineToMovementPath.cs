@@ -16,8 +16,9 @@ public class PolylineToMovementPath : MonoBehaviour
         movementPath = gameObject.GetComponent<MovementPath>();
     }
 
-    private void OnDrawGizmosSelected()
+    private void Start()
     {
+        Debug.Log(polyline.nodes.Count);
         movementPath.PathSequence = new List<Vector3>(polyline.nodes).ToArray();
     }
 }

@@ -10,7 +10,6 @@ namespace IStreamYouScream
 
         void Start()
         {
-            TextHint.SetText("Press  E  to Charge");
             playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         }
 

@@ -368,6 +368,8 @@ namespace IStreamYouScream
 
             corutine = WaitAndGoToHideout();
             GhostController.StartCoroutine(corutine);
+
+            GhostController.OnFlashable.Invoke();
         }
 
         public override void Exit()
@@ -440,6 +442,7 @@ namespace IStreamYouScream
         public float FlashResistanceThreshold = 25f;
         public float StunnedCooldown = 5f;
         public UnityEvent OnDefeated;
+        public UnityEvent OnFlashable;
 
         [SerializeField] TextSetter HPIndicator;
         private float _HP = 100f;
