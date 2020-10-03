@@ -25,7 +25,7 @@ namespace IStreamYouScream
             }
             else
             {
-                TextHint.SetText("Press E to charge battery and record the ghost");
+                TextHint.SetText("E to charge");
                 MusicController.Instance.PlayPlugOut();
             }
 

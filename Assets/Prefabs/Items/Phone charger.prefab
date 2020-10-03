@@ -37,8 +37,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 4.76}
-  m_SizeDelta: {x: 844, y: 442}
+  m_AnchoredPosition: {x: 0.098, y: 3.834}
+  m_SizeDelta: {x: 865.8828, y: 647.6987}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &8925592467166968242
 Canvas:
@@ -128,7 +128,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1161343472212587940
 Transform:
   m_ObjectHideFlags: 0
@@ -287,6 +287,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionHint: {fileID: 1161343472212587943}
   actionPerformer: {fileID: 1161343473669864602}
+  OnPerformed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!61 &1161343473669864596
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -437,8 +440,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 100
+    m_Font: {fileID: 12800000, guid: f4cc8742ab2370c4a8da4b4612cd34f4, type: 3}
+    m_FontSize: 70
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -449,4 +452,4 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Charge Battery
+  m_Text: Press E to charge battery and record the Ghost
