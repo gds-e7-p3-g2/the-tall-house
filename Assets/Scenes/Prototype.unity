@@ -1715,6 +1715,26 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.86
       objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Messages.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Messages.Array.data[0]
+      value: cheers! :P
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Messages.Array.data[1]
+      value: someone left that in a rush? or mid - drink? WTF???
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Attractivness
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 8709879779419650990, guid: a32c87b5b89d0e544b11e139ed95d998,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4297,6 +4317,41 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0.23
       objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Messages.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Attractivness
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Messages.Array.data[1]
+      value: GORE! FINALLY PROPER GORE!
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Messages.Array.data[2]
+      value: AWWW YEAH DEAD BODIES ON A HOOK!!!
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Messages.Array.data[3]
+      value: I SEE DEAD PEOPLE :O WHO DID THIS THO?!
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Messages.Array.data[4]
+      value: WTF!!! FAMILY DID THIS??????!!!!!!!!!
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Messages.Array.data[0]
+      value: WHAT THEEEEEE HEEEEEEEELLLLLL!!!! KILLA FAMILY!!!
+      objectReference: {fileID: 0}
     - target: {fileID: 8709879779419650990, guid: a32c87b5b89d0e544b11e139ed95d998,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4897,6 +4952,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Messages.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Messages.Array.data[0]
+      value: this one looks like he died the last?
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Attractivness
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Messages.Array.data[1]
+      value: not on the hook... died fightn for his life????
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Messages.Array.data[2]
+      value: he looks familiar... clothes of a rockman
       objectReference: {fileID: 0}
     - target: {fileID: 8709879779419650990, guid: a32c87b5b89d0e544b11e139ed95d998,
         type: 3}
@@ -8008,6 +8088,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.86529106
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Messages.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Attractivness
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Messages.Array.data[1]
+      value: lugage of dif people... WTF creepy?
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Messages.Array.data[0]
+      value: guess they r havn many guests...
       objectReference: {fileID: 0}
     - target: {fileID: 8709879779419650990, guid: a32c87b5b89d0e544b11e139ed95d998,
         type: 3}
@@ -12410,8 +12510,43 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
         type: 3}
+      propertyPath: Messages.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
       propertyPath: Name
       value: OnGrandfatherPictureRecorder
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Messages.Array.data[1]
+      value: kid looks sad but dad is STRAIGHT UP SCARY
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Messages.Array.data[2]
+      value: pretty sure this old guy is a freaking ghost here
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Messages.Array.data[3]
+      value: where is mom :(((
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Messages.Array.data[0]
+      value: yo is that harry p :D
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Messages.Array.data[4]
+      value: strong strict father vibes here
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Attractivness
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8709879779419650990, guid: a32c87b5b89d0e544b11e139ed95d998,
         type: 3}
@@ -14740,8 +14875,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
         type: 3}
+      propertyPath: Messages.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
       propertyPath: Name
       value: OnFamilyPictureRecorded
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Messages.Array.data[1]
+      value: omg someone killed them here!
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Messages.Array.data[2]
+      value: are dem ghosts now?
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Messages.Array.data[3]
+      value: wonder what happened to them
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Messages.Array.data[0]
+      value: that old dude was a kid on a different painting i think?
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Attractivness
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8709879779419650990, guid: a32c87b5b89d0e544b11e139ed95d998,
         type: 3}
@@ -15543,6 +15708,41 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 6c9ccc6e1818fb24a8ee074b00c73afd,
         type: 3}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Messages.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Messages.Array.data[1]
+      value: this family HUNTS
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Messages.Array.data[2]
+      value: OMG NOOOO T_T
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Messages.Array.data[3]
+      value: poor animals :(((
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Messages.Array.data[4]
+      value: is this a family of hunters or sth?
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Messages.Array.data[0]
+      value: taxidermy suxxxx why they did this
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Attractivness
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 8709879779419650990, guid: a32c87b5b89d0e544b11e139ed95d998,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -18232,6 +18432,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 0.7482339
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Messages.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Messages.Array.data[1]
+      value: '"how to serve men" - family of servants?'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Messages.Array.data[0]
+      value: a lot of cookbooks...
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709879779419650989, guid: a32c87b5b89d0e544b11e139ed95d998,
+        type: 3}
+      propertyPath: Attractivness
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8709879779419650990, guid: a32c87b5b89d0e544b11e139ed95d998,
         type: 3}
