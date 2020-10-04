@@ -5,6 +5,32 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
+    public void LoadLostDelayed(float delay = 1f)
+    {
+        Invoke("loadLost", delay);
+    }
+
+    public void loadLost()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("you_lost");
+    }
+
+
+
+    public void LoadWonDelayed(float delay = 1f)
+    {
+        Invoke("loadWon", delay);
+    }
+
+    public void loadWon()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("you_won");
+    }
+
+
+
     public void LoadTutDelayed(float delay = 1f)
     {
         Invoke("loadTut", delay);
