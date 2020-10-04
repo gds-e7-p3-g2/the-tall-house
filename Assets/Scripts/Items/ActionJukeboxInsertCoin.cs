@@ -21,7 +21,7 @@ namespace IStreamYouScream
             {
                 return "Insert coin";
             }
-            return "Insert coin\n<size=50>(coin needed)</size>";
+            return "Coin needed";
         }
 
         void Start()
