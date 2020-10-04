@@ -18,7 +18,6 @@ public class PolylineToMovementPath : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(polyline.nodes.Count);
         movementPath.PathSequence = new List<Vector3>(polyline.nodes).ToArray();
     }
 }

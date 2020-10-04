@@ -462,8 +462,8 @@ namespace IStreamYouScream
         public override void Enter()
         {
             GhostController.CurrentSpeed = 0;
+            GhostController.OnDefeated.Invoke();
 
-            // MusicController.Instance.PlayGhostDefeated();
             MusicController.Instance.PlayAmbient();
 
             GhostController.ConeOfSight.SetActive(false);
